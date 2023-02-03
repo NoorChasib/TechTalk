@@ -6,9 +6,9 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1> Empowering Developers to Connect, Learn, and Grow</h1>
+          <h1> Welcome to the social media app for web developers!</h1>
           <p>
-            Welcome to the social media app for web developers! Whether you're a seasoned pro or just starting out, this is the place to connect, collaborate, and grow as a web developer.
+             Whether you're a seasoned pro or just starting out, this is the place to connect, collaborate, and grow as a web developer.
           </p>
           <span> Already have an account?</span> 
           <Link to="/login">

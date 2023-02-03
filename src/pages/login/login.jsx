@@ -8,11 +8,11 @@ const Login = () => {
         <div className="left">
           <h1> Empowering Developers to Connect, Learn, and Grow</h1>
           <p>
-            Welcome to the social media app for web developers! Whether you're a seasoned pro or just starting out, this is the place to connect, collaborate, and grow as a web developer.
+          {/* Join forces with a group of individuals sharing a common interest in web development. Let's work together and strive for growth. */}
           </p>
           <span> Don't have an account?</span>
           <Link to="/register">
-          <button> Register </button>
+            <button> Register </button>
           </Link>
         </div>
         <div className="right">
