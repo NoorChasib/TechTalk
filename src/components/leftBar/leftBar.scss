@@ -10,9 +10,8 @@
     height: calc(100vh - 70px);
     overflow: scroll;
     scrollbar-width: none; /* Firefox */
-    background-color: themed("bg");
-    color: themed("textColor");
-
+    background-color: themed('bg');
+    color: themed('textColor');
 
     &::-webkit-scrollbar {
       display: none;
@@ -25,7 +24,7 @@
         margin: 20px 0px;
         border: none;
         height: 1px;
-        background-color: themed("border");
+        background-color: themed('border');
       }
 
       .menu {
@@ -37,7 +36,9 @@
           font-size: 12px;
         }
 
-        .user, .dev, .news {
+        .user,
+        .dev,
+        .news {
           display: flex;
           align-items: center;
           gap: 10px;
