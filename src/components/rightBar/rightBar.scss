@@ -16,15 +16,14 @@
     padding: 20px;
 
     .item {
-      -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-      -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+      @include cardShadow;
       padding: 20px;
       margin-bottom: 20px;
       background-color: themed('bg');
+      border-radius: 10px;
 
       span {
-        color: gray;
+        color: base.$grey;
       }
 
       .user {
@@ -49,19 +48,19 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: limegreen;
+            background-color: base.$limeGreen;
             position: absolute;
             top: 0;
             left: 30px;
           }
 
           p {
-            color: gray;
+            color: base.$grey;
           }
 
           span {
             font-weight: 500;
-            color: black;
+            color: base.$black;
           }
         }
 
@@ -73,16 +72,16 @@
           button {
             border: none;
             padding: 5px;
-            color: white;
+            color: base.$white;
             cursor: pointer;
             border-radius: 10px;
 
             &:first-child {
-              background-color: blue;
+              background-color: base.$blue;
             }
 
             &:last-child {
-              background-color: red;
+              background-color: base.$red;
             }
           }
         }
