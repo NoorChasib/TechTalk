@@ -1,12 +1,15 @@
 
-
 .rightBar {
   flex: 3;
   position: sticky;
   top: 70px;
   height: calc(100vh - 70px);
-  overflow: scroll; 
-
+  overflow: scroll;  
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
   .container {
     padding: 20px;
 
@@ -39,9 +42,50 @@
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
+          } 
+          .online {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: limegreen;
+            position: absolute;
+            top: 0;
+            left: 30px;
           }
-        } 
-      } 
-    } 
-  } 
+
+          p {
+            color: gray;
+          }
+
+          span {
+            font-weight: 500;
+            color: black;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          align-items: center;
+          gap: 10px; 
+
+          button {
+            border: none;
+            padding: 5px;
+            color: white;
+            cursor: pointer; 
+            border-radius: 10px;
+
+
+            &:first-child {
+              background-color: blue;
+            }
+
+            &:last-child {
+              background-color: red;
+            }
+          }
+        }
+      }
+    }
+  }
 }
