@@ -4,18 +4,23 @@ import {
   faHandshakeAngle,
   faNewspaper,
 } from '@fortawesome/free-solid-svg-icons';
+import { AuthContext } from "../../context/authContext";
+import { useContext } from "react";
 
 const Leftbar = () => {
+
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="leftBar">
       <div className="container">
         <div className="section">
           <div className="user">
-            <img
-              src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          <img
+              src={currentUser.profilePic}
               alt=""
             />
-            <span> User </span>
+            <span>{currentUser.name}</span>
             <hr />
           </div>
           <div className="item">

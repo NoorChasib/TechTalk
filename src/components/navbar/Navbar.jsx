@@ -7,9 +7,11 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
+import { AuthContext } from '../../context/authContext';
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="navbar">
@@ -35,11 +37,8 @@ const Navbar = () => {
         <ChatOutlinedIcon />
         <NotificationsOutlinedIcon />
         <div className="user">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Happy_smiley_face.png"
-            alt=""
-          />
-          <span>John Doe</span>
+          <img src={currentUser.profilePic} alt="" />
+          <span>{currentUser.name}</span>
         </div>
       </div>
     </div>
