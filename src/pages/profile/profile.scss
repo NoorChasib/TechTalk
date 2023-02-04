@@ -1,2 +1,116 @@
 @use "../../style/base";
 @import '../../style/base';
+@import '../../style/style.scss';
+
+.profile {
+  @include themify($themes) {
+    background-color: themed('bgSoft');
+
+    .faIcon {
+      cursor: pointer;
+    }
+
+    .images {
+      width: 100%;
+      height: 300px;
+      position: relative;
+
+      .cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        @include coverShadow;
+      }
+
+      .profilePic {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 200px;
+        @include cardShadow;
+      }
+    }
+    .profileContainer {
+      padding: 20px 70px;
+
+      .uInfo {
+        height: 180px;
+        @include cardShadow;
+        border-radius: 25px;
+        background-color: themed('bg');
+        color: themed('textColor');
+        padding: 75px 50px 50px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .left {
+          flex: 1;
+          display: flex;
+          gap: 15px;
+
+          a {
+            color: themed('textColorSoft');
+          }
+        }
+
+        .center {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 25px;
+
+          span {
+            font-size: 30px;
+            font-weight: 500;
+          }
+
+          .info {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .item {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: themed('textColor');
+
+              span {
+                font-size: 12px;
+              }
+            }
+          }
+          button {
+            @include buttonShadow;
+            border: none;
+            background-color: base.$buttonBlue;
+            color: base.$white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+          }
+        }
+
+        .right {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 15px;
+          color: themed('textColorSoft');
+        }
+      }
+    }
+  }
+}

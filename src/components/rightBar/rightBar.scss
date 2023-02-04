@@ -76,17 +76,17 @@
 
             button {
               border: none;
-              padding: 5px;
+              padding: 8px;
               color: base.$white;
               cursor: pointer;
-              border-radius: 10px;
+              border-radius: 25px;
 
               &:first-child {
-                background-color: base.$blue;
+                background-color: base.$buttonBlue;
               }
 
               &:last-child {
-                background-color: base.$red;
+                background-color: base.$buttonRed;
               }
             }
           }
