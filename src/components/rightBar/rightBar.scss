@@ -1,18 +1,17 @@
 @use "../..//style/base";
-@import "../..//style/base";
-
+@import '../..//style/base';
 
 .rightBar {
   flex: 3;
   position: sticky;
   top: 70px;
   height: calc(100vh - 70px);
-  overflow: scroll;  
-  
+  overflow: scroll;
+
   ::-webkit-scrollbar {
     display: none;
   }
-  
+
   .container {
     padding: 20px;
 
@@ -22,7 +21,7 @@
       box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
       padding: 20px;
       margin-bottom: 20px;
-      background-color: themed("bg");
+      background-color: themed('bg');
 
       span {
         color: gray;
@@ -45,7 +44,7 @@
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
-          } 
+          }
           .online {
             width: 12px;
             height: 12px;
@@ -69,15 +68,14 @@
         .buttons {
           display: flex;
           align-items: center;
-          gap: 10px; 
+          gap: 10px;
 
           button {
             border: none;
             padding: 5px;
             color: white;
-            cursor: pointer; 
+            cursor: pointer;
             border-radius: 10px;
-
 
             &:first-child {
               background-color: blue;
@@ -92,4 +90,3 @@
     }
   }
 }
-

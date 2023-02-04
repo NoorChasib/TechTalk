@@ -1,5 +1,5 @@
 @use "../..//style/base";
-@import "../..//style/base";
+@import '../..//style/base';
 
 .leftBar {
   flex: 2;
@@ -44,10 +44,10 @@
         display: flex;
         font-size: 17px;
       }
-      .news{
+      .news {
         padding-right: 5px;
       }
-      .resources{
+      .resources {
         font-size: 17px;
       }
     }

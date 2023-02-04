@@ -38,7 +38,8 @@
         @include textShadow;
       }
 
-      span, p {
+      span,
+      p {
         font-size: 18px;
         @include textShadow;
       }
@@ -52,7 +53,7 @@
         color: base.$washedBlue;
         font-weight: bold;
         cursor: pointer;
-        @include buttonShadow
+        @include buttonShadow;
       }
     }
 
@@ -89,7 +90,7 @@
           color: base.$white;
           font-weight: bold;
           cursor: pointer;
-          @include buttonShadow
+          @include buttonShadow;
         }
       }
     }

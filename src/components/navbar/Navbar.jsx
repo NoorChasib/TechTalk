@@ -5,7 +5,6 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 
-
 const Navbar = () => {
   return (
     <div className="navbar">
@@ -26,8 +25,11 @@ const Navbar = () => {
       <div className="right">
         <ChatOutlinedIcon />
         <NotificationsOutlinedIcon />
-        <div className='user'>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Happy_smiley_face.png" alt="" />
+        <div className="user">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Happy_smiley_face.png"
+            alt=""
+          />
           <span>John Doe</span>
         </div>
       </div>
