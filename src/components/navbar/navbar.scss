@@ -16,16 +16,20 @@
     background-color: themed('bg');
     color: themed('textColor');
 
+    .faIcon {
+      cursor: pointer;
+    }
+
     .left {
       display: flex;
       align-items: center;
-      gap: 20px;
-      cursor: pointer;
+      gap: 25px;
 
       .logoName {
         font-weight: bolder;
         font-size: 25px;
         color: themed('logo');
+        cursor: pointer;
       }
     }
 
@@ -63,6 +67,7 @@
           height: 30px;
           border-radius: 50%;
           object-fit: cover;
+          cursor: pointer;
         }
 
         span {
