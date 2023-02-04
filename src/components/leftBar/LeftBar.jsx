@@ -1,6 +1,9 @@
 import './leftBar.scss';
-import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
-import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faNewspaper,
+  faHandshakeSimple
+} from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
 
@@ -28,7 +31,12 @@ const Leftbar = () => {
         <hr />
         <div className="menu">
           <div className="news">
-            <NewspaperOutlinedIcon />
+            <FontAwesomeIcon
+              icon={faNewspaper}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
             <span>News</span>
           </div>
           <div className="item">
@@ -50,7 +58,12 @@ const Leftbar = () => {
         <hr />
         <div className="menu">
           <div className="dev">
-            <HandshakeOutlinedIcon />
+            <FontAwesomeIcon
+              icon={faHandshakeSimple}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
             <span>Dev Resources For You</span>
           </div>
           <div className="item">

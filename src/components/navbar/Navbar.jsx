@@ -1,10 +1,13 @@
 import './navbar.scss';
 import { Link } from 'react-router-dom';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faMagnifyingGlass,
+  faMoon,
+  faSun,
+  faCommentDots,
+  faBell,
+} from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
@@ -20,22 +23,49 @@ const Navbar = () => {
           <span className="logoName">TechTalk</span>
         </Link>
         {darkMode ? (
-          <LightModeOutlinedIcon onClick={toggle} />
+          <FontAwesomeIcon
+            icon={faSun}
+            onClick={toggle}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
         ) : (
-          <DarkModeOutlinedIcon onClick={toggle} />
+          <FontAwesomeIcon
+            icon={faMoon}
+            onClick={toggle}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
         )}
       </div>
 
       <div className="center">
         <div className="search">
-          <SearchOutlinedIcon />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
           <input type="text" placeholder="search..." />
         </div>
       </div>
 
       <div className="right">
-        <ChatOutlinedIcon />
-        <NotificationsOutlinedIcon />
+        <FontAwesomeIcon
+          icon={faCommentDots}
+          className="faIcon"
+          size="lg"
+          fixedWidth
+        />
+        <FontAwesomeIcon
+          icon={faBell}
+          className="faIcon"
+          size="lg"
+          fixedWidth
+        />
         <div className="user">
           <img src={currentUser.profilePic} alt="" />
           <span>{currentUser.name}</span>

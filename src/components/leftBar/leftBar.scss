@@ -17,6 +17,10 @@
       display: none;
     }
 
+    .faIcon {
+      cursor: pointer;
+    }
+
     .container {
       padding: 20px;
 
@@ -49,6 +53,7 @@
             height: 30px;
             border-radius: 50%;
             object-fit: cover;
+            cursor: pointer;
           }
 
           span {

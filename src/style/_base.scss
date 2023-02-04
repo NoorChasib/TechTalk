@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+@import url('https://fonts.cdnfonts.com/css/cera-round-pro');
+@import url('https://fonts.cdnfonts.com/css/rockoflf');
 
 // body
 * {
-  font-family: Nunito;
+  font-family: 'Cera Round Pro', sans-serif;
 }
 
 // fonts
@@ -11,6 +13,8 @@ $Comfortaa: 'Comfortaa', sans-serif;
 $Quicksand: 'Quicksand', sans-serif;
 $Asap: 'Asap', sans-serif;
 $Varela: 'Varela Round', sans-serif;
+$Cera: 'Cera Round Pro', sans-serif;
+$Rock: 'RockoFLF', sans-serif;
 
 // colors
 $grey: #808080;
@@ -18,6 +22,8 @@ $lightGrey: #d3d3d3;
 $blue: #0000ff;
 $darkBlue: #00008b;
 $washedBlue: #5274a1;
+$buttonBlue: #4f6efb;
+$buttonRed: #fb4f4f;
 $red: #ff0000;
 $white: #ffffff;
 $washedOrange: #a97b43;
@@ -35,6 +41,10 @@ $darkBorder: #444444;
 
 @mixin cardShadow {
   box-shadow: 0 6px 20px 0 $shadow, 0 6px 20px 0 $shadow;
+}
+
+@mixin coverShadow {
+  box-shadow: 0px 5px 5px 0px $shadow;
 }
 
 @mixin buttonShadow {
