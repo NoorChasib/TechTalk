@@ -1,7 +1,5 @@
-export default Home;
-
-import Stories from "../../components/stories/Stories"
-import Posts from "../../components/posts/Posts"
+import Stories from "../../components/stories/stories"
+import Posts from "../../components/posts/posts"
 import "./home.scss"
 
 const Home = () => {

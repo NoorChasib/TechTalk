@@ -8,7 +8,7 @@ import {
   faEllipsis,
 } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import Posts from '../../components/posts/Posts';
+import Posts from '../../components/posts/posts';
 
 const Profile = () => {
   let url="#0";
