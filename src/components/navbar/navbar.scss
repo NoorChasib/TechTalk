@@ -1,62 +1,73 @@
 @use "../..//style/base";
-@import "../..//style/base";
+@import '../..//style/base';
+@import '../..//style/style.scss';
 
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  height: 50px;
-  border-bottom: 1px solid base.$lightGrey;
-
-  .left {
+  @include themify($themes) {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid themed('border');
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background-color: themed('bg');
+    color: themed('textColor');
 
-    span {
-      font-weight: bold;
-      font-size: 20px;
-      color: base.$darkBlue;
-    }
-  }
-
-  .center {
-    .search {
+    .left {
       display: flex;
       align-items: center;
-      gap: 10px;
-      border: 1px solid base.$lightGrey;
-      border-radius: 5px;
-      padding: 5px;
+      gap: 20px;
+      cursor: pointer;
 
-      input {
-        border: none;
-        width: 500px;
-        outline: none;
+      .logoName {
+        font-weight: bolder;
+        font-size: 25px;
+        color: themed('logo');
       }
     }
-  }
 
-  .right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    .center {
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed('border');
+        border-radius: 25px;
+        padding: 5px;
 
-    .user {
+        input {
+          border: none;
+          width: 500px;
+          outline: none;
+          background-color: transparent;
+          color: themed('textColor');
+        }
+      }
+    }
+
+    .right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
 
-      img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
-      span {
-        font-weight: 500;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        span {
+          font-weight: 500;
+        }
       }
     }
   }

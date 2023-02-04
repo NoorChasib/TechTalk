@@ -1,44 +1,74 @@
-import "./leftBar.scss"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faHandshakeAngle,  faNewspaper, faUser } from '@fortawesome/free-solid-svg-icons'
+import './leftBar.scss';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import { AuthContext } from '../../context/authContext';
+import { useContext } from 'react';
 
-const Leftbar = () =>{
-  return(
+const Leftbar = () => {
+  const { currentUser } = useContext(AuthContext);
+
+  return (
     <div className="leftBar">
-    <div className="container">
-      <div className="section">
-        <div className="user">
-        <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-        <span> User </span>
-        <hr/> 
-      </div>
-      <div className="item">
-        <span>Bio</span>
-      </div>
-      <div className="item">
-        <span>Other Platforms:</span>
-      </div>
-      <div className="item">
-        <span>Friends</span>
+      <div className="container">
+        <div className="menu">
+          <div className="user">
+            <img src={currentUser.profilePic} alt="" />
+            <span>{currentUser.name}</span>
+          </div>
+          <div className="item">
+            <span>Bio</span>
+          </div>
+          <div className="item">
+            <span>Other Platforms:</span>
+          </div>
+          <div className="item">
+            <span>Friends</span>
+          </div>
+        </div>
+        <hr />
+        <div className="menu">
+          <div className="news">
+            <NewspaperOutlinedIcon />
+            <span>News</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+        </div>
+        <hr />
+        <div className="menu">
+          <div className="dev">
+            <HandshakeOutlinedIcon />
+            <span>Dev Resources For You</span>
+          </div>
+          <div className="item">
+            <span>some resources here</span>
+          </div>
+          <div className="item">
+            <span>some resources here</span>
+          </div>
+          <div className="item">
+            <span>some resources here</span>
+          </div>
+          <div className="item">
+            <span>some news here</span>
+          </div>
+        </div>
       </div>
     </div>
-    <hr/>
-    <div className="section">
-    <div className="News">
-    <FontAwesomeIcon className="news" icon={faNewspaper } size="lg" />
-    <span> News </span>
-      </div>
-      <hr/>
-    <div className="section">
-    <div className="resources">
-      <FontAwesomeIcon className="Resources" icon={faHandshakeAngle} size="lg"  />
-        <span> Dev Resources For You </span>
-      </div>
-    </div>
-    </div> 
-    </div> 
-    </div> 
-  )
-}
+  );
+};
 
-export default Leftbar
+export default Leftbar;

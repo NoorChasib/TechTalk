@@ -1,90 +1,92 @@
 @use "../..//style/base";
-@import "../..//style/base";
-
+@import '../..//style/base';
+@import '../..//style/style.scss';
 
 .rightBar {
-  flex: 3;
-  position: sticky;
-  top: 70px;
-  height: calc(100vh - 70px);
-  overflow: scroll;  
-  
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .container {
-    padding: 20px;
+  @include themify($themes) {
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    background-color: themed('bgSoft');
 
-    .item {
-      -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-      -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
       padding: 20px;
-      margin-bottom: 20px;
-      background-color: themed("bg");
 
-      span {
-        color: gray;
-      }
+      .item {
+        @include cardShadow;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: themed('bg');
+        border-radius: 10px;
 
-      .user {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 20px 0px;
-
-        .userInfo {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          position: relative;
-
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-          } 
-          .online {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: limegreen;
-            position: absolute;
-            top: 0;
-            left: 30px;
-          }
-
-          p {
-            color: gray;
-          }
-
-          span {
-            font-weight: 500;
-            color: black;
-          }
+        span {
+          color: base.$grey;
         }
 
-        .buttons {
+        .user {
           display: flex;
           align-items: center;
-          gap: 10px; 
+          justify-content: space-between;
+          margin: 20px 0px;
 
-          button {
-            border: none;
-            padding: 5px;
-            color: white;
-            cursor: pointer; 
-            border-radius: 10px;
+          .userInfo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
 
-
-            &:first-child {
-              background-color: blue;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            .online {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background-color: base.$limeGreen;
+              position: absolute;
+              top: 0;
+              left: 30px;
             }
 
-            &:last-child {
-              background-color: red;
+            p {
+              color: themed('textColorSoft');
+            }
+
+            span {
+              font-weight: 500;
+              color: themed('textColor');
+            }
+          }
+
+          .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            button {
+              border: none;
+              padding: 5px;
+              color: base.$white;
+              cursor: pointer;
+              border-radius: 10px;
+
+              &:first-child {
+                background-color: base.$blue;
+              }
+
+              &:last-child {
+                background-color: base.$red;
+              }
             }
           }
         }
@@ -92,4 +94,3 @@
     }
   }
 }
-

@@ -1,9 +1,7 @@
-import "./profile.scss"
+import './profile.scss';
 
-const Profile = () =>{
-  return(
-    <div className="profile">Profile</div>
-  )
-}
+const Profile = () => {
+  return <div className="profile">Profile</div>;
+};
 
-export default Profile
+export default Profile;
