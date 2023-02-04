@@ -1,59 +1,9 @@
 import './home.scss';
+import Posts from '../../components/posts/posts';
 
 const Home = () => {
   return <div className="home">
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
+    <Posts/>
     </div>;
 };
 
