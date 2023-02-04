@@ -1,8 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 
-
+// body
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: Nunito;
 }
 
+// fonts
+$Nunito: 'Nunito', sans-serif;
+$Comfortaa: 'Comfortaa', sans-serif;
+$Quicksand: 'Quicksand', sans-serif;
+$Asap: 'Asap', sans-serif;
+$Varela: 'Varela Round', sans-serif;
 
+// colors
+$lightGrey: #d3d3d3;
+$darkBlue: #00008b;
+$washedBlue: #5274a1;
+$white: #ffffff;
+$washedOrange: #a97b43;
+$background: #f0f6f6;
+$black: #000000;
+$shadow: #00000033;
+$textShadow: #000000;
+
+
+// mixins
+
+@mixin cardShadow {
+  box-shadow: 0 6px 20px 0 $shadow, 0 6px 20px 0 $shadow;
+}
+
+@mixin buttonShadow {
+  box-shadow: 6px 6px 8px $shadow;
+}
+
+@mixin textShadow {
+  text-shadow: 2px 3px 10px $textShadow;
+}

@@ -1,8 +1,9 @@
 @use "../../style/base";
+@import '../../style/base';
 
 .register {
   height: 100vh;
-  background-color: #f0f6f6;
+  background-color: base.$background;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,41 +11,48 @@
   .card {
     width: 50%;
     display: flex;
-    background-color: white;
-    border-radius: 10px;
+    background-color: base.$white;
+    border-radius: 30px;
     min-height: 600px;
     overflow: hidden;
+    @include cardShadow;
 
     .left {
       flex: 1;
-      background: -webkit-linear-gradient(rgb(169, 123, 67) 10%, transparent 50%),
-
-        url("https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
+      background: -webkit-linear-gradient(
+          base.$washedOrange 10%,
+          transparent 50%
+        ),
+        url('https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+          center;
       background-size: cover;
       padding: 50px;
       display: flex;
       flex-direction: column;
       gap: 30px;
-      color: white;
+      color: base.$white;
 
       h1 {
         font-size: 40px;
         line-height: 40px;
+        @include textShadow;
       }
 
-      p {
-        
+      span, p {
+        font-size: 18px;
+        @include textShadow;
       }
-
-      span {}
 
       button {
         width: 150px;
         padding: 10px;
-        background-color: white;
-        color: rgb(82, 116, 161);
+        border: none;
+        border-radius: 30px;
+        background-color: base.$white;
+        color: base.$washedBlue;
         font-weight: bold;
         cursor: pointer;
+        @include buttonShadow
       }
     }
 
@@ -57,7 +65,7 @@
       justify-content: center;
 
       h1 {
-        color: #0d0d0d;
+        color: base.$black;
       }
 
       form {
@@ -67,18 +75,21 @@
 
         input {
           border: none;
-          border-bottom: 1px solid lightgray;
+          border-bottom: 1px solid base.$lightGrey;
           padding: 20px 10px;
+          outline: none;
         }
 
         button {
           width: 150px;
           padding: 10px;
           border: none;
-          background-color: rgb(82, 116, 161);
-          color: white;
+          border-radius: 30px;
+          background-color: base.$washedBlue;
+          color: base.$white;
           font-weight: bold;
           cursor: pointer;
+          @include buttonShadow
         }
       }
     }
