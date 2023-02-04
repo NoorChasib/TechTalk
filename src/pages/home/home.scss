@@ -1,2 +1,11 @@
 @use "../../style/base";
 @import '../../style/base';
+@import '../..//style/style.scss';
+
+.home {
+  @include themify($themes) {
+    background-color: themed('bg');
+    padding: 20px 70px;
+    color: themed('textColor');
+  }
+}

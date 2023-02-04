@@ -1,54 +1,69 @@
 @use "../..//style/base";
 @import '../..//style/base';
+@import '../..//style/style.scss';
 
 .leftBar {
-  flex: 2;
-  .container {
-    padding: 20px;
+  @include themify($themes) {
+    flex: 2;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    background-color: themed('bg');
+    color: themed('textColor');
 
-    hr {
-      margin: 20px 0px;
-      border: none;
-      height: 0.5px;
-      background-color: base.$lightGrey;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    .section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-bottom: 50px;
 
-      .user {
-        img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          object-fit: cover;
+    .container {
+      padding: 20px;
+
+      hr {
+        margin: 20px 0px;
+        border: none;
+        height: 0.5px;
+        background-color: themed('border');
+      }
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 50px;
+
+        .user {
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          span {
+            font-size: 17px;
+          }
         }
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
 
-        span {
+          span {
+            font-size: 15px;
+          }
+        }
+        .News {
+          padding-bottom: 100px;
+          display: flex;
           font-size: 17px;
         }
-      }
-      .item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        span {
-          font-size: 15px;
+        .news {
+          padding-right: 5px;
         }
-      }
-      .News {
-        padding-bottom: 100px;
-        display: flex;
-        font-size: 17px;
-      }
-      .news {
-        padding-right: 5px;
-      }
-      .resources {
-        font-size: 17px;
+        .resources {
+          font-size: 17px;
+        }
       }
     }
   }
