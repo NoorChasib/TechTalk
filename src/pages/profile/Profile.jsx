@@ -12,6 +12,8 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 // import Posts from '../../components/posts/Posts';
 
 const Profile = () => {
+  let url="#0";
+
   return (
     <div className="profile">
       <div className="images">
@@ -29,7 +31,7 @@ const Profile = () => {
       <div className="profileContainer">
         <div className="uInfo">
           <div className="left">
-            <a href="#">
+            <a href={url}>
               <FontAwesomeIcon
                 icon={faGithub}
                 className="faIcon"
@@ -37,7 +39,7 @@ const Profile = () => {
                 fixedWidth
               />
             </a>
-            <a href="#">
+            <a href={url}>
               <FontAwesomeIcon
                 icon={faLinkedin}
                 className="faIcon"
@@ -45,7 +47,7 @@ const Profile = () => {
                 fixedWidth
               />
             </a>
-            <a href="#">
+            <a href={url}>
               <FontAwesomeIcon
                 icon={faFile}
                 className="faIcon"
