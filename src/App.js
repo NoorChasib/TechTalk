@@ -6,7 +6,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
+import Navbar from "./components/navbar/Navbar";
 import Leftbar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
 import Profile from "./pages/profile/Profile";
