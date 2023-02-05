@@ -2,7 +2,6 @@ import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import {
-  faFile,
   faGlobe,
   faLocationDot,
   faEllipsis,
