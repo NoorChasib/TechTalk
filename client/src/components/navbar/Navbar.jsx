@@ -2,12 +2,12 @@ import './navbar.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faMagnifyingGlass,
   faMoon,
   faSun,
-  faCommentDots,
+  faComments,
   faBell,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-regular-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
@@ -55,7 +55,7 @@ const Navbar = () => {
 
       <div className="right">
         <FontAwesomeIcon
-          icon={faCommentDots}
+          icon={faComments}
           className="faIcon"
           size="lg"
           fixedWidth
