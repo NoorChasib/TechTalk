@@ -8,12 +8,29 @@
   height: 250px;
   margin-bottom: 30px;
 
+  @include mobile {
+    height: 50px;
+    justify-content: space-between;
+  }
+
+  @include tablet {
+    height: 150px;
+    gap: 20px;
+  }
+
   .story {
     flex: 1;
     border-radius: 25px;
     overflow: hidden;
     position: relative;
     @include cardShadow;
+
+    @include mobile {
+      flex: none;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -25,6 +42,10 @@
       left: 10px;
       color: base.$white;
       @include textShadow;
+
+      @include mobile {
+        display: none;
+      }
     }
     button {
       @include bigButton(
@@ -33,8 +54,8 @@
         base.$white,
         base.$buttonBlue
       );
-      position:absolute;
-      bottom:40px;
+      position: absolute;
+      bottom: 40px;
       left: 10px;
       border: none;
       border-radius: 50%;
@@ -46,6 +67,14 @@
       align-items: center;
       justify-content: center;
       padding: 0px;
+
+      @include mobile {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
     }
   }
 }

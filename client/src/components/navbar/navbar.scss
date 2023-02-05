@@ -24,13 +24,17 @@
     .left {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 20px;
 
       .logoName {
         font-weight: 900;
         font-size: 30px;
         color: themed('logo');
         cursor: pointer;
+
+        @include mobile {
+          font-size: 20px;
+        }
       }
     }
 
@@ -44,12 +48,25 @@
         padding: 10px;
         @include barShadow;
 
+        @include mobile {
+          box-shadow: none;
+          border: none;
+        }
+
         input {
           border: none;
           width: 500px;
           outline: none;
           background-color: transparent;
           color: themed('textColor');
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            width: 200px;
+          }
         }
       }
     }
@@ -58,6 +75,10 @@
       display: flex;
       align-items: center;
       gap: 20px;
+
+      // @include mobile {
+      //   display: none;
+      // }
 
       .user {
         display: flex;
@@ -74,6 +95,14 @@
 
         span {
           font-weight: 500;
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            display: none;
+          }
         }
       }
     }

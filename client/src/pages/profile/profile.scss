@@ -40,6 +40,14 @@
     .profileContainer {
       padding: 20px 70px;
 
+      @include mobile {
+        padding: 10px;
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+
       .uInfo {
         height: 180px;
         @include cardShadow;
@@ -52,10 +60,21 @@
         justify-content: space-between;
         margin-bottom: 20px;
 
+        @include mobile {
+          flex-direction: column;
+          height: 30vh;
+          padding: 20px;
+          margin-top: 100px;
+        }
+
         .left {
           flex: 1;
           display: flex;
           gap: 15px;
+
+          @include tablet {
+            flex-wrap: wrap;
+          }
 
           a {
             color: themed('textColor');
@@ -92,7 +111,12 @@
             }
           }
           button {
-            @include bigButton (base.$buttonBlue, base.$white, base.$white, base.$buttonBlue);
+            @include bigButton(
+              base.$buttonBlue,
+              base.$white,
+              base.$white,
+              base.$buttonBlue
+            );
           }
         }
 

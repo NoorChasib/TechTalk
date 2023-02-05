@@ -65,9 +65,9 @@ $darkBorder: #444444;
 }
 
 @mixin barShadow {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
-
 
 @mixin bigButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
   align-items: center;
@@ -130,7 +130,6 @@ $darkBorder: #444444;
   }
 }
 
-
 @mixin smallButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
   align-items: center;
   appearance: none;
@@ -189,5 +188,17 @@ $darkBorder: #444444;
   &:disabled {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0,
       rgba(0, 0, 0, 0.24) 0px 1px 2px 0;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: 100px) and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 481px) and (max-width: 1200px) {
+    @content;
   }
 }
