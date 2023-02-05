@@ -1,12 +1,19 @@
-import "./post.scss";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
-import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
-import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Link } from "react-router-dom";
-import Comments from "../comments/comments";
-import { useState } from "react";
+import './post.scss';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEllipsis,
+  faHeart as faHeartSolid,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faCommentDots,
+  faHeart as faHeartRegular,
+  faShareFromSquare,
+} from '@fortawesome/free-regular-svg-icons';
+
+import { Link } from 'react-router-dom';
+import Comments from '../comments/comments';
+import { useState } from 'react';
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -23,14 +30,19 @@ const Post = ({ post }) => {
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <span className="name">{post.name}</span>
               </Link>
               <span className="date">1 min ago</span>
             </div>
           </div>
-          <MoreHorizIcon />
+          <FontAwesomeIcon
+            icon={faEllipsis}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
         </div>
         <div className="content">
           <p>{post.desc}</p>
@@ -38,15 +50,39 @@ const Post = ({ post }) => {
         </div>
         <div className="info">
           <div className="item">
-            {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
+            {liked ? (
+              <FontAwesomeIcon
+                icon={faHeartSolid}
+                className="faIcon"
+                size="lg"
+                fixedWidth
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faHeartRegular}
+                className="faIcon"
+                size="lg"
+                fixedWidth
+              />
+            )}
             132 Likes
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
-            <TextsmsOutlinedIcon />
+            <FontAwesomeIcon
+              icon={faCommentDots}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
             2 Comments
           </div>
           <div className="item">
-            <ShareOutlinedIcon />
+            <FontAwesomeIcon
+              icon={faShareFromSquare}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
             Share
           </div>
         </div>
