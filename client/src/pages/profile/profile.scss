@@ -58,7 +58,7 @@
           gap: 15px;
 
           a {
-            color: themed('textColorSoft');
+            color: themed('textColor');
           }
         }
 
@@ -84,7 +84,7 @@
               display: flex;
               align-items: center;
               gap: 5px;
-              color: themed('textColor');
+              color: themed('textColorSoft');
 
               span {
                 font-size: 12px;
@@ -92,13 +92,7 @@
             }
           }
           button {
-            @include buttonShadow;
-            border: none;
-            background-color: base.$buttonBlue;
-            color: base.$white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
+            @include bigButton (base.$buttonBlue, base.$white, base.$white, base.$buttonBlue);
           }
         }
 
@@ -108,7 +102,7 @@
           align-items: center;
           justify-content: flex-end;
           gap: 15px;
-          color: themed('textColorSoft');
+          color: themed('textColor');
         }
       }
     }

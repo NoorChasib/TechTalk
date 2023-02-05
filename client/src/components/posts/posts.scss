@@ -1,3 +1,7 @@
+@use '../..//style/base.scss';
+@import '../..//style/base.scss';
+@import '../..//style/style.scss';
+
 .posts{
   display: flex;
   flex-direction: column;

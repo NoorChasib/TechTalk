@@ -1,9 +1,7 @@
 import './leftBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faNewspaper,
-  faHandshakeSimple
-} from '@fortawesome/free-solid-svg-icons';
+import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
 

@@ -45,15 +45,12 @@
       }
 
       button {
-        width: 150px;
-        padding: 10px;
-        border: none;
-        border-radius: 30px;
-        background-color: base.$white;
-        color: base.$washedBlue;
-        font-weight: bold;
-        cursor: pointer;
-        @include buttonShadow;
+        @include bigButton(
+          base.$white,
+          base.$washedBlue,
+          base.$washedBlue,
+          base.$white
+        );
       }
     }
 
@@ -82,15 +79,12 @@
         }
 
         button {
-          width: 150px;
-          padding: 10px;
-          border: none;
-          border-radius: 30px;
-          background-color: base.$washedBlue;
-          color: base.$white;
-          font-weight: bold;
-          cursor: pointer;
-          @include buttonShadow;
+          @include bigButton(
+            base.$washedBlue,
+            base.$white,
+            base.$white,
+            base.$washedBlue
+          );
         }
       }
     }
