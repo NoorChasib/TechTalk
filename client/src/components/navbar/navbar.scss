@@ -1,4 +1,4 @@
-@use "../..//style/base";
+@use '../..//style/base';
 @import '../..//style/base';
 @import '../..//style/style.scss';
 
@@ -15,6 +15,7 @@
     z-index: 10000;
     background-color: themed('bg');
     color: themed('textColor');
+    @include coverShadow;
 
     .faIcon {
       cursor: pointer;
@@ -26,8 +27,8 @@
       gap: 25px;
 
       .logoName {
-        font-weight: bolder;
-        font-size: 25px;
+        font-weight: 900;
+        font-size: 30px;
         color: themed('logo');
         cursor: pointer;
       }
@@ -40,7 +41,8 @@
         gap: 10px;
         border: 1px solid themed('border');
         border-radius: 25px;
-        padding: 5px;
+        padding: 10px;
+        @include barShadow;
 
         input {
           border: none;

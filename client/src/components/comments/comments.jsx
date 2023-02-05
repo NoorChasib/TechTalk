@@ -28,7 +28,7 @@ const Comments = () => {
       <div className="write">
         <img src={currentUser.profilePic} alt="" />
         <input type="text" placeholder="write a comment" />
-        <button>Send</button>
+        <button>Post</button>
       </div>
       {comments.map((comment) => (
         <div className="comment">

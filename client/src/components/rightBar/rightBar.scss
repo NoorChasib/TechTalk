@@ -24,7 +24,7 @@
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed('bg');
-        border-radius: 10px;
+        border-radius: 25px;
 
         span {
           color: base.$grey;
@@ -74,20 +74,22 @@
             align-items: center;
             gap: 10px;
 
-            button {
-              border: none;
-              padding: 8px;
-              color: base.$white;
-              cursor: pointer;
-              border-radius: 25px;
+            .follow {
+              @include smallButton(
+                base.$buttonBlue,
+                base.$white,
+                base.$white,
+                base.$buttonBlue
+              );
+            }
 
-              &:first-child {
-                background-color: base.$buttonBlue;
-              }
-
-              &:last-child {
-                background-color: base.$buttonRed;
-              }
+            .ignore {
+              @include smallButton(
+                base.$buttonRed,
+                base.$white,
+                base.$white,
+                base.$buttonRed
+              );
             }
           }
         }

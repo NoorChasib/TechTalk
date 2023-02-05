@@ -21,8 +21,8 @@ const RightBar = () => {
               <span>Jeff Bezos</span>
             </div>
             <div className="buttons">
-              <button>Follow</button>
-              <button>Ignore</button>
+              <button className="follow">Follow</button>
+              <button className="ignore">Ignore</button>
             </div>
           </div>
           <div className="user">
@@ -34,8 +34,8 @@ const RightBar = () => {
               <span>Elon Musk</span>
             </div>
             <div className="buttons">
-              <button>Follow</button>
-              <button>Ignore</button>
+              <button className="follow">Follow</button>
+              <button className="ignore">Ignore</button>
             </div>
           </div>
         </div>

@@ -24,6 +24,7 @@ $darkBlue: #00008b;
 $washedBlue: #5274a1;
 $buttonBlue: #4f6efb;
 $buttonRed: #fb4f4f;
+$turquoise: #127474;
 $red: #ff0000;
 $white: #ffffff;
 $washedOrange: #a97b43;
@@ -32,7 +33,9 @@ $limeGreen: #32cd32;
 $black: #000000;
 $shadow: #00000033;
 $textShadow: #000000;
+$textSoft: #555555;
 $whiteSmoke: #f5f5f5;
+$bgSoft: #f6f3f3;
 $darkBg: #222222;
 $darkBgSoft: #333333;
 $darkBorder: #444444;
@@ -40,17 +43,151 @@ $darkBorder: #444444;
 // mixins
 
 @mixin cardShadow {
-  box-shadow: 0 6px 20px 0 $shadow, 0 6px 20px 0 $shadow;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+@mixin postShadow {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 @mixin coverShadow {
-  box-shadow: 0px 5px 5px 0px $shadow;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
 @mixin buttonShadow {
-  box-shadow: 6px 6px 8px $shadow;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 @mixin textShadow {
   text-shadow: 2px 3px 10px $textShadow;
+}
+
+@mixin barShadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+
+@mixin bigButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
+  align-items: center;
+  appearance: none;
+  background-color: $bgColor;
+  border-radius: 25px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-sizing: border-box;
+  color: $txtColor;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 80ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform, opacity;
+  z-index: 0;
+  &:hover {
+    background: $hoverColor;
+    color: $hoverTxtColor;
+  }
+  &:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+      0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:not(:disabled) {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  &:not(:disabled):hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+      rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+  }
+  &:not(:disabled):active {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.24) 0px 2px 5px 3px;
+  }
+  &:disabled {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0,
+      rgba(0, 0, 0, 0.24) 0px 1px 2px 0;
+  }
+}
+
+
+@mixin smallButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
+  align-items: center;
+  appearance: none;
+  background-color: $bgColor;
+  border-radius: 25px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-sizing: border-box;
+  color: $txtColor;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-size: 14px;
+  font-weight: 500;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 80ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform, opacity;
+  z-index: 0;
+  &:hover {
+    background: $hoverColor;
+    color: $hoverTxtColor;
+  }
+  &:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+      0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:not(:disabled) {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  &:not(:disabled):hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+      rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+  }
+  &:not(:disabled):active {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.24) 0px 2px 5px 3px;
+  }
+  &:disabled {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0,
+      rgba(0, 0, 0, 0.24) 0px 1px 2px 0;
+  }
 }

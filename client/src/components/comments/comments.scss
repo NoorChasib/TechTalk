@@ -1,3 +1,5 @@
+@use '../..//style/base.scss';
+@import '../..//style/base.scss';
 @import '../..//style/style.scss';
 
 .comments {
@@ -9,28 +11,31 @@
       object-fit: cover;
     }
 
-    .write{
+    .write {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
       margin: 20px 0px;
 
-      input{
-        flex:5;
+      input {
+        flex: 5;
         padding: 10px;
-        border: 1px solid themed("border");
+        border: 1px solid themed('border');
         background-color: transparent;
-        color: themed("textColor");
+        color: themed('textColor');
+        outline: none;
+        border-radius: 25px;
+        @include barShadow;
       }
 
-      button{
-        border: none;
-        background-color: #5271ff;
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 3px;
+      button {
+        @include smallButton(
+          base.$buttonBlue,
+          base.$white,
+          base.$white,
+          base.$buttonBlue
+        );
       }
     }
 
@@ -41,25 +46,25 @@
       gap: 20px;
 
       .info {
-        flex:5;
+        flex: 5;
         display: flex;
         flex-direction: column;
-        gap: 3px;
+        gap: 5px;
         align-items: flex-start;
 
         span {
           font-weight: 500;
         }
 
-        p{
-          color:themed("textColorSoft")
+        p {
+          color: themed('textColorSoft');
         }
       }
 
-      .date{
-        flex:1;
+      .date {
+        flex: 1;
         align-self: center;
-        color: gray;
+        color: base.$grey;
         font-size: 12px;
       }
     }

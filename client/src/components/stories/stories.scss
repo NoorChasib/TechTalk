@@ -1,3 +1,7 @@
+@use '../..//style/base.scss';
+@import '../..//style/base.scss';
+@import '../..//style/style.scss';
+
 .stories {
   display: flex;
   gap: 10px;
@@ -5,30 +9,35 @@
   margin-bottom: 30px;
 
   .story {
-    flex:1;
-    border-radius: 10px;
-    overflow:hidden;
+    flex: 1;
+    border-radius: 25px;
+    overflow: hidden;
     position: relative;
+    @include cardShadow;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
     span {
-      position:absolute;
+      position: absolute;
       bottom: 10px;
       left: 10px;
-      color: white
-      
+      color: base.$white;
+      @include textShadow;
     }
-    button{
+    button {
+      @include bigButton(
+        base.$buttonBlue,
+        base.$white,
+        base.$white,
+        base.$buttonBlue
+      );
       position:absolute;
       bottom:40px;
       left: 10px;
-      color: white;
-      background-color: rgb(18, 116, 116);
       border: none;
-      border-radius: 30px;
+      border-radius: 50%;
       width: 30px;
       height: 30px;
       cursor: pointer;
@@ -36,6 +45,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0px;
     }
   }
 }

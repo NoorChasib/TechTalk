@@ -1,19 +1,21 @@
+@use 'base.scss';
+
 $themes: (
   light: (
-    textColor: #000,
-    bg: white,
-    logo: darkblue,
-    bgSoft: #f6f3f3,
-    textColorSoft: #555,
-    border: lightgray,
+    textColor: base.$black,
+    bg: base.$white,
+    logo: base.$darkBlue,
+    bgSoft: base.$bgSoft,
+    textColorSoft: base.$textSoft,
+    border: base.$lightGrey,
   ),
   dark: (
-    textColor: whitesmoke,
-    bg: #222,
-    logo: white,
-    bgSoft: #333,
-    textColorSoft: lightgray,
-    border: #444,
+    textColor: base.$whiteSmoke,
+    bg: base.$darkBg,
+    logo: base.$white,
+    bgSoft: base.$darkBgSoft,
+    textColorSoft: base.$lightGrey,
+    border: base.$darkBorder,
   ),
 );
 

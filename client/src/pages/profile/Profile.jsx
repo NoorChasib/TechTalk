@@ -1,13 +1,13 @@
 import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import {
   faFile,
   faGlobe,
   faLocationDot,
   faEllipsis,
 } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope, faFileLines } from '@fortawesome/free-regular-svg-icons';
 import Posts from '../../components/posts/posts';
 
 const Profile = () => {
@@ -40,7 +40,7 @@ const Profile = () => {
             </a>
             <a href={url}>
               <FontAwesomeIcon
-                icon={faLinkedin}
+                icon={faLinkedinIn}
                 className="faIcon"
                 size="lg"
                 fixedWidth
@@ -48,7 +48,7 @@ const Profile = () => {
             </a>
             <a href={url}>
               <FontAwesomeIcon
-                icon={faFile}
+                icon={faFileLines}
                 className="faIcon"
                 size="lg"
                 fixedWidth
