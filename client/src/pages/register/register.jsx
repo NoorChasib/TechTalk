@@ -8,9 +8,7 @@ const Register = () => {
     username: '',
     email: '',
     password: '',
-    firstName: '',
-    lastName: ''
-
+    name: '',
   });
 
   const [err, setErr] = useState(false);
@@ -29,7 +27,7 @@ const Register = () => {
     }
   };
 
-  console.log(err)
+  console.log(err);
 
   return (
     <div className="register">
@@ -47,8 +45,8 @@ const Register = () => {
         </div>
         <div className="right">
           <h1> Sign up </h1>
-          <form> 
-          <input
+          <form>
+            <input
               type="text"
               placeholder="Username"
               name="username"
