@@ -61,7 +61,7 @@ const RightBar = () => {
                 alt=""
               />
               <p>
-                <span>John Doe</span> liked commented on a post
+                <span>John Doe</span> commented on a post
               </p>
             </div>
             <span>4 min ago</span>

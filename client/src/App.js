@@ -15,24 +15,29 @@ import '../src//style/style.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
 
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
-        <Navbar />
-        <div style={{ display: 'flex' }}>
-          <Leftbar />
-          <div style={{ flex: 6 }}>
-            <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
+          <Navbar />
+          <div style={{ display: 'flex' }}>
+            <Leftbar />
+            <div style={{ flex: 6 }}>
+              <Outlet />
+            </div>
+            <RightBar />
           </div>
-          <RightBar />
         </div>
-      </div>
+      </QueryClientProvider>
     );
   };
   const ProtectedRoute = ({ children }) => {
