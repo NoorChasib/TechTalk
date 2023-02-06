@@ -4,7 +4,6 @@ import App from './App';
 import { AuthContextProvider } from './context/authContext';
 import { DarkModeContextProvider } from './context/darkModeContext';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
