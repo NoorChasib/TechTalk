@@ -48,6 +48,12 @@ const Register = () => {
           <form>
             <input
               type="text"
+              placeholder="Name"
+              name="name"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
               placeholder="Username"
               name="username"
               onChange={handleChange}
@@ -62,12 +68,6 @@ const Register = () => {
               type="password"
               placeholder="Password"
               name="password"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
               onChange={handleChange}
             />
             {err && err}
