@@ -31,3 +31,10 @@ const Posts = () => {
 };
 
 export default Posts;
+
+
+//   const { isLoading, error, data } = useQuery('posts', () =>
+// makeRequest.get("/posts").then((res) => {
+//   return res.data
+//   })
+// );
