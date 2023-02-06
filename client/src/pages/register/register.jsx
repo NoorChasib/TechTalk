@@ -50,24 +50,12 @@ const Register = () => {
           <form> 
           <input
               type="text"
-              placeholder="First Name"
-              name="first name"
-              onChange={handleChange}
-            /> 
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="last name"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
               placeholder="Username"
               name="username"
               onChange={handleChange}
             />
             <input
-              type="text"
+              type="email"
               placeholder="Email"
               name="email"
               onChange={handleChange}
@@ -78,7 +66,12 @@ const Register = () => {
               name="password"
               onChange={handleChange}
             />
-
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              onChange={handleChange}
+            />
             {err && err}
             <button onClick={handleClick}>Register</button>
           </form>
