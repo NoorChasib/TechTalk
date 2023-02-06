@@ -1,4 +1,4 @@
-INSERT INTO `social.users` (`id`,`username`,`email`,`password`,`name`)
+INSERT INTO `users` (`id`,`username`,`email`,`password`,`name`)
 VALUES
   (1,"Integer","mollis.lectus@outlook.couk","GOE64ANN7BF","Zia Mcmillan"),
   (2,"urna.","dictum.sapien@hotmail.couk","BSR06XPB5EC","Kamal Butler"),
@@ -14,7 +14,7 @@ VALUES
 
 
 
-INSERT INTO `social.users` (`id`,`username`,`email`,`password`,`name`)
+INSERT INTO `users` (`id`,`username`,`email`,`password`,`name`)
 VALUES
   (11,"metus.","mauris.aliquam@icloud.couk","RPG34UID8SC","Celeste Pierce"),
   (12,"dapibus","imperdiet.non.vestibulum@google.org","LVS64QIK6FE","Walter Hawkins"),
