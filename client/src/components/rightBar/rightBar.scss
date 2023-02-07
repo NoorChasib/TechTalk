@@ -4,13 +4,8 @@
 
 .rightBar {
   @include themify($themes) {
-    flex: 3;
-    position: sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
-    overflow: scroll;
-    scrollbar-width: none; /* Firefox */
-    background-color: themed('bgSoft');
+    background-color: themed('pageBg');
+
 
     @include mobile {
       display: none;
@@ -20,6 +15,18 @@
       display: none;
     }
 
+    .rightBarFront{
+      flex: 3;
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 120px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('bgSoft');
+      border-radius: 25px;
+      margin: 0px 20px 20px 0px;
+      @include coverShadow;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -27,12 +34,13 @@
     .container {
       padding: 20px;
 
+
       .item {
         @include cardShadow;
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed('bg');
-        border-radius: 25px;
+        @include smallBorderRd;
 
         span {
           color: base.$grey;
@@ -49,6 +57,7 @@
             align-items: center;
             gap: 20px;
             position: relative;
+            max-width: 75%;
 
             img {
               width: 40px;
@@ -102,6 +111,7 @@
           }
         }
       }
+    }
     }
   }
 }

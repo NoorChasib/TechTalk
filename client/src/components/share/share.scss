@@ -2,16 +2,13 @@
 @import '../..//style/base';
 @import '../..//style/style.scss';
 
-
 .share {
   @include themify($themes) {
-    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    border-radius: 20px;
-    background-color: themed("bg");
-    color: themed("textColor");
-    margin-bottom: 20px;
+    @include postShadow;
+    @include smallBorderRd;
+    background-color: themed('bg');
+    color: themed('textColor');
+    margin-bottom: 25px;
 
     .container {
       padding: 20px;
@@ -37,7 +34,7 @@
             padding: 20px 10px;
             background-color: transparent;
             width: 60%;
-            color: themed("textColor");
+            color: themed('textColor');
           }
         }
         .right {
@@ -57,7 +54,7 @@
         margin: 20px 0px;
         border: none;
         height: 0.5px;
-        background-color: themed("border");
+        background-color: themed('border');
       }
 
       .bottom {
@@ -81,18 +78,18 @@
 
             span {
               font-size: 12px;
-              color: gray;
+              color: base.$grey;
             }
           }
         }
         .right {
           button {
-            border: none;
-            padding: 5px;
-            color: white;
-            cursor: pointer;
-            background-color: #5271ff;
-            border-radius: 3px;
+            @include smallButton(
+              base.$buttonBlue,
+              base.$white,
+              base.$white,
+              base.$buttonBlue
+            );
           }
         }
       }

@@ -4,7 +4,19 @@
 
 .profile {
   @include themify($themes) {
-    background-color: themed('bgSoft');
+    background-color: themed('pageBg');
+    padding-top: 100px;
+
+    @include mobile {
+      padding: 10px;
+      padding-top: 100px;
+      
+    }
+
+    @include tablet {
+      padding: 20px;
+      padding-top: 100px;
+    }
 
     .faIcon {
       cursor: pointer;
@@ -19,8 +31,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
+        @include smallBorderRd;
         @include coverShadow;
       }
 
@@ -42,6 +53,7 @@
 
       @include mobile {
         padding: 10px;
+        
       }
 
       @include tablet {
@@ -51,7 +63,7 @@
       .uInfo {
         height: 180px;
         @include cardShadow;
-        border-radius: 25px;
+        @include smallBorderRd;
         background-color: themed('bg');
         color: themed('textColor');
         padding: 75px 50px 50px 50px;

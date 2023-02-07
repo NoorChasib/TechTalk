@@ -4,18 +4,38 @@
 
 .navbar {
   @include themify($themes) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 50px;
-    border-bottom: 1px solid themed('border');
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  height: 5em;
+  background-color: themed('pageBg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  .navbarFront {
+
     position: sticky;
     top: 0;
-    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 95%;
+    border-bottom: 1px solid themed('border');
+    border-radius: 25px;
     background-color: themed('bg');
     color: themed('textColor');
-    @include coverShadow;
+    @include postShadow;
+
+    @include mobile {
+      width: 85%;
+    }
+
+    @include tablet {
+      width: 95%;
+    }
 
     .faIcon {
       cursor: pointer;
@@ -26,14 +46,29 @@
       align-items: center;
       gap: 20px;
 
-      .logoName {
-        font-weight: 900;
-        font-size: 30px;
-        color: themed('logo');
-        cursor: pointer;
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
 
-        @include mobile {
-          font-size: 20px;
+        img {
+          height: 2em;
+
+          @include mobile {
+            height: 1.5em;
+          }
+        }
+
+        h4 {
+          font-size: 1.5em;
+          font-weight: 700;
+          color: themed('logo');
+
+          @include mobile {
+                font-size: 20px;
+              }
         }
       }
     }
@@ -44,7 +79,7 @@
         align-items: center;
         gap: 10px;
         border: 1px solid themed('border');
-        border-radius: 25px;
+        @include smallBorderRd;
         padding: 10px;
         @include barShadow;
 
@@ -80,10 +115,10 @@
       //   display: none;
       // }
 
-      .user {
+      .userProfile {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 20px;
 
         img {
           width: 30px;
@@ -107,4 +142,5 @@
       }
     }
   }
+}
 }

@@ -4,8 +4,8 @@
 
 .post {
   @include themify($themes) {
-    @include postShadow;
-    border-radius: 25px;
+    @include cardShadow;
+    @include smallBorderRd;
     background-color: themed('bg');
     color: themed('textColor');
 
