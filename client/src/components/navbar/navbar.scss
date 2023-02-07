@@ -11,13 +11,11 @@
     height: 50px;
     border-bottom: 1px solid themed('border');
     position: sticky;
-    top: 0;
+    top: 0px;
     z-index: 10000;
-    // margin: 10px 10px 10px 10px;
     background-color: themed('bg');
     color: themed('textColor');
     @include coverShadow;
-    // border-radius: 25px;
 
     .faIcon {
       cursor: pointer;
