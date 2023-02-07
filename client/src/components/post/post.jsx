@@ -12,7 +12,7 @@ import {
 
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
@@ -22,8 +22,23 @@ import { AuthContext } from '../../context/authContext';
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const { currentUser } = useContext(AuthContext);
+
+  const commentRef = useRef();
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (!commentRef.current.contains(e.target)) {
+        setCommentOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handler);
+
+    return () => {
+      document.removeEventListener('click', handler);
+    }
+  });
 
   const { isLoading, error, data } = useQuery(['likes', post.id], () =>
     makeRequest.get('/likes?postId=' + post.id).then((res) => {
@@ -68,7 +83,7 @@ const Post = ({ post }) => {
 
   return (
     <div className="post">
-      <div className="container">
+      <div className="container" ref={commentRef}>
         <div className="user">
           <div className="userInfo">
             <Link
