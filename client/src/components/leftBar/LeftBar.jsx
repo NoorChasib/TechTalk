@@ -4,6 +4,7 @@ import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -13,10 +14,15 @@ const Leftbar = () => {
       <div className="leftBarFront">
         <div className="container">
           <div className="menu">
-            <div className="user">
-              <img src={currentUser.profilePic} alt="" />
-              <span>{currentUser.name}</span>
-            </div>
+            <Link
+              to={`/profile/${currentUser.id}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <div className="user">
+                <img src={currentUser.profilePic} alt="" />
+                <span>{currentUser.name}</span>
+              </div>
+            </Link>
             <div className="item">
               <span>Bio</span>
             </div>

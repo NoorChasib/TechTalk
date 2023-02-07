@@ -42,7 +42,8 @@ const Profile = () => {
 
   const mutation = useMutation(
     (following) => {
-      if (following) return makeRequest.delete('/relationships?userId=' + userId);
+      if (following)
+        return makeRequest.delete('/relationships?userId=' + userId);
       return makeRequest.post('/relationship', { userId });
     },
     {
@@ -56,7 +57,6 @@ const Profile = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
 
-
   return (
     <div className="profile">
       {isLoading ? (
@@ -64,8 +64,12 @@ const Profile = () => {
       ) : (
         <>
           <div className="images">
-            <img src={"/upload/"+data.coverPic} alt="" className="cover" />
-            <img src={"/upload/"+data.profilePic} alt="" className="profilePic" />
+            <img src={'/upload/' + data.coverPic} alt="" className="cover" />
+            <img
+              src={'/upload/' + data.profilePic}
+              alt=""
+              className="profilePic"
+            />
           </div>
           <div className="profileContainer">
             <div className="uInfo">
@@ -120,7 +124,7 @@ const Profile = () => {
                 {relisLoading ? (
                   'loading'
                 ) : userId === currentUser.id ? (
-                  <button onClick={()=> setOpenUpdate(true)}>update</button>
+                  <button onClick={() => setOpenUpdate(true)}>update</button>
                 ) : (
                   <button onClick={handleFollow}>
                     {relationshipData.includes(currentUser.id)
@@ -144,11 +148,11 @@ const Profile = () => {
                 />
               </div>
             </div>
-            <Posts userId={userId}/>
+            <Posts userId={userId} />
           </div>
         </>
       )}
-      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data}/>}
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );
 };

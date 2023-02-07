@@ -1,19 +1,25 @@
-import "./share.scss";
+import './share.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faMapLocationDot, faUserGroup } from '@fortawesome/free-solid-svg-icons';
-import { useContext, useState } from "react";
-import { AuthContext } from "../../context/authContext";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { makeRequest } from "../../axios";
+import {
+  faImage,
+  faMapLocationDot,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../context/authContext';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { makeRequest } from '../../axios';
+import { Link } from 'react-router-dom';
+
 const Share = () => {
   const [file, setFile] = useState(null);
-  const [desc, setDesc] = useState("");
+  const [desc, setDesc] = useState('');
 
   const upload = async () => {
     try {
       const formData = new FormData();
-      formData.append("file", file);
-      const res = await makeRequest.post("/upload", formData);
+      formData.append('file', file);
+      const res = await makeRequest.post('/upload', formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -26,22 +32,22 @@ const Share = () => {
 
   const mutation = useMutation(
     (newPost) => {
-      return makeRequest.post("/posts", newPost);
+      return makeRequest.post('/posts', newPost);
     },
     {
       onSuccess: () => {
         // Invalidate and refetch
-        queryClient.invalidateQueries(["posts"]);
+        queryClient.invalidateQueries(['posts']);
       },
     }
   );
 
   const handleClick = async (e) => {
     e.preventDefault();
-    let imgUrl = "";
+    let imgUrl = '';
     if (file) imgUrl = await upload();
     mutation.mutate({ desc, img: imgUrl });
-    setDesc("");
+    setDesc('');
     setFile(null);
   };
 
@@ -50,7 +56,13 @@ const Share = () => {
       <div className="container">
         <div className="top">
           <div className="left">
-            <img src={"/upload/" + currentUser.profilePic} alt="" />
+            <Link
+              to={`/profile/${currentUser.id}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
+            </Link>
+
             <input
               type="text"
               placeholder={`What's on your mind ${currentUser.name}?`}
@@ -70,21 +82,17 @@ const Share = () => {
             <input
               type="file"
               id="file"
-              style={{ display: "none" }}
+              style={{ display: 'none' }}
               onChange={(e) => setFile(e.target.files[0])}
             />
             <label htmlFor="file">
               <div className="item">
-              <FontAwesomeIcon
-                icon={faImage}
-                className="faIcon"
-                fixedWidth
-              />
+                <FontAwesomeIcon icon={faImage} className="faIcon" fixedWidth />
                 <span>Add Image</span>
               </div>
             </label>
             <div className="item">
-            <FontAwesomeIcon
+              <FontAwesomeIcon
                 icon={faMapLocationDot}
                 className="faIcon"
                 fixedWidth
@@ -92,7 +100,7 @@ const Share = () => {
               <span>Add Place</span>
             </div>
             <div className="item">
-            <FontAwesomeIcon
+              <FontAwesomeIcon
                 icon={faUserGroup}
                 className="faIcon"
                 fixedWidth
