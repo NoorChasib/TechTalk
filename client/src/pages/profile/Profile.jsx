@@ -27,89 +27,126 @@ const Profile = () => {
       return res.data;
     })
   );
- 
- return (
+
+  const { isLoading: relisLoading, data: relationshipData } = useQuery(
+    ['relationship'],
+    () =>
+      makeRequest.get('/relationships?followedUserId=' + userId).then((res) => {
+        return res.data;
+      })
+  );
+
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(
+    (following) => {
+      if (following) return makeRequest.delete('/relationships?userId=' + userId);
+      return makeRequest.post('/relationship', { userId });
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries(['relationship']);
+      },
+    }
+  );
+  const handleFollow = () => {
+    mutation.mutate(relationshipData.includes(currentUser.id));
+  };
+
+
+  return (
     <div className="profile">
-      {isLoading ? "loading" : <><div className="images">
-        <img src={data.coverPic} alt="" className="cover" />
-        <img src={data.profilePic} alt="" className="profilePic" />
-      </div>
-      <div className="profileContainer">
-        <div className="uInfo">
-          <div className="left">
-            <a href={url}>
-              <FontAwesomeIcon
-                icon={faGithub}
-                className="faIcon"
-                size="lg"
-                fixedWidth
-              />
-            </a>
-            <a href={url}>
-              <FontAwesomeIcon
-                icon={faLinkedinIn}
-                className="faIcon"
-                size="lg"
-                fixedWidth
-              />
-            </a>
-            <a href={url}>
-              <FontAwesomeIcon
-                icon={faFileLines}
-                className="faIcon"
-                size="lg"
-                fixedWidth
-              />
-            </a>
+      {isLoading ? (
+        'loading'
+      ) : (
+        <>
+          <div className="images">
+            <img src={data.coverPic} alt="" className="cover" />
+            <img src={data.profilePic} alt="" className="profilePic" />
           </div>
-          <div className="center">
-            <span>{data.name}</span>
-            <div className="info">
-              <div className="item">
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className="faIcon"
-                  size="lg"
-                  fixedWidth
-                />
-                <span>{data.city}</span>
+          <div className="profileContainer">
+            <div className="uInfo">
+              <div className="left">
+                <a href={url}>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </a>
+                <a href={url}>
+                  <FontAwesomeIcon
+                    icon={faLinkedinIn}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </a>
+                <a href={url}>
+                  <FontAwesomeIcon
+                    icon={faFileLines}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </a>
               </div>
-              <div className="item">
+              <div className="center">
+                <span>{data.name}</span>
+                <div className="info">
+                  <div className="item">
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className="faIcon"
+                      size="lg"
+                      fixedWidth
+                    />
+                    <span>{data.city}</span>
+                  </div>
+                  <div className="item">
+                    <FontAwesomeIcon
+                      icon={faGlobe}
+                      className="faIcon"
+                      size="lg"
+                      fixedWidth
+                    />
+                    <span>{data.website}</span>
+                  </div>
+                </div>
+                {relisLoading ? (
+                  'loading'
+                ) : userId === currentUser.id ? (
+                  <button>update</button>
+                ) : (
+                  <button onClick={handleFollow}>
+                    {relationshipData.includes(currentUser.id)
+                      ? 'Following'
+                      : 'Follow'}
+                  </button>
+                )}
+              </div>
+              <div className="right">
                 <FontAwesomeIcon
-                  icon={faGlobe}
+                  icon={faEnvelope}
                   className="faIcon"
                   size="lg"
                   fixedWidth
                 />
-                <span>{data.website}</span>
+                <FontAwesomeIcon
+                  icon={faEllipsis}
+                  className="faIcon"
+                  size="lg"
+                  fixedWidth
+                />
               </div>
             </div>
-            {userId === currentUser.id ? (
-              <button>update</button>
-            ) : (
-              <button>follow</button>
-            )}
+            <Posts userId={userId}/>
           </div>
-          <div className="right">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="faIcon"
-              size="lg"
-              fixedWidth
-            />
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="faIcon"
-              size="lg"
-              fixedWidth
-            />
-          </div>
-        </div>
-        <Posts />
-      </div> 
-      </>
-      } 
-    </div> 
+        </>
+      )}
+    </div>
   );
 };
 
