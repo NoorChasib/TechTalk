@@ -18,7 +18,7 @@ const Comments = ({ postId }) => {
     })
   );
 
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient(); 
 
   const mutation = useMutation(
     (newComment) => {
