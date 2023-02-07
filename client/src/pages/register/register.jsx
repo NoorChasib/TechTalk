@@ -33,18 +33,19 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1> Welcome to the social media app for web developers!</h1>
-          <p>
-            Whether you're a seasoned pro or just starting out, this is the
-            place to connect, collaborate, and grow as a web developer.
-          </p>
-          <span> Already have an account?</span>
-          <Link to="/login">
-            <button> Login </button>
-          </Link>
+          <div className="logo">
+            <img src={require('../..//assets/logo.png')} alt="TechTalk" />
+          </div>
+          <h1> Social media for Developers, by Developers</h1>
+          <div className="account">
+            <span> Already have an account?</span>
+            <Link to="/login">
+              <button> Login </button>
+            </Link>
+          </div>
         </div>
         <div className="right">
-          <h1> Sign up </h1>
+          <h1> Get Started </h1>
           <form>
             <input
               type="text"
@@ -70,9 +71,10 @@ const Register = () => {
               name="password"
               onChange={handleChange}
             />
+
             {err && err}
-            <button onClick={handleClick}>Register</button>
           </form>
+          <button onClick={handleClick}>Register</button>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 
 .login {
   height: 100vh;
-  background-color: base.$background;
+  background-color: base.$bgBlue;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,55 +12,76 @@
     width: 50%;
     display: flex;
     background-color: base.$white;
-    border-radius: 30px;
-    min-height: 600px;
+    border-radius: 3.3rem;
+    height: 640px;
     overflow: hidden;
-    @include cardShadow;
+    @include authShadow;
+    display: flex;
+    flex-direction: row;
 
     .left {
       flex: 1;
-      background: -webkit-linear-gradient(
-          base.$washedOrange 10%,
-          transparent 50%
-        ),
-        url('https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
-          center;
-      background-size: cover;
+      background-color: base.$bgCardBlue;
+      border-radius: 2rem;
       padding: 50px;
       display: flex;
       flex-direction: column;
       gap: 30px;
       color: base.$white;
+      margin: 2rem 0rem 2rem 2rem;
+      justify-content: space-between;
+
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        img {
+          width: 7rem;
+          margin-right: 0.8rem;
+        }
+      }
 
       h1 {
-        font-size: 40px;
-        line-height: 40px;
-        @include textShadow;
+        font-size: 38px;
+        line-height: 38px;
+        color: base.$black;
       }
 
-      span,
-      p {
-        font-size: 18px;
-        @include textShadow;
-      }
+      .account {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
 
-      button {
-        @include bigButton(
-          base.$white,
-          base.$washedBlue,
-          base.$washedBlue,
-          base.$white
-        );
+        span {
+          font-size: 18px;
+          color: base.$softBlack;
+        }
+
+        button {
+          @include bigButton(
+            base.$white,
+            base.$btnBlue,
+            base.$btnBlue,
+            base.$white
+          );
+        }
       }
     }
 
     .right {
       flex: 1;
+      border-radius: 2rem;
       padding: 50px;
       display: flex;
       flex-direction: column;
-      gap: 50px;
-      justify-content: center;
+      gap: 30px;
+      color: base.$white;
+      margin: 2rem 2rem 2rem 0;
+      justify-content: space-between;
 
       h1 {
         color: base.$black;
@@ -76,16 +97,18 @@
           border-bottom: 1px solid base.$lightGrey;
           padding: 20px 10px;
           outline: none;
+          font-size: 18px;
+          color: base.$darkText;
+          letter-spacing: 1px;
         }
-
-        button {
-          @include bigButton(
-            base.$washedBlue,
-            base.$white,
-            base.$white,
-            base.$washedBlue
-          );
-        }
+      }
+      button {
+        @include bigButton(
+          base.$btnBlue,
+          base.$white,
+          base.$white,
+          base.$btnBlue
+        );
       }
     }
   }
