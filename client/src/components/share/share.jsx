@@ -78,7 +78,6 @@ const Share = () => {
               <FontAwesomeIcon
                 icon={faImage}
                 className="faIcon"
-                size="md"
                 fixedWidth
               />
                 <span>Add Image</span>
@@ -88,7 +87,6 @@ const Share = () => {
             <FontAwesomeIcon
                 icon={faMapLocationDot}
                 className="faIcon"
-                size="md"
                 fixedWidth
               />
               <span>Add Place</span>
@@ -97,7 +95,6 @@ const Share = () => {
             <FontAwesomeIcon
                 icon={faUserGroup}
                 className="faIcon"
-                size="md"
                 fixedWidth
               />
               <span>Tag Friends</span>
