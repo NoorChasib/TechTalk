@@ -43,14 +43,17 @@
           }
         }
         button{
+          @include smallButton(
+            base.$buttonRed,
+            base.$white,
+            base.$white,
+            base.$buttonRed
+          );
           position: absolute;
-          top: 30px;
-          right: 0;
+          top: 35px;
+          right: 0px;
           border: none;
-          background-color: red;
-          padding: 5px;
-          cursor: pointer;
-          color: white;
+          padding: 10px;
         }
       }
 
