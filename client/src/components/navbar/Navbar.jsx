@@ -20,7 +20,10 @@ const Navbar = () => {
     <div className="navbar">
       <div className="left">
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <span className="logoName">TechTalk</span>
+          <div className="logo">
+            <img src={require('../..//assets/logo.png')} alt="TechTalk" />
+            <h4>TechTalk</h4>
+          </div>
         </Link>
         {darkMode ? (
           <FontAwesomeIcon
@@ -66,7 +69,7 @@ const Navbar = () => {
           size="lg"
           fixedWidth
         />
-        <div className="user">
+        <div className="userProfile">
           <img src={currentUser.profilePic} alt="" />
           <span>{currentUser.name}</span>
         </div>

@@ -5,7 +5,7 @@
 .post {
   @include themify($themes) {
     @include postShadow;
-    border-radius: 25px;
+    @include smallBorderRd;
     background-color: themed('bg');
     color: themed('textColor');
 

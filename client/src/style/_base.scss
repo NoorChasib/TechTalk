@@ -25,7 +25,7 @@ $washedBlue: #5274a1;
 $bgBlue: #7FC8F8;
 $bgCardBlue: #D8EEFD;
 $btnBlue: #0C90E9;
-$buttonBlue: #4f6efb;
+$buttonBlue: #0C90E9;
 $buttonRed: #fb4f4f;
 $turquoise: #127474;
 $red: #ff0000;
@@ -198,6 +198,14 @@ $darkText: #555555;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0,
       rgba(0, 0, 0, 0.24) 0px 1px 2px 0;
   }
+}
+
+@mixin bigBorderRd{
+  border-radius: 3.3rem;
+}
+
+@mixin smallBorderRd{
+  border-radius: 1.8rem;
 }
 
 @mixin mobile {

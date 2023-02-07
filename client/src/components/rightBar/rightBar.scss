@@ -32,7 +32,7 @@
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed('bg');
-        border-radius: 25px;
+        @include smallBorderRd;
 
         span {
           color: base.$grey;

@@ -1,5 +1,4 @@
 import './post.scss';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEllipsis,

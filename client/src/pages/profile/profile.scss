@@ -19,8 +19,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
+        @include smallBorderRd;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
         @include coverShadow;
       }
 
@@ -51,7 +52,7 @@
       .uInfo {
         height: 180px;
         @include cardShadow;
-        border-radius: 25px;
+        @include smallBorderRd;
         background-color: themed('bg');
         color: themed('textColor');
         padding: 75px 50px 50px 50px;

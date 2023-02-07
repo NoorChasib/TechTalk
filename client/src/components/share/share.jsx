@@ -1,7 +1,6 @@
 import "./share.scss";
-import Image from "../../assets/img.png";
-import Map from "../../assets/map.png";
-import Friend from "../../assets/friend.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage, faMapLocationDot, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -76,16 +75,31 @@ const Share = () => {
             />
             <label htmlFor="file">
               <div className="item">
-                <img src={Image} alt="" />
+              <FontAwesomeIcon
+                icon={faImage}
+                className="faIcon"
+                size="md"
+                fixedWidth
+              />
                 <span>Add Image</span>
               </div>
             </label>
             <div className="item">
-              <img src={Map} alt="" />
+            <FontAwesomeIcon
+                icon={faMapLocationDot}
+                className="faIcon"
+                size="md"
+                fixedWidth
+              />
               <span>Add Place</span>
             </div>
             <div className="item">
-              <img src={Friend} alt="" />
+            <FontAwesomeIcon
+                icon={faUserGroup}
+                className="faIcon"
+                size="md"
+                fixedWidth
+              />
               <span>Tag Friends</span>
             </div>
           </div>
