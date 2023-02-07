@@ -46,7 +46,7 @@
           @include smallBorderRd;
 
           span {
-            color: base.$grey;
+            color: themed('textColorSoft');
           }
 
           .user,
