@@ -6,7 +6,8 @@
   @include themify($themes) {
     background-color: themed('pageBg');
     padding-top: 100px;
-
+    min-height: 100vh;
+    
     @include mobile {
       padding: 10px;
       padding-top: 100px;
