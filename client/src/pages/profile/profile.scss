@@ -5,6 +5,18 @@
 .profile {
   @include themify($themes) {
     background-color: themed('pageBg');
+    padding-top: 100px;
+
+    @include mobile {
+      padding: 10px;
+      padding-top: 100px;
+      
+    }
+
+    @include tablet {
+      padding: 20px;
+      padding-top: 100px;
+    }
 
     .faIcon {
       cursor: pointer;
@@ -41,6 +53,7 @@
 
       @include mobile {
         padding: 10px;
+        
       }
 
       @include tablet {

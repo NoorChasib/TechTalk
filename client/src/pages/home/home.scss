@@ -7,13 +7,16 @@
     background-color: themed('pageBg');
     padding: 20px 70px;
     color: themed('textColor');
+    padding-top: 100px;
 
     @include mobile {
       padding: 20px;
+      padding-top: 100px;
     }
 
     @include tablet {
       padding: 20px;
+      padding-top: 100px;
     }
   }
 }

@@ -29,6 +29,14 @@
     color: themed('textColor');
     @include postShadow;
 
+    @include mobile {
+      width: 85%;
+    }
+
+    @include tablet {
+      width: 95%;
+    }
+
     .faIcon {
       cursor: pointer;
     }
