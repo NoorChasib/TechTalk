@@ -12,10 +12,10 @@
     width: 50%;
     display: flex;
     background-color: base.$white;
-    border-radius: 30px;
+    border-radius: 3.3rem;
     min-height: 600px;
     overflow: hidden;
-    @include cardShadow;
+    @include authShadow;
 
     .left {
       flex: 1;

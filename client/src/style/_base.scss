@@ -42,6 +42,10 @@ $darkBorder: #444444;
 
 // mixins
 
+@mixin authShadow {
+  box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+}
+
 @mixin cardShadow {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
@@ -73,7 +77,7 @@ $darkBorder: #444444;
   align-items: center;
   appearance: none;
   background-color: $bgColor;
-  border-radius: 25px;
+  border-radius: 0.8rem;
   border-style: none;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   box-sizing: border-box;
@@ -134,7 +138,7 @@ $darkBorder: #444444;
   align-items: center;
   appearance: none;
   background-color: $bgColor;
-  border-radius: 25px;
+  border-radius: 0.8rem;
   border-style: none;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   box-sizing: border-box;
