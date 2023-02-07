@@ -71,7 +71,13 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
+          <Link
+                to={`/profile/${post.userId}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+
             <img src={post.profilePic} alt="" />
+            </Link>
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -81,6 +87,8 @@ const Post = ({ post }) => {
               </Link>
               <span className="date">{moment(post.createdAt).fromNow()}</span>
             </div>
+
+
           </div>
           <FontAwesomeIcon
             onClick={() => setMenuOpen(!menuOpen)}
