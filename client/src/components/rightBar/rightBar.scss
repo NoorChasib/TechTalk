@@ -44,6 +44,7 @@
 
         span {
           color: base.$grey;
+          font-size: 14px;
         }
 
         .user {
@@ -78,11 +79,15 @@
 
             p {
               color: themed('textColorSoft');
+              font-size: 14px;
+              max-inline-size: 215px;
+              overflow-wrap: break-word;
             }
 
             span {
               font-weight: 500;
               color: themed('textColor');
+              font-size: 15px;
             }
           }
 

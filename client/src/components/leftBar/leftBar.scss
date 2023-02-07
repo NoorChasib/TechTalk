@@ -6,6 +6,7 @@
   @include themify($themes) {
     background-color: themed('pageBg');
     flex: 2;
+    max-width: 385px;
 
     @include mobile {
       display: none;
@@ -37,21 +38,15 @@
       .container {
         padding: 20px;
 
-        hr {
-          margin: 20px 0px;
-          border: none;
-          height: 1px;
-          background-color: themed('border');
-        }
-
         .menu {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
+          @include cardShadow;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: themed('bg');
+          @include smallBorderRd;
 
           span {
-            font-size: 12px;
-            color: themed('textColorSoft');
+            color: base.$grey;
           }
 
           .user,
@@ -71,7 +66,7 @@
             }
 
             span {
-              font-size: 14px;
+              font-weight: 500;
               color: themed('textColor');
             }
           }
@@ -87,6 +82,9 @@
 
             span {
               font-size: 14px;
+              padding: 15px 0px 10px 0px;
+              max-inline-size: 365px;
+              overflow-wrap: break-word;
             }
           }
         }

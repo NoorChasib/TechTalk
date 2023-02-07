@@ -27,13 +27,12 @@ const Leftbar = () => {
               <span>Bio</span>
             </div>
             <div className="item">
-              <span>Other Platforms:</span>
+              <span>Other Platforms: sdf sd fs dfs d fs d f s d fsdf sdfsdfsfs dfs dfssf sdf sdsf</span>
             </div>
             <div className="item">
               <span>Friends</span>
             </div>
           </div>
-          <hr />
           <div className="menu">
             <div className="news">
               <FontAwesomeIcon
@@ -60,7 +59,6 @@ const Leftbar = () => {
               <span>some news here</span>
             </div>
           </div>
-          <hr />
           <div className="menu">
             <div className="dev">
               <FontAwesomeIcon
