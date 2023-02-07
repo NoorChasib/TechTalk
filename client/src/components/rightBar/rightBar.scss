@@ -7,16 +7,6 @@
     background-color: themed('pageBg');
 
 
-    .rightBarFront{
-      flex: 3;
-      position: sticky;
-      top: 70px;
-      height: calc(100vh - 70px);
-      overflow: scroll;
-      scrollbar-width: none; /* Firefox */
-    background-color: themed('bgSoft');
-    border-radius: 25px;
-
     @include mobile {
       display: none;
     }
@@ -24,6 +14,17 @@
     @include tablet {
       display: none;
     }
+
+    .rightBarFront{
+      flex: 3;
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+    background-color: themed('bgSoft');
+    border-radius: 25px;
+
 
     &::-webkit-scrollbar {
       display: none;
@@ -55,6 +56,7 @@
             align-items: center;
             gap: 20px;
             position: relative;
+            max-width: 75%;
 
             img {
               width: 40px;

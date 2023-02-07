@@ -4,8 +4,9 @@
 
 .navbar {
   @include themify($themes) {
-  position: sticky;
-  top: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 10000;
   height: 5em;
   background-color: themed('pageBg');
@@ -16,7 +17,8 @@
 
   .navbarFront {
 
-
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
