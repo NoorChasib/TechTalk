@@ -33,7 +33,6 @@ const Login = () => {
         <div className="left">
           <div className="logo">
             <img src={require('../..//assets/logo.png')} alt="TechTalk" />
-            {/* <h4>TechTalk</h4> */}
           </div>
           <h1> Empowering Developers to Connect, Learn, and Grow</h1>
           <div className="account">

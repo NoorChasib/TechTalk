@@ -35,13 +35,8 @@ const Register = () => {
         <div className="left">
           <div className="logo">
             <img src={require('../..//assets/logo.png')} alt="TechTalk" />
-            {/* <h4>TechTalk</h4> */}
           </div>
           <h1> Social media for Developers, by Developers</h1>
-          {/* <p>
-            Whether you're a seasoned pro or just starting out, this is the
-            place to connect, collaborate, and grow as a web developer.
-          </p> */}
           <div className="account">
             <span> Already have an account?</span>
             <Link to="/login">
