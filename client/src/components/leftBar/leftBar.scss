@@ -4,78 +4,83 @@
 
 .leftBar {
   @include themify($themes) {
+    background-color: themed('pageBg');
     flex: 2;
-    position: sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
-    overflow: scroll;
-    scrollbar-width: none; /* Firefox */
-    background-color: themed('bg');
-    color: themed('textColor');
 
-    @include mobile {
-      display: none;
-    }
+    .leftBarFront {
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('bgSoft');
+      color: themed('textColor');
+      border-radius: 25px;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .faIcon {
-      cursor: pointer;
-    }
-
-    .container {
-      padding: 20px;
-
-      hr {
-        margin: 20px 0px;
-        border: none;
-        height: 1px;
-        background-color: themed('border');
+      @include mobile {
+        display: none;
       }
 
-      .menu {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
-        span {
-          font-size: 12px;
+      .faIcon {
+        cursor: pointer;
+      }
+
+      .container {
+        padding: 20px;
+
+        hr {
+          margin: 20px 0px;
+          border: none;
+          height: 1px;
+          background-color: themed('border');
         }
 
-        .user,
-        .dev,
-        .news {
+        .menu {
           display: flex;
-          align-items: center;
-          gap: 10px;
-          font-weight: 500;
-
-          img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-          }
+          flex-direction: column;
+          gap: 20px;
 
           span {
-            font-size: 14px;
-          }
-        }
-
-        .item {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-
-          img {
-            width: 30px;
+            font-size: 12px;
           }
 
-          span {
-            font-size: 14px;
+          .user,
+          .dev,
+          .news {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+
+            img {
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              object-fit: cover;
+              cursor: pointer;
+            }
+
+            span {
+              font-size: 14px;
+            }
+          }
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 30px;
+            }
+
+            span {
+              font-size: 14px;
+            }
           }
         }
       }

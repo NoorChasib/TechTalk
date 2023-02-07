@@ -4,7 +4,7 @@
 
 .share {
   @include themify($themes) {
-    @include cardShadow;
+    @include postShadow;
     @include smallBorderRd;
     background-color: themed('bg');
     color: themed('textColor');

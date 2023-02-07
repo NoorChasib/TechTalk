@@ -4,18 +4,28 @@
 
 .navbar {
   @include themify($themes) {
+  position: sticky;
+  top: 0px;
+  z-index: 10000;
+  height: 5em;
+  background-color: themed('pageBg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  .navbarFront {
+
+
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    height: 50px;
+    width: 95%;
     border-bottom: 1px solid themed('border');
-    position: sticky;
-    top: 0px;
-    z-index: 10000;
+    border-radius: 25px;
     background-color: themed('bg');
     color: themed('textColor');
-    @include coverShadow;
+    @include postShadow;
 
     .faIcon {
       cursor: pointer;
@@ -122,4 +132,5 @@
       }
     }
   }
+}
 }

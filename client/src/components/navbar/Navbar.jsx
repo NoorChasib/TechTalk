@@ -18,6 +18,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <div className='navbarFront'>
       <div className="left">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="logo">
@@ -73,6 +74,7 @@ const Navbar = () => {
           <img src={currentUser.profilePic} alt="" />
           <span>{currentUser.name}</span>
         </div>
+      </div>
       </div>
     </div>
   );

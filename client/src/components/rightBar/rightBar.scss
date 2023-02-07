@@ -4,13 +4,18 @@
 
 .rightBar {
   @include themify($themes) {
-    flex: 3;
-    position: sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
-    overflow: scroll;
-    scrollbar-width: none; /* Firefox */
+    background-color: themed('pageBg');
+
+
+    .rightBarFront{
+      flex: 3;
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
     background-color: themed('bgSoft');
+    border-radius: 25px;
 
     @include mobile {
       display: none;
@@ -26,6 +31,7 @@
 
     .container {
       padding: 20px;
+
 
       .item {
         @include cardShadow;
@@ -102,6 +108,7 @@
           }
         }
       }
+    }
     }
   }
 }
