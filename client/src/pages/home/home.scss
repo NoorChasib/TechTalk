@@ -7,6 +7,7 @@
     background-color: themed('bg');
     padding: 20px 70px;
     color: themed('textColor');
+    min-height: 100vh;
 
     @include mobile {
       padding: 10px;
