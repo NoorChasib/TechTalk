@@ -11,7 +11,7 @@ function News(props) {
     <div>
       <div className="all__news">
         {stories
-          ? stories.slice(0, 10).map((story, i) => (
+          ? stories.slice(0, 5).map((story, i) => (
               <NewsArticle storyId={story} key={i} />
             ))
           : "Loading"}

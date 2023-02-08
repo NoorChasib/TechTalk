@@ -25,15 +25,15 @@ function NewsArticle({ storyId }) {
     {info && 
 <> 
       <div className="news_format"> 
-      <h3>Title</h3>
-      <span className="news_url"><a href={info.url}>{info.title}</a></span> 
+      <span className="bold">Title</span>
+      <span className="news_url"><a rel="noopener noreferrer" target="_blank" href={info.url}>{info.title} </a></span> 
       </div> 
       <div className="news_format">  
-      <span>Score</span>
+      <span className="bold">Score</span>
       <span className="news_score">{info.score}</span> 
       </div>  
       <div className="news_format">  
-      <span>Author</span>
+      <span className="bold">Author</span>
       <span className="news_by">{info.by}</span>  
       </div> 
 
