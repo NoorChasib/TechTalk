@@ -6,7 +6,7 @@
   @include themify($themes) {
     @include postShadow;
     @include smallBorderRd;
-    background-color: themed('sectionBg');
+    background-color: themed('cardBg');
     color: themed('textColor');
     margin-bottom: 25px;
 

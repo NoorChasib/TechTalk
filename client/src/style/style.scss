@@ -9,6 +9,7 @@ $themes: (
     softTextColor: base.$lightSoftTxt,
     border: base.$border,
     logo: base.$logo,
+    search: base.$logo,
   ),
   dark: (
     pageBg: base.$darkPageBg,
@@ -18,6 +19,7 @@ $themes: (
     softTextColor: base.$darkSoftTxt,
     border: base.$border,
     logo: base.$logo,
+    search: base.$darkCardBg,
   ),
 );
 
