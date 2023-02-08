@@ -65,7 +65,7 @@
         height: 180px;
         @include cardShadow;
         @include smallBorderRd;
-        background-color: themed('bg');
+        background-color: themed('sectionBg');
         color: themed('textColor');
         padding: 75px 50px 50px 50px;
         display: flex;
@@ -116,7 +116,7 @@
               display: flex;
               align-items: center;
               gap: 5px;
-              color: themed('textColorSoft');
+              color: themed('textColor');
 
               span {
                 font-size: 12px;

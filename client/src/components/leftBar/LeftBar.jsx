@@ -27,7 +27,7 @@ const Leftbar = () => {
               <span>Bio</span>
             </div>
             <div className="item">
-              <span>Other Platforms: sdf sd fs dfs d fs d f s d fsdf sdfsdfsfs dfs dfssf sdf sdsf</span>
+              <span>Other Platforms:</span>
             </div>
             <div className="item">
               <span>Friends</span>

@@ -2,22 +2,22 @@
 
 $themes: (
   light: (
-    textColor: base.$black,
-    bg: base.$white,
-    pageBg: base.$bgCardBlue,
-    logo: base.$btnBlue,
-    bgSoft: base.$bgSoft,
-    textColorSoft: base.$textSoft,
-    border: base.$lightGrey,
+    pageBg: base.$lightPageBg,
+    sectionBg: base.$lightSectionBg,
+    cardBg: base.$lightCardBg,
+    textColor: base.$lightTxt,
+    softTextColor: base.$lightSoftTxt,
+    border: base.$border,
+    logo: base.$logo,
   ),
   dark: (
-    textColor: base.$whiteSmoke,
-    bg: base.$darkBg,
-    pageBg: base.$bgCardBlue,
-    logo: base.$white,
-    bgSoft: base.$darkBgSoft,
-    textColorSoft: base.$lightGrey,
-    border: base.$darkBorder,
+    pageBg: base.$darkPageBg,
+    sectionBg: base.$darkSectionBg,
+    cardBg: base.$darkCardBg,
+    textColor: base.$darkTxt,
+    softTextColor: base.$darkSoftTxt,
+    border: base.$border,
+    logo: base.$logo,
   ),
 );
 

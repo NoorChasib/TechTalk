@@ -25,7 +25,7 @@
     width: 95%;
     border-bottom: 1px solid themed('border');
     border-radius: 25px;
-    background-color: themed('bg');
+    background-color: themed('sectionBg');
     color: themed('textColor');
     @include postShadow;
 

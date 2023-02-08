@@ -6,7 +6,7 @@
   @include themify($themes) {
     @include cardShadow;
     @include smallBorderRd;
-    background-color: themed('bg');
+    background-color: themed('cardBg');
     color: themed('textColor');
 
     .container {

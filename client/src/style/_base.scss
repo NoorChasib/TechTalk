@@ -1,22 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 @import url('https://fonts.cdnfonts.com/css/cera-round-pro');
-@import url('https://fonts.cdnfonts.com/css/rockoflf');
 
 // body
 * {
   font-family: 'Cera Round Pro', sans-serif;
 }
 
-// fonts
-$Nunito: 'Nunito', sans-serif;
-$Comfortaa: 'Comfortaa', sans-serif;
-$Quicksand: 'Quicksand', sans-serif;
-$Asap: 'Asap', sans-serif;
-$Varela: 'Varela Round', sans-serif;
-$Cera: 'Cera Round Pro', sans-serif;
-$Rock: 'RockoFLF', sans-serif;
-
-// colors
+// Colors
 $grey: #808080;
 $lightGrey: #d3d3d3;
 $blue: #0000ff;
@@ -29,11 +18,11 @@ $buttonBlue: #0C90E9;
 $buttonRed: #fb4f4f;
 $turquoise: #127474;
 $red: #ff0000;
-$white: #ffffff;
+
 $washedOrange: #a97b43;
 $background: #f0f6f6;
 $limeGreen: #32cd32;
-$black: #000000;
+
 $softBlack: #646468;
 $shadow: #00000033;
 $textShadow: #000000;
@@ -45,8 +34,41 @@ $darkBgSoft: #333333;
 $darkBorder: #444444;
 $darkText: #555555;
 
-// mixins
 
+// Light/Dark Mode Colors
+$white: #ffffff;
+$black: #000000;
+$lightPageBg:#D8EEFD;
+$darkPageBg: #24292E;
+$lightSectionBg: #B1DEFB;
+$darkSectionBg: #383f45;
+$lightCardBg: #f6f7f9;
+$darkCardBg: #454c52;
+$lightTxt: #131315;
+$darkTxt: #F4F4F5;
+$lightSoftTxt: #596066;
+$darkSoftTxt: #9Ea5ad;
+$border: #d3d3d3;
+$logo: #0C90E9;
+
+
+// Actual Colors
+$Blue1: #00a3bf;
+$Red1: #DE350B;
+$Green1: #00875a;
+$Blue2: #00b8d9;
+$Red2: #ff5630;
+$Green2: #36b37e;
+$Blue3: #00c7e6;
+$Red3: #ff7452;
+$Blue4: #79e2f2;
+$Blue5: #B3f5ff;
+$Blue6: #c9f6fe;
+$White1: #f6f7f9;
+
+
+
+// mixins
 @mixin authShadow {
   box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
 }
@@ -70,7 +92,7 @@ $darkText: #555555;
 }
 
 @mixin textShadow {
-  text-shadow: 2px 3px 10px $textShadow;
+  text-shadow: 2px 3px 10px #00000087;
 }
 
 @mixin barShadow {

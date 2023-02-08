@@ -6,7 +6,7 @@
   @include themify($themes) {
     @include postShadow;
     @include smallBorderRd;
-    background-color: themed('bg');
+    background-color: themed('sectionBg');
     color: themed('textColor');
     margin-bottom: 25px;
 
@@ -80,7 +80,7 @@
 
             span {
               font-size: 12px;
-              color: themed('textColorSoft');
+              color: themed('textColor');
             }
           }
         }
