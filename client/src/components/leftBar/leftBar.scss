@@ -46,10 +46,6 @@
           background-color: themed('cardBg');
           @include smallBorderRd;
 
-          span {
-            color: themed('textColor');
-          }
-
           .user,
           .dev,
           .news {
@@ -64,10 +60,6 @@
               border-radius: 50%;
               object-fit: cover;
               cursor: pointer;
-            }
-
-            span {
-              color: themed('textColor');
             }
           }
           
