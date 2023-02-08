@@ -1,44 +1,46 @@
-@use '../..//style/base.scss';
-@import '../..//style/base.scss';
-@import '../..//style/style.scss'; 
+@use "../..//style/base";
+@import '../..//style/base';
+@import '../..//style/style.scss';
 
 // span {
-//   margin: 10px; 
+//   margin: 10px;
 //   .news_title {
 //     background-color: red;
 //   }
-// } 
+// }
 // .all_news{
 //   color: red;
-// } 
+// }
+
 .all_news {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-direction: column;  
-} 
+  flex-direction: column;
+}
 .news {
-  display: flex;  
-  flex-direction: column; 
-  @include cardShadow;
-  padding: 20px;
-  margin-bottom: 20px;
-  @include smallBorderRd;
-} 
-.news_format { 
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    @include postShadow;
+    padding: 20px;
+    margin-bottom: 10px;
+    @include smallBorderRd;
+    color: themed('textColor');
 
-  display: flex;  
-  flex-direction: column; 
-  align-items: center; 
+    .news_format {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-} 
-
-a {
-  text-decoration: none;
-  color: black
-
-} 
-.news_url {
-  display: flex;  
-  align-items: center; 
+    a {
+      text-decoration: none;
+      color: themed('textColor');
+    }
+    .news_url {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
