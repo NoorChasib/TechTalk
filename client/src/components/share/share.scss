@@ -36,8 +36,6 @@
             width: 60%;
             color: themed('textColor');
           }
-
-
         }
         .right {
           flex: 1;
@@ -93,6 +91,10 @@
               base.$buttonBlue
             );
             padding: 10px 15px;
+
+            @include mobile {
+              padding: 10px 10px;
+            }
           }
         }
       }

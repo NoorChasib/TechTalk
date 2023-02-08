@@ -25,11 +25,15 @@ const Post = ({ post }) => {
   const { currentUser } = useContext(AuthContext);
 
   const commentRef = useRef();
+  const menuRef = useRef();
 
   useEffect(() => {
     let handler = (e) => {
       if (!commentRef.current.contains(e.target)) {
         setCommentOpen(false);
+      }
+      if (!menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
       }
     };
 
@@ -37,7 +41,7 @@ const Post = ({ post }) => {
 
     return () => {
       document.removeEventListener('click', handler);
-    }
+    };
   });
 
   const { isLoading, error, data } = useQuery(['likes', post.id], () =>
@@ -106,6 +110,7 @@ const Post = ({ post }) => {
             onClick={() => setMenuOpen(!menuOpen)}
             icon={faEllipsis}
             className="faIcon"
+            ref={menuRef}
             size="lg"
             fixedWidth
           />

@@ -37,6 +37,10 @@
           base.$buttonBlue
         );
         padding: 10px 20px;
+
+        @include mobile {
+          padding: 10px 10px;
+        }
       }
     }
 
@@ -45,6 +49,8 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
+      align-items: center;
+
 
       .info {
         flex: 5;
@@ -55,10 +61,22 @@
 
         span {
           font-weight: 500;
+
         }
 
         p {
           color: themed('textColor');
+          @include mobile {
+            max-inline-size: 200px;
+            overflow-wrap: break-word;
+            
+          }
+
+          @include tablet {
+            max-inline-size: 420px;
+            overflow-wrap: break-word;
+            
+          }
         }
       }
 
@@ -67,7 +85,12 @@
         align-self: center;
         color: themed('textColor');
         font-size: 12px;
+        display: flex;
+        justify-content: flex-end;
       }
     }
+
   }
 }
+
+
