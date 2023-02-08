@@ -23,7 +23,7 @@
     @include smallBorderRd;
     overflow: hidden;
     position: relative;
-    @include cardShadow;
+    @include storyShadow;
 
     @include mobile {
       flex: none;

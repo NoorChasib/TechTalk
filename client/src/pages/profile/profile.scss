@@ -63,7 +63,7 @@
           right: 0;
           margin: auto;
           top: 200px;
-          @include cardShadow;
+          @include postShadow;
 
           @include mobile {
             width: 180px;
@@ -93,7 +93,7 @@
 
         .uInfo {
           height: 180px;
-          @include cardShadow;
+          @include postShadow;
           @include smallBorderRd;
           background-color: themed('cardBg');
           color: themed('textColor');
