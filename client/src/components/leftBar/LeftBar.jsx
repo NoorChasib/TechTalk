@@ -41,7 +41,7 @@ const Leftbar = () => {
                 size="lg"
                 fixedWidth
               />
-              <span>News</span>
+              <span className='title'>News</span>
             </div>
             <div className="item">
               <span>some news here</span>
@@ -67,7 +67,7 @@ const Leftbar = () => {
                 size="lg"
                 fixedWidth
               />
-              <span>Dev Resources For You</span>
+              <span className='title'>Dev Resources For You</span>
             </div>
             <div className="item">
               <span>some resources here</span>

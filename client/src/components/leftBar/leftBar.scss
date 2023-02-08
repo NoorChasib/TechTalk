@@ -67,9 +67,14 @@
             }
 
             span {
-              font-weight: 500;
               color: themed('textColor');
             }
+          }
+          
+          .title{
+            font-weight: 500;
+            color: themed('textColor');
+            font-size: 15px;
           }
 
           .item {

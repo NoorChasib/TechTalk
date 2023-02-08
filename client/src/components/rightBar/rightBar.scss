@@ -44,8 +44,14 @@
         @include smallBorderRd;
 
         span {
-          color: base.$grey;
+          color: themed('softTextColor');
           font-size: 14px;
+        }
+
+        .title {
+          font-weight: 500;
+          color: themed('textColor');
+          font-size: 15px;
         }
 
         .user {

@@ -12,7 +12,7 @@ const RightBar = () => {
           />
         </div> */}
           <div className="item">
-            <span>Suggested For You</span>
+            <span className='title'>Suggested For You</span>
             <div className="user">
               <div className="userInfo">
                 <img
@@ -41,7 +41,7 @@ const RightBar = () => {
             </div>
           </div>
           <div className="item">
-            <span>Latest Activities</span>
+            <span className='title'>Latest Activities</span>
             <div className="user">
               <div className="userInfo">
                 <img
@@ -93,7 +93,7 @@ const RightBar = () => {
             </div>
           </div>
           <div className="item">
-            <span>Active friends</span>
+            <span className='title'>Active friends</span>
             <div className="user">
               <div className="userInfo">
                 <img
