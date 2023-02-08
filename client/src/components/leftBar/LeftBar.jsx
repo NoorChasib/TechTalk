@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react';
+import { useContext } from 'react'; 
+import { NewsContextProvider } from '../News/NewsContext';
+import News from '../News/News';
 
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -38,21 +40,9 @@ const Leftbar = () => {
               />
               <span>News</span>
             </div>
-            <div className="item">
-              <span>some news here</span>
-            </div>
-            <div className="item">
-              <span>some news here</span>
-            </div>
-            <div className="item">
-              <span>some news here</span>
-            </div>
-            <div className="item">
-              <span>some news here</span>
-            </div>
-            <div className="item">
-              <span>some news here</span>
-            </div>
+            <NewsContextProvider>
+              <News />
+            </NewsContextProvider>
           </div>
           <hr />
           <div className="menu">

@@ -1,0 +1,29 @@
+@use '../..//style/base.scss';
+@import '../..//style/base.scss';
+@import '../..//style/style.scss'; 
+
+// span {
+//   margin: 10px; 
+//   .news_title {
+//     background-color: red;
+//   }
+// } 
+// .all_news{
+//   color: red;
+// } 
+.all_news {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;  
+} 
+.news {
+  display: flex;  
+  flex-direction: column;
+} 
+.news_format {
+  display: flex;  
+  flex-direction: column; 
+  align-items: center;
+
+}
