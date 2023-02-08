@@ -2,16 +2,6 @@
 @import '../..//style/base';
 @import '../..//style/style.scss';
 
-// span {
-//   margin: 10px;
-//   .news_title {
-//     background-color: red;
-//   }
-// }
-// .all_news{
-//   color: red;
-// }
-
 .all_news {
   display: flex;
   align-items: center;
@@ -43,5 +33,8 @@
       align-items: center;
       color: themed('softTextColor');
     }
+    .bold{
+      font-weight: bold;
+    } 
   }
 }
