@@ -5,141 +5,173 @@
 .profile {
   @include themify($themes) {
     background-color: themed('pageBg');
-    padding-top: 100px;
-    min-height: 100vh;
-    
+    padding-left: 60px;
+    padding-right: 60px;
+    color: themed('textColor');
+    height: 100vh;
+
     @include mobile {
       padding: 10px;
-      padding-top: 100px;
-      
     }
 
     @include tablet {
-      padding: 20px;
-      padding-top: 100px;
+      padding: 30px;
     }
 
-    .faIcon {
-      cursor: pointer;
-    }
-
-    .images {
-      width: 100%;
-      height: 300px;
-      position: relative;
-
-      .cover {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        @include smallBorderRd;
-        @include coverShadow;
-      }
-
-      .profilePic {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        top: 200px;
-        @include cardShadow;
-      }
-    }
-    .profileContainer {
-      padding: 20px 70px;
+    .profileFront {
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('middleSectionBg');
+      @include bigBorderRd;
+      @include coverShadow;
 
       @include mobile {
-        padding: 10px;
-        
+        padding: 5px;
       }
 
       @include tablet {
         padding: 20px;
       }
 
-      .uInfo {
-        height: 180px;
-        @include cardShadow;
-        @include smallBorderRd;
-        background-color: themed('bg');
-        color: themed('textColor');
-        padding: 75px 50px 50px 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
+      .faIcon {
+        cursor: pointer;
+      }
 
-        @include mobile {
-          flex-direction: column;
-          height: 30vh;
-          padding: 20px;
-          margin-top: 100px;
+      .images {
+        width: 100%;
+        height: 300px;
+        position: relative;
+
+        .cover {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          @include smallBorderRd;
+          @include coverShadow;
         }
 
-        .left {
-          flex: 1;
-          display: flex;
-          gap: 15px;
+        .profilePic {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          top: 200px;
+          @include postShadow;
+
+          @include mobile {
+            width: 180px;
+            height: 180px;
+            top: 220px;
+          }
 
           @include tablet {
-            flex-wrap: wrap;
-          }
-
-          a {
-            color: themed('textColor');
+            width: 180px;
+            height: 180px;
+            top: 220px;
           }
         }
+      }
+      .profileContainer {
+        padding: 20px 30px 20px 30px;
 
-        .center {
-          flex: 1;
+        @include mobile {
+          padding: 10px;
+          padding-top: 20px;
+          margin: 5px;
+        }
+
+        @include tablet {
+          padding: 20px;
+        }
+
+        .uInfo {
+          height: 180px;
+          @include postShadow;
+          @include smallBorderRd;
+          background-color: themed('cardBg');
+          color: themed('textColor');
+          padding: 75px 50px 50px 50px;
           display: flex;
-          flex-direction: column;
           align-items: center;
-          gap: 25px;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          margin-top: 20px;
 
-          span {
-            font-size: 30px;
-            font-weight: 500;
+          @include mobile {
+            flex-direction: column;
+            height: 30vh;
+            padding: 20px;
+            margin-top: 100px;
           }
 
-          .info {
-            width: 100%;
+          .left {
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: space-around;
+            gap: 15px;
 
-            .item {
-              display: flex;
-              align-items: center;
-              gap: 5px;
-              color: themed('textColorSoft');
+            @include tablet {
+              flex-wrap: wrap;
+            }
 
-              span {
-                font-size: 12px;
-              }
+            a {
+              color: themed('textColor');
             }
           }
-          button {
-            @include bigButton(
-              base.$buttonBlue,
-              base.$white,
-              base.$white,
-              base.$buttonBlue
-            );
-          }
-        }
 
-        .right {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: 15px;
-          color: themed('textColor');
+          .center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+
+            span {
+              font-size: 30px;
+              font-weight: 500;
+            }
+
+            .info {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+
+              .item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: themed('textColor');
+
+                span {
+                  font-size: 12px;
+                }
+              }
+            }
+            button {
+              @include bigButton(
+                base.$buttonBlue,
+                base.$White1,
+                base.$White1,
+                base.$buttonBlue
+              );
+            }
+          }
+
+          .right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 15px;
+            color: themed('textColor');
+          }
         }
       }
     }

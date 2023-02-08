@@ -4,7 +4,7 @@
 .register {
   height: 100vh;
   width: 100vw;
-  background-color: base.$bgBlue;
+  background-color: base.$Blue4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
     width: 100%;
     max-width: 1060px;
     display: flex;
-    background-color: base.$white;
+    background-color: base.$White1;
     border-radius: 3.3rem;
     height: 640px;
     overflow: hidden;
@@ -23,13 +23,13 @@
 
     .left {
       flex: 1;
-      background-color: base.$bgCardBlue;
+      background-color: base.$Blue6;
       border-radius: 2rem;
       padding: 50px;
       display: flex;
       flex-direction: column;
       gap: 30px;
-      color: base.$white;
+      color: base.$White1;
       margin: 2rem 0rem 2rem 2rem;
       justify-content: space-between;
 
@@ -49,7 +49,7 @@
       h1 {
         font-size: 38px;
         line-height: 38px;
-        color: base.$black;
+        color: base.$lightTxt;
       }
 
       .account {
@@ -60,15 +60,15 @@
 
         span {
           font-size: 18px;
-          color: base.$softBlack;
+          color: base.$lightSoftTxt;
         }
 
         button {
           @include bigButton(
-            base.$white,
-            base.$btnBlue,
-            base.$btnBlue,
-            base.$white
+            base.$White1,
+            base.$Blue1,
+            base.$Blue1,
+            base.$White1
           );
         }
       }
@@ -82,12 +82,12 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      color: base.$white;
+      color: base.$White1;
       margin: 2rem 2rem 2rem 0;
       justify-content: space-between;
 
       h1 {
-        color: base.$black;
+        color: base.$lightTxt;
         display: flex;
         justify-content: center;
       }
@@ -99,20 +99,21 @@
 
         input {
           border: none;
-          border-bottom: 1px solid base.$lightGrey;
+          border-bottom: 1px solid base.$border;
           padding: 20px 10px;
           outline: none;
           font-size: 18px;
-          color: base.$darkText;
+          background-color: base.$White1;
+          color: base.$lightSoftTxt;
           letter-spacing: 1px;
         }
       }
       button {
         @include bigButton(
-          base.$btnBlue,
-          base.$white,
-          base.$white,
-          base.$btnBlue
+          base.$Blue1,
+          base.$White1,
+          base.$White1,
+          base.$Blue1
         );
       }
     }

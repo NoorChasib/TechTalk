@@ -42,7 +42,8 @@ const Profile = () => {
 
   const mutation = useMutation(
     (following) => {
-      if (following) return makeRequest.delete('/relationships?userId=' + userId);
+      if (following)
+        return makeRequest.delete('/relationships?userId=' + userId);
       return makeRequest.post('/relationship', { userId });
     },
     {
@@ -56,99 +57,109 @@ const Profile = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
 
-
   return (
     <div className="profile">
       {isLoading ? (
         'loading'
       ) : (
         <>
-          <div className="images">
-            <img src={"/upload/"+data.coverPic} alt="" className="cover" />
-            <img src={"/upload/"+data.profilePic} alt="" className="profilePic" />
-          </div>
-          <div className="profileContainer">
-            <div className="uInfo">
-              <div className="left">
-                <a href={url}>
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </a>
-                <a href={url}>
-                  <FontAwesomeIcon
-                    icon={faLinkedinIn}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </a>
-                <a href={url}>
-                  <FontAwesomeIcon
-                    icon={faFileLines}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </a>
+          <div className="profileFront">
+            <div className="profileContainer">
+              <div className="images">
+                <img
+                  src={'/upload/' + data.coverPic}
+                  alt=""
+                  className="cover"
+                />
+                <img
+                  src={'/upload/' + data.profilePic}
+                  alt=""
+                  className="profilePic"
+                />
               </div>
-              <div className="center">
-                <span>{data.name}</span>
-                <div className="info">
-                  <div className="item">
+
+              <div className="uInfo">
+                <div className="left">
+                  <a href={url}>
                     <FontAwesomeIcon
-                      icon={faLocationDot}
+                      icon={faGithub}
                       className="faIcon"
                       size="lg"
                       fixedWidth
                     />
-                    <span>{data.city}</span>
-                  </div>
-                  <div className="item">
+                  </a>
+                  <a href={url}>
                     <FontAwesomeIcon
-                      icon={faGlobe}
+                      icon={faLinkedinIn}
                       className="faIcon"
                       size="lg"
                       fixedWidth
                     />
-                    <span>{data.website}</span>
-                  </div>
+                  </a>
+                  <a href={url}>
+                    <FontAwesomeIcon
+                      icon={faFileLines}
+                      className="faIcon"
+                      size="lg"
+                      fixedWidth
+                    />
+                  </a>
                 </div>
-                {relisLoading ? (
-                  'loading'
-                ) : userId === currentUser.id ? (
-                  <button onClick={()=> setOpenUpdate(true)}>update</button>
-                ) : (
-                  <button onClick={handleFollow}>
-                    {relationshipData.includes(currentUser.id)
-                      ? 'Following'
-                      : 'Follow'}
-                  </button>
-                )}
+                <div className="center">
+                  <span>{data.name}</span>
+                  <div className="info">
+                    <div className="item">
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className="faIcon"
+                        size="lg"
+                        fixedWidth
+                      />
+                      <span>{data.city}</span>
+                    </div>
+                    <div className="item">
+                      <FontAwesomeIcon
+                        icon={faGlobe}
+                        className="faIcon"
+                        size="lg"
+                        fixedWidth
+                      />
+                      <span>{data.website}</span>
+                    </div>
+                  </div>
+                  {relisLoading ? (
+                    'loading'
+                  ) : userId === currentUser.id ? (
+                    <button onClick={() => setOpenUpdate(true)}>Update</button>
+                  ) : (
+                    <button onClick={handleFollow}>
+                      {relationshipData.includes(currentUser.id)
+                        ? 'Following'
+                        : 'Follow'}
+                    </button>
+                  )}
+                </div>
+                <div className="right">
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                  <FontAwesomeIcon
+                    icon={faEllipsis}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </div>
               </div>
-              <div className="right">
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="faIcon"
-                  size="lg"
-                  fixedWidth
-                />
-                <FontAwesomeIcon
-                  icon={faEllipsis}
-                  className="faIcon"
-                  size="lg"
-                  fixedWidth
-                />
-              </div>
+              <Posts userId={userId} />
             </div>
-            <Posts userId={userId}/>
           </div>
         </>
       )}
-      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data}/>}
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );
 };

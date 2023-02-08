@@ -19,12 +19,13 @@
       flex: 3;
       position: sticky;
       top: 100px;
-      height: calc(100vh - 120px);
+      height: calc(100vh - 100px);
       overflow: scroll;
       scrollbar-width: none; /* Firefox */
-      background-color: themed('bgSoft');
-      border-radius: 25px;
-      margin: 0px 20px 20px 0px;
+      background-color: themed('rightSectionBg');
+      @include bigBorderRd;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
       @include coverShadow;
 
     &::-webkit-scrollbar {
@@ -39,11 +40,18 @@
         @include cardShadow;
         padding: 20px;
         margin-bottom: 20px;
-        background-color: themed('bg');
+        background-color: themed('cardBg');
         @include smallBorderRd;
 
         span {
-          color: base.$grey;
+          color: themed('softTextColor');
+          font-size: 14px;
+        }
+
+        .title {
+          font-weight: 500;
+          color: themed('textColor');
+          font-size: 15px;
         }
 
         .user {
@@ -77,12 +85,16 @@
             }
 
             p {
-              color: themed('textColorSoft');
+              color: themed('softTextColor');
+              font-size: 14px;
+              max-inline-size: 215px;
+              overflow-wrap: break-word;
             }
 
             span {
               font-weight: 500;
               color: themed('textColor');
+              font-size: 15px;
             }
           }
 
@@ -94,8 +106,8 @@
             .follow {
               @include smallButton(
                 base.$buttonBlue,
-                base.$white,
-                base.$white,
+                base.$White1,
+                base.$White1,
                 base.$buttonBlue
               );
             }
@@ -103,8 +115,8 @@
             .ignore {
               @include smallButton(
                 base.$buttonRed,
-                base.$white,
-                base.$white,
+                base.$White1,
+                base.$White1,
                 base.$buttonRed
               );
             }

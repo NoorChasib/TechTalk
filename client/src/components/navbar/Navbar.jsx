@@ -18,63 +18,69 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className='navbarFront'>
-      <div className="left">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <div className="logo">
-            <img src={require('../..//assets/logo.png')} alt="TechTalk" />
-            <h4>TechTalk</h4>
+      <div className="navbarFront">
+        <div className="left">
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <div className="logo">
+              <img src={require('../..//assets/logo.png')} alt="TechTalk" />
+              <h4>TechTalk</h4>
+            </div>
+          </Link>
+          {darkMode ? (
+            <FontAwesomeIcon
+              icon={faSun}
+              onClick={toggle}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faMoon}
+              onClick={toggle}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
+          )}
+        </div>
+
+        <div className="center">
+          <div className="search">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
+            <input type="text" placeholder="search..." />
           </div>
-        </Link>
-        {darkMode ? (
-          <FontAwesomeIcon
-            icon={faSun}
-            onClick={toggle}
-            className="faIcon"
-            size="lg"
-            fixedWidth
-          />
-        ) : (
-          <FontAwesomeIcon
-            icon={faMoon}
-            onClick={toggle}
-            className="faIcon"
-            size="lg"
-            fixedWidth
-          />
-        )}
-      </div>
-
-      <div className="center">
-        <div className="search">
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            className="faIcon"
-            size="lg"
-            fixedWidth
-          />
-          <input type="text" placeholder="search..." />
         </div>
-      </div>
 
-      <div className="right">
-        <FontAwesomeIcon
-          icon={faComments}
-          className="faIcon"
-          size="lg"
-          fixedWidth
-        />
-        <FontAwesomeIcon
-          icon={faBell}
-          className="faIcon"
-          size="lg"
-          fixedWidth
-        />
-        <div className="userProfile">
-          <img src={currentUser.profilePic} alt="" />
-          <span>{currentUser.name}</span>
+        <div className="right">
+          <FontAwesomeIcon
+            icon={faComments}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
+          <FontAwesomeIcon
+            icon={faBell}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
+
+          <Link
+            to={`/profile/${currentUser.id}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="userProfile">
+              <img src={currentUser.profilePic} alt="" />
+              <span>{currentUser.name}</span>
+            </div>
+          </Link>
         </div>
-      </div>
       </div>
     </div>
   );

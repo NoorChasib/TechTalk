@@ -20,10 +20,10 @@
 
   .story {
     flex: 1;
-    border-radius: 25px;
+    @include smallBorderRd;
     overflow: hidden;
     position: relative;
-    @include cardShadow;
+    @include storyShadow;
 
     @include mobile {
       flex: none;
@@ -39,7 +39,7 @@
     span {
       position: absolute;
       bottom: 10px;
-      left: 10px;
+      left: 15px;
       color: base.$white;
       @include textShadow;
 
@@ -50,8 +50,8 @@
     button {
       @include bigButton(
         base.$buttonBlue,
-        base.$white,
-        base.$white,
+        base.$White1,
+        base.$White1,
         base.$buttonBlue
       );
       position: absolute;

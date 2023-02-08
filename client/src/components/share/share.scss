@@ -4,9 +4,9 @@
 
 .share {
   @include themify($themes) {
-    @include postShadow;
+    @include shareShadow;
     @include smallBorderRd;
-    background-color: themed('bg');
+    background-color: themed('cardBg');
     color: themed('textColor');
     margin-bottom: 25px;
 
@@ -78,7 +78,7 @@
 
             span {
               font-size: 12px;
-              color: base.$grey;
+              color: themed('textColor');
             }
           }
         }
@@ -86,11 +86,15 @@
           button {
             @include smallButton(
               base.$buttonBlue,
-              base.$white,
-              base.$white,
+              base.$White1,
+              base.$White1,
               base.$buttonBlue
             );
             padding: 10px 15px;
+
+            @include mobile {
+              padding: 10px 10px;
+            }
           }
         }
       }

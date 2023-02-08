@@ -4,8 +4,11 @@ import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react'; 
+import { Link } from 'react-router-dom';
 import { NewsContextProvider } from '../News/NewsContext';
 import News from '../News/News';
+
+
 
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -15,10 +18,15 @@ const Leftbar = () => {
       <div className="leftBarFront">
         <div className="container">
           <div className="menu">
-            <div className="user">
-              <img src={currentUser.profilePic} alt="" />
-              <span>{currentUser.name}</span>
-            </div>
+            <Link
+              to={`/profile/${currentUser.id}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <div className="user">
+                <img src={currentUser.profilePic} alt="" />
+                <span>{currentUser.name}</span>
+              </div>
+            </Link>
             <div className="item">
               <span>Bio</span>
             </div>
@@ -29,7 +37,6 @@ const Leftbar = () => {
               <span>Friends</span>
             </div>
           </div>
-          <hr />
           <div className="menu">
             <div className="news">
               <FontAwesomeIcon
@@ -38,13 +45,12 @@ const Leftbar = () => {
                 size="lg"
                 fixedWidth
               />
-              <span>News</span>
+              <span className='title'>News</span>
             </div>
             <NewsContextProvider>
               <News />
             </NewsContextProvider>
           </div>
-          <hr />
           <div className="menu">
             <div className="dev">
               <FontAwesomeIcon
@@ -53,7 +59,7 @@ const Leftbar = () => {
                 size="lg"
                 fixedWidth
               />
-              <span>Dev Resources For You</span>
+              <span className='title'>Dev Resources For You</span>
             </div>
             <div className="item">
               <span>some resources here</span>
