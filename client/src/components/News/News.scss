@@ -36,11 +36,12 @@
 
     a {
       text-decoration: none;
-      color: themed('textColor');
+      color: themed('softTextColor');
     }
-    .news_url {
+    .news_url, .news_score, .news_by {
       display: flex;
       align-items: center;
+      color: themed('softTextColor');
     }
   }
 }
