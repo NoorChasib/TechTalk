@@ -3,7 +3,8 @@
 $themes: (
   light: (
     pageBg: base.$lightPageBg,
-    sectionBg: base.$lightSectionBg,
+    leftSectionBg: base.$White2,
+    rightSectionBg: base.$lightSectionBg,
     cardBg: base.$lightCardBg,
     textColor: base.$lightTxt,
     softTextColor: base.$lightSoftTxt,
@@ -13,7 +14,8 @@ $themes: (
   ),
   dark: (
     pageBg: base.$darkPageBg,
-    sectionBg: base.$darkSectionBg,
+    leftSectionBg: base.$darkSectionBg,
+    rightSectionBg: base.$darkSectionBg,
     cardBg: base.$darkCardBg,
     textColor: base.$darkTxt,
     softTextColor: base.$darkSoftTxt,

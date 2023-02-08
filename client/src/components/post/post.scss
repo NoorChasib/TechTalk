@@ -45,8 +45,8 @@
         button{
           @include smallButton(
             base.$buttonRed,
-            base.$white,
-            base.$white,
+            base.$White1,
+            base.$White1,
             base.$buttonRed
           );
           position: absolute;

@@ -19,12 +19,13 @@
       flex: 3;
       position: sticky;
       top: 100px;
-      height: calc(100vh - 120px);
+      height: calc(100vh - 100px);
       overflow: scroll;
       scrollbar-width: none; /* Firefox */
-      background-color: themed('sectionBg');
+      background-color: themed('rightSectionBg');
       @include bigBorderRd;
-      margin: 0px 20px 20px 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
       @include coverShadow;
 
     &::-webkit-scrollbar {
@@ -99,8 +100,8 @@
             .follow {
               @include smallButton(
                 base.$buttonBlue,
-                base.$white,
-                base.$white,
+                base.$White1,
+                base.$White1,
                 base.$buttonBlue
               );
             }
@@ -108,8 +109,8 @@
             .ignore {
               @include smallButton(
                 base.$buttonRed,
-                base.$white,
-                base.$white,
+                base.$White1,
+                base.$White1,
                 base.$buttonRed
               );
             }

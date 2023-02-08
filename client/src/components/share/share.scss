@@ -88,8 +88,8 @@
           button {
             @include smallButton(
               base.$buttonBlue,
-              base.$white,
-              base.$white,
+              base.$White1,
+              base.$White1,
               base.$buttonBlue
             );
             padding: 10px 15px;

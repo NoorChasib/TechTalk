@@ -126,8 +126,8 @@
           button {
             @include bigButton(
               base.$buttonBlue,
-              base.$white,
-              base.$white,
+              base.$White1,
+              base.$White1,
               base.$buttonBlue
             );
           }

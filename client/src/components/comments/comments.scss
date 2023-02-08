@@ -32,8 +32,8 @@
       button {
         @include smallButton(
           base.$buttonBlue,
-          base.$white,
-          base.$white,
+          base.$White1,
+          base.$White1,
           base.$buttonBlue
         );
         padding: 10px 20px;
@@ -58,14 +58,14 @@
         }
 
         p {
-          color: themed('softTextColor');
+          color: themed('textColor');
         }
       }
 
       .date {
         flex: 1;
         align-self: center;
-        color: base.$grey;
+        color: themed('textColor');
         font-size: 12px;
       }
     }
