@@ -23,11 +23,9 @@
     justify-content: space-between;
     padding: 10px 20px;
     width: 95%;
-    border-bottom: 1px solid themed('border');
     border-radius: 25px;
-    background-color: themed('bg');
+    background-color: themed('pageBg');
     color: themed('textColor');
-    @include postShadow;
 
     @include mobile {
       width: 85%;
@@ -62,7 +60,7 @@
         }
 
         h4 {
-          font-size: 1.5em;
+          font-size: 2em;
           font-weight: 700;
           color: themed('logo');
 
@@ -78,10 +76,9 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        border: 1px solid themed('border');
-        @include smallBorderRd;
-        padding: 10px;
-        @include barShadow;
+        border: 1px solid themed('search');
+        @include bigBorderRd;
+        padding: 15px;
 
         @include mobile {
           box-shadow: none;

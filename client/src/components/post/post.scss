@@ -4,9 +4,9 @@
 
 .post {
   @include themify($themes) {
-    @include cardShadow;
+    @include postShadow;
     @include smallBorderRd;
-    background-color: themed('bg');
+    background-color: themed('cardBg');
     color: themed('textColor');
 
     .container {
@@ -38,15 +38,16 @@
             }
 
             .date {
+              padding-top: 8px;
               font-size: 12px;
             }
           }
         }
-        button{
+        button {
           @include smallButton(
             base.$buttonRed,
-            base.$white,
-            base.$white,
+            base.$White1,
+            base.$White1,
             base.$buttonRed
           );
           position: absolute;

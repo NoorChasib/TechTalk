@@ -13,7 +13,7 @@
     width: 100%;
     max-width: 1060px;
     display: flex;
-    background-color: base.$white;
+    background-color: base.$White1;
     border-radius: 3.3rem;
     height: 640px;
     overflow: hidden;
@@ -65,10 +65,10 @@
 
         button {
           @include bigButton(
-            base.$white,
+            base.$White1,
             base.$btnBlue,
             base.$btnBlue,
-            base.$white
+            base.$White1
           );
         }
       }
@@ -82,7 +82,7 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      color: base.$white;
+      color: base.$White1;
       margin: 2rem 2rem 2rem 0;
       justify-content: space-between;
 
@@ -96,6 +96,7 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+        
 
         input {
           border: none;
@@ -105,13 +106,14 @@
           font-size: 18px;
           color: base.$darkText;
           letter-spacing: 1px;
+          background-color: base.$White1;
         }
       }
       button {
         @include bigButton(
           base.$btnBlue,
-          base.$white,
-          base.$white,
+          base.$White1,
+          base.$White1,
           base.$btnBlue
         );
       }

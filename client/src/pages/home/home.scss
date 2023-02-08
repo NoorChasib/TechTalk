@@ -5,21 +5,49 @@
 .home {
   @include themify($themes) {
     background-color: themed('pageBg');
-    padding: 20px 70px;
+    padding-left: 60px;
+    padding-right: 60px;
     color: themed('textColor');
-    padding-top: 100px;
-    min-height: 100vh;
-
+    height: 100vh;
 
     @include mobile {
-      padding: 20px;
-      padding-top: 100px;
+      padding: 10px;
     }
 
     @include tablet {
-      padding: 20px;
-      padding-top: 100px;
+      padding: 30px;
+    }
+
+    .homeFront {
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('middleSectionBg');
+      @include bigBorderRd;
+      @include coverShadow;
+
+      @include mobile {
+        padding: 5px;
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+      .container {
+        padding: 20px 30px 20px 30px;
+
+        @include mobile {
+          padding: 10px;
+          padding-top: 20px;
+          margin: 5px;
+        }
+
+        @include tablet {
+          padding: 20px;
+        }
+      }
     }
   }
 }
-
