@@ -19,11 +19,26 @@
 } 
 .news {
   display: flex;  
-  flex-direction: column;
+  flex-direction: column; 
+  @include cardShadow;
+  padding: 20px;
+  margin-bottom: 20px;
+  @include smallBorderRd;
 } 
-.news_format {
+.news_format { 
+
   display: flex;  
   flex-direction: column; 
-  align-items: center;
+  align-items: center; 
 
+} 
+
+a {
+  text-decoration: none;
+  color: black
+
+} 
+.news_url {
+  display: flex;  
+  align-items: center; 
 }
