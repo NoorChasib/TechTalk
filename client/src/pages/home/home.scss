@@ -5,8 +5,8 @@
 .home {
   @include themify($themes) {
     background-color: themed('pageBg');
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
     color: themed('textColor');
     height: 100vh;
 
@@ -15,7 +15,7 @@
     }
 
     @include tablet {
-      padding: 40px;
+      padding: 30px;
     }
 
     .homeFront {
@@ -30,14 +30,13 @@
 
       @include mobile {
         padding: 5px;
-        padding-top: 10px;
       }
 
       @include tablet {
         padding: 20px;
       }
       .container {
-        padding: 20px 35px 20px 35px;
+        padding: 20px 30px 20px 30px;
 
         @include mobile {
           padding: 10px;
