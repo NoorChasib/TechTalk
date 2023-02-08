@@ -28,13 +28,15 @@
       text-decoration: none;
       color: themed('softTextColor');
     }
-    .news_url, .news_score, .news_by {
+    .news_url,
+    .news_score,
+    .news_by {
       display: flex;
       align-items: center;
       color: themed('softTextColor');
     }
-    .bold{
+    .bold {
       font-weight: bold;
-    } 
+    }
   }
 }
