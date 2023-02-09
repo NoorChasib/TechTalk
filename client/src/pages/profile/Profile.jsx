@@ -20,6 +20,8 @@ const Profile = () => {
 
   const userId = parseInt(useLocation().pathname.split('/')[2]);
 
+  
+
   const { isLoading, error, data } = useQuery(['user'], () =>
     makeRequest.get('/users/find/' + userId).then((res) => {
       return res.data;
@@ -54,7 +56,7 @@ const Profile = () => {
   };
 
   const handleClick = async () => {
-    const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+    const clientId = "8221614e5bcb4ab7fbe2";
     const redirectUri = encodeURIComponent('http://localhost:3000/callback');
 
     window.location = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
@@ -157,7 +159,7 @@ const Profile = () => {
 
               <UserProfile />
             </div>
-            <Posts userId={userId} />
+            {userId && <Posts userId={userId} />}
           </div>
         </>
       )}

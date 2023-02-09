@@ -9,7 +9,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const accessToken = localStorage.getItem("access_token");
+      const accessToken = localStorage.getItem("accessToken");
       const result = await axios.get("https://api.github.com/user", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -20,7 +20,7 @@ const UserProfile = () => {
       setFollowing(result.data.following);
     };
     const fetchRepos = async () => {
-      const accessToken = localStorage.getItem("access_token");
+      const accessToken = localStorage.getItem("accessToken");
       const result = await axios.get("https://api.github.com/user/repos", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
