@@ -1,5 +1,6 @@
 import Login from './pages/login/login';
 import Register from './pages/register/register';
+import Logout from './pages/logout/logout';
 import {
   createBrowserRouter,
   Navigate,
@@ -73,6 +74,10 @@ function App() {
     {
       path: '/register',
       element: <Register />,
+    },
+    {
+      path: '/logout',
+      element: <Logout />,
     },
   ]);
 
