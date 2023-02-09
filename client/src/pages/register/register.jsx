@@ -11,7 +11,7 @@ const Register = () => {
     name: '',
   });
 
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState("");
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,7 +23,7 @@ const Register = () => {
     try {
       await axios.post('http://localhost:8800/api/auth/register', inputs);
     } catch (err) {
-      setErr(true);
+      setErr(window.alert("Whoops! That username or email is already taken"));
     }
   };
 
@@ -72,7 +72,7 @@ const Register = () => {
               onChange={handleChange}
             />
 
-            {err && err}
+          {err && err}
           </form>
           <button onClick={handleClick}>Register</button>
         </div>

@@ -8,7 +8,7 @@ const Login = () => {
     username: '',
     password: '',
   });
-  const [err, setErr] = useState(null);
+  const [err, setErr] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const Login = () => {
       await login(inputs);
       navigate('/');
     } catch (err) {
-      setErr(err.response.data);
+      setErr(window.alert("Whoops! Please check your username and password"));
     }
   };
   return (
@@ -57,6 +57,7 @@ const Login = () => {
               name="password"
               onChange={handleChange}
             />
+            {/* {err && err} */}
             {err && err}
           </form>
           <button onClick={handleLogin}>Login</button>
