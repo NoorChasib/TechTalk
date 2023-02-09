@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.scss';
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ const Register = () => {
   });
 
   const [err, setErr] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,8 +23,9 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8800/api/auth/register', inputs);
+      navigate("/login");
     } catch (err) {
-      setErr(window.alert("Whoops! That username or email is already taken"));
+      setErr(window.alert("Whoops! Double check your inputs"));
     }
   };
 
