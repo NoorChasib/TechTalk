@@ -12,6 +12,7 @@ import Leftbar from './components/leftBar/LeftBar';
 import RightBar from './components/rightBar/RightBar';
 import Profile from './pages/profile/Profile';
 import Home from './pages/home/home';
+import Chat from './pages/chat/chat';
 import '../src//style/style.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
@@ -65,6 +66,10 @@ function App() {
           path: '/profile/:id',
           element: <Profile />,
         },
+        {
+          path: '/chat',
+          element: <Chat/>
+        }
       ],
     },
 
@@ -83,7 +88,7 @@ function App() {
     {
       path: '/callback',
       element: <Callback/>
-    }
+    },
   ]);
 
   return (

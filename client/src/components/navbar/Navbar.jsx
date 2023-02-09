@@ -20,6 +20,10 @@ const Navbar = () => {
     navigate('/logout');
   };
 
+    const chat = () => {
+    navigate('/chat');
+  };
+
   return (
     <div className="navbar">
       <div className="navbarFront">
@@ -64,6 +68,7 @@ const Navbar = () => {
         <div className="right">
           <FontAwesomeIcon
             icon={faComments}
+            onClick={chat}
             className="faIcon"
             size="lg"
             fixedWidth
