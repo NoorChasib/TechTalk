@@ -2,7 +2,6 @@ import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope, faFileLines } from '@fortawesome/free-regular-svg-icons';
 import Posts from '../../components/posts/posts';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
