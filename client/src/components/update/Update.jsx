@@ -17,6 +17,7 @@ const Update = ({ setOpenUpdate, user }) => {
     website: currentUser.website,
   });
 
+
   const upload = async (file) => {
     try {
       const formData = new FormData();
@@ -126,7 +127,7 @@ const Update = ({ setOpenUpdate, user }) => {
           <input
             type="text"
             name="name"
-            value={currentUser.name}
+            placeholder={currentUser.name}
             onChange={handleChange}
           />
 
@@ -134,7 +135,7 @@ const Update = ({ setOpenUpdate, user }) => {
           <input
             type="text"
             name="email"
-            value={currentUser.email}
+            placeholder={currentUser.email}
             onChange={handleChange}
           />
 
@@ -145,7 +146,7 @@ const Update = ({ setOpenUpdate, user }) => {
           <input
             type="text"
             name="city"
-            value={currentUser.city}
+            placeholder={currentUser.city}
             onChange={handleChange}
           />
 
@@ -153,7 +154,7 @@ const Update = ({ setOpenUpdate, user }) => {
           <input
             type="text"
             name="website"
-            value={currentUser.website}
+            placeholder={currentUser.website}
             onChange={handleChange}
           />
 
