@@ -107,7 +107,14 @@
 
           @include mobile {
             flex-direction: column;
-            height: 30vh;
+            height: 45vh;
+            padding: 20px;
+            margin-top: 100px;
+          }
+
+          @include tablet {
+            flex-direction: column;
+            height: 35vh;
             padding: 20px;
             margin-top: 100px;
           }
@@ -116,13 +123,24 @@
             flex: 1;
             display: flex;
             gap: 15px;
+            justify-content: center;
 
             @include mobile {
+              flex-wrap: wrap;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
               gap: 30px;
+              margin: -45px 0px;
             }
 
             @include tablet {
               flex-wrap: wrap;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 30px;
+              margin: -30px 0px;
             }
 
             a {
@@ -142,6 +160,8 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             gap: 25px;
 
@@ -196,8 +216,8 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 15px;
+            justify-content: center;
+            gap: 10px;
             color: themed('textColor');
 
             a {
@@ -205,7 +225,7 @@
             }
 
             @include mobile {
-              align-items: flex-end;
+              align-items: center;
               gap: 30px;
             }
           }
