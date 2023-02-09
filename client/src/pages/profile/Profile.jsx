@@ -80,11 +80,11 @@ const Profile = () => {
                   className="profilePic"
                 />
               </div>
-            </div>
+            
 
             <div className="uInfo">
               <div className="left">
-                <button onClick={handleClick}>
+                <button className="no-style" onClick={handleClick}>
                   <FontAwesomeIcon
                     icon={faGithub}
                     className="faIcon"
@@ -139,25 +139,11 @@ const Profile = () => {
                 )}
               </div>
               <div className="right">
-                <a href={url}>
-                  <FontAwesomeIcon
-                    icon={faFileLines}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </a>
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="faIcon"
-                  size="lg"
-                  fixedWidth
-                />
-              </div>
-
               <UserProfile />
+              </div>
             </div>
             <Posts userId={userId} />
+          </div>
           </div>
         </>
       )}
