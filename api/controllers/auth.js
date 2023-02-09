@@ -91,9 +91,6 @@ const getUserInfo = async (accessToken) => {
 };
 
 
-// let userInfo = {}
-
-
 export const getToken = async (req, res) => {
   const code = getCodeFromUrl(req); // a helper function to extract the code from the URL
   console.log(code);
@@ -112,18 +109,8 @@ export const getToken = async (req, res) => {
   );
 
   console.log(result.data);
+  res.json(result.data.access_token)
 
-  // if (!code) {
-  //   res.send("error");
-  //   // return with error
-  //   console.log("error")
-  //}
-  
-  const userInfo= await getUserInfo(result.data.access_token)
-
-  console.log(userInfo)
-
-  res.json(userInfo);
 
 };
 

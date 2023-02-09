@@ -17,6 +17,7 @@ import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Callback from './components/Callback/callback';
+import UserProfile from './components/UserProfile/userProfile';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -36,6 +37,8 @@ function App() {
               <Outlet />
             </div>
             <RightBar />
+            <UserProfile  />
+
           </div>
         </div>
       </QueryClientProvider>
