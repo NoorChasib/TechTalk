@@ -67,12 +67,12 @@ const Profile = () => {
             <div className="profileContainer">
               <div className="images">
                 <img
-                  src={'/upload/' + data.coverPic}
+                  src={'/upload/' + currentUser.coverPic}
                   alt=""
                   className="cover"
                 />
                 <img
-                  src={'/upload/' + data.profilePic}
+                  src={'/upload/' + currentUser.profilePic}
                   alt=""
                   className="profilePic"
                 />

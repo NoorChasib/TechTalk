@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { makeRequest } from "../../axios"
 import "./update.scss"
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { AuthContext } from "../../context/authContext";
 
 const Update = ({ setOpenUpdate, user }) =>{
-
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   const [cover, setCover] = useState(null)
   const [profile, setProfile] = useState(null)
   const [texts, setTexts] = useState({
@@ -52,6 +53,11 @@ const Update = ({ setOpenUpdate, user }) =>{
     profileUrl = profile ? await upload(profile) : user.profilePic;
 
     mutation.mutate({ ...texts, coverPic: coverUrl, profilePic:profileUrl});
+    
+
+    const updatedUser = { ...currentUser, coverPic: coverUrl, profilePic:profileUrl };
+
+    setCurrentUser(updatedUser);
     setOpenUpdate(false);
   };
 
@@ -61,8 +67,9 @@ const Update = ({ setOpenUpdate, user }) =>{
     <div className="update"> 
     Update 
     <form>
-<input type ="file" onChange={(e) => setCover(e.target.files[0])}/> 
-<input type ="file" onChange={(e) => setProfile(e.target.files[0])}/>
+
+<input type ="file" onChange={(e) => {setProfile(e.target.files[0])}}/>
+<input type ="file" onChange={(e) => {setCover(e.target.files[0])}}/>
 <input type ="text" name = "name" onChange = {handleChange}/>
 <input type ="text" name = "city" onChange = {handleChange}/>
 <input type ="text" name = "website" onChange = {handleChange}/>

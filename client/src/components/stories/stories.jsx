@@ -37,7 +37,7 @@ const Stories = () => {
   return (
     <div className="stories">
       <div className="story">
-        <img src={'/upload/' + currentUser.profilePic} alt="" />
+        {/* <img src={'/upload/' + currentUser.profilePic} alt="" /> */}
         <Link
           to={`/profile/${currentUser.id}`}
           style={{ textDecoration: 'none', color: 'inherit' }}
