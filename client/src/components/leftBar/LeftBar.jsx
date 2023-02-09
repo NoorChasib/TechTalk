@@ -23,8 +23,8 @@ const Leftbar = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <div className="user">
-                <img src={currentUser.profilePic} alt="" />
-                <span>{currentUser.name}</span>
+                <img src={'/upload/' + currentUser.profilePic} alt="" />
+                <span className='title'>{currentUser.name}</span>
               </div>
             </Link>
             <div className="item">

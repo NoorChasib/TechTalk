@@ -5,10 +5,10 @@ import './login.scss';
 
 const Login = () => {
   const [inputs, setInputs] = useState({
-    username: '',
-    password: '',
+    username: null,
+    password: null,
   });
-  const [err, setErr] = useState(null);
+  const [err, setErr] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const Login = () => {
       await login(inputs);
       navigate('/');
     } catch (err) {
-      setErr(err.response.data);
+      setErr(window.alert("Whoops! Please check your username and password"));
     }
   };
   return (

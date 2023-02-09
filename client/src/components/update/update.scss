@@ -1,15 +1,134 @@
-.update {
+@use '../..//style/base.scss';
+@import '../..//style/base.scss';
+@import '../..//style/style.scss';
 
+.update {
+  @include themify($themes) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 12000;
-  } 
 
-  // will update.. needs a lot of work 
+    .wrapper {
+      margin: auto;
+      width: 30%;
+      height: 55%;
+      background-color: themed('middleSectionBg');
+      padding: 50px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      @include cardShadow;
+      position: relative;
+      @include bigBorderRd;
+
+      @include mobile {
+        width: 70%;
+        height: 70%;
+      }
+
+      @include tablet {
+        width: 50%;
+        height: 48%;
+      }
+
+      h1 {
+        color: themed('textColor');
+
+        @include mobile {
+          font-size: 20px;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .files {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 70px;
+
+          @include mobile {
+            justify-content: space-between;
+          }
+        }
+
+        label {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          color: themed('textColor');
+          font-size: 15px;
+
+          .imgContainer {
+            position: relative;
+            img {
+              width: 100px;
+              height: 100px;
+              object-fit: cover;
+              @include smallBorderRd;
+            }
+
+            .icon {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              margin: auto;
+              font-size: 30px;
+              color: lightgray;
+              cursor: pointer;
+            }
+          }
+        }
+
+        input {
+          padding: 2px;
+          border: none;
+          border-bottom: 1px solid themed('border');
+          color: themed('textColor');
+          background-color: transparent;
+          outline: none;
+          font-size: 15px;
+        }
+
+        button {
+          @include smallButton(
+            base.$buttonBlue,
+            base.$White1,
+            base.$White1,
+            base.$buttonBlue
+          );
+        }
+      }
+
+      .close {
+        @include smallButton(
+          base.$buttonRed,
+          base.$White1,
+          base.$White1,
+          base.$buttonRed
+        );
+        position: absolute;
+        top: 53px;
+        right: 51px;
+
+        @include mobile {
+          top: 46px;
+          right: 51px;
+          padding: 5px 6px;
+        }
+      }
+    }
+  }
+}

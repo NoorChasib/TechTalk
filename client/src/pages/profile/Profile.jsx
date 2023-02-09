@@ -1,20 +1,15 @@
 import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import {
-  faGlobe,
-  faLocationDot,
-  faEllipsis,
-} from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope, faFileLines } from '@fortawesome/free-regular-svg-icons';
 import Posts from '../../components/posts/posts';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
 import { useLocation } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/authContext';
 import Update from '../../components/update/Update';
-import { useState } from 'react';
 
 const Profile = () => {
   let url = '#0';
@@ -67,12 +62,12 @@ const Profile = () => {
             <div className="profileContainer">
               <div className="images">
                 <img
-                  src={'/upload/' + data.coverPic}
+                  src={'/upload/' + currentUser.coverPic}
                   alt=""
                   className="cover"
                 />
                 <img
-                  src={'/upload/' + data.profilePic}
+                  src={'/upload/' + currentUser.profilePic}
                   alt=""
                   className="profilePic"
                 />
@@ -96,14 +91,6 @@ const Profile = () => {
                       fixedWidth
                     />
                   </a>
-                  <a href={url}>
-                    <FontAwesomeIcon
-                      icon={faFileLines}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                  </a>
                 </div>
                 <div className="center">
                   <span>{data.name}</span>
@@ -118,12 +105,14 @@ const Profile = () => {
                       <span>{data.city}</span>
                     </div>
                     <div className="item">
-                      <FontAwesomeIcon
-                        icon={faGlobe}
-                        className="faIcon"
-                        size="lg"
-                        fixedWidth
-                      />
+                      <a href={url}>
+                        <FontAwesomeIcon
+                          icon={faGlobe}
+                          className="faIcon"
+                          size="lg"
+                          fixedWidth
+                        />
+                      </a>
                       <span>{data.website}</span>
                     </div>
                   </div>
@@ -140,14 +129,16 @@ const Profile = () => {
                   )}
                 </div>
                 <div className="right">
+                  <a href={url}>
+                    <FontAwesomeIcon
+                      icon={faFileLines}
+                      className="faIcon"
+                      size="lg"
+                      fixedWidth
+                    />
+                  </a>
                   <FontAwesomeIcon
                     icon={faEnvelope}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                  <FontAwesomeIcon
-                    icon={faEllipsis}
                     className="faIcon"
                     size="lg"
                     fixedWidth

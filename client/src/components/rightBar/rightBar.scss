@@ -6,7 +6,6 @@
   @include themify($themes) {
     background-color: themed('pageBg');
 
-
     @include mobile {
       display: none;
     }
@@ -15,7 +14,7 @@
       display: none;
     }
 
-    .rightBarFront{
+    .rightBarFront {
       flex: 3;
       position: sticky;
       top: 100px;
@@ -28,102 +27,101 @@
       border-bottom-right-radius: 0px;
       @include coverShadow;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
-    .container {
-      padding: 20px;
-
-
-      .item {
-        @include cardShadow;
+      .container {
         padding: 20px;
-        margin-bottom: 20px;
-        background-color: themed('cardBg');
-        @include smallBorderRd;
 
-        span {
-          color: themed('softTextColor');
-          font-size: 14px;
-        }
+        .item {
+          @include cardShadow;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: themed('cardBg');
+          @include smallBorderRd;
 
-        .title {
-          font-weight: 500;
-          color: themed('textColor');
-          font-size: 15px;
-        }
-
-        .user {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin: 20px 0px;
-
-          .userInfo {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-            max-width: 75%;
-
-            img {
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              object-fit: cover;
-              cursor: pointer;
-            }
-            .online {
-              width: 12px;
-              height: 12px;
-              border-radius: 50%;
-              background-color: base.$limeGreen;
-              position: absolute;
-              top: 0;
-              left: 30px;
-            }
-
-            p {
-              color: themed('softTextColor');
-              font-size: 14px;
-              max-inline-size: 215px;
-              overflow-wrap: break-word;
-            }
-
-            span {
-              font-weight: 500;
-              color: themed('textColor');
-              font-size: 15px;
-            }
+          span {
+            color: themed('softTextColor');
+            font-size: 14px;
           }
 
-          .buttons {
+          .title {
+            font-weight: 500;
+            color: themed('textColor');
+            font-size: 15px;
+          }
+
+          .user {
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            margin: 20px 0px;
 
-            .follow {
-              @include smallButton(
-                base.$buttonBlue,
-                base.$White1,
-                base.$White1,
-                base.$buttonBlue
-              );
+            .userInfo {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              position: relative;
+              max-width: 75%;
+
+              img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+              }
+              .online {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: base.$limeGreen;
+                position: absolute;
+                top: 0;
+                left: 30px;
+              }
+
+              p {
+                color: themed('softTextColor');
+                font-size: 14px;
+                max-inline-size: 215px;
+                overflow-wrap: break-word;
+              }
+
+              span {
+                font-weight: 500;
+                color: themed('textColor');
+                font-size: 15px;
+              }
             }
 
-            .ignore {
-              @include smallButton(
-                base.$buttonRed,
-                base.$White1,
-                base.$White1,
-                base.$buttonRed
-              );
+            .buttons {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .follow {
+                @include smallButton(
+                  base.$buttonBlue,
+                  base.$White1,
+                  base.$White1,
+                  base.$buttonBlue
+                );
+              }
+
+              .ignore {
+                @include smallButton(
+                  base.$buttonRed,
+                  base.$White1,
+                  base.$White1,
+                  base.$buttonRed
+                );
+              }
             }
           }
         }
       }
-    }
     }
   }
 }

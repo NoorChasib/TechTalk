@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.scss';
 import axios from 'axios';
 
 const Register = () => {
   const [inputs, setInputs] = useState({
-    username: '',
-    email: '',
-    password: '',
-    name: '',
+    username: null,
+    email: null,
+    password: null,
+    name: null,
   });
 
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,8 +23,9 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8800/api/auth/register', inputs);
+      navigate("/login");
     } catch (err) {
-      setErr(true);
+      setErr(window.alert("Whoops! Double check your inputs"));
     }
   };
 
@@ -72,7 +74,7 @@ const Register = () => {
               onChange={handleChange}
             />
 
-            {err && err}
+          {err && err}
           </form>
           <button onClick={handleClick}>Register</button>
         </div>

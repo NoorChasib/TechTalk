@@ -73,6 +73,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: themed('textColor');
 
             img {
               width: 30px;

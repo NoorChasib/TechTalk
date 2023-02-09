@@ -1,13 +1,12 @@
 import './navbar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMoon,
   faSun,
   faComments,
-  faBell,
 } from '@fortawesome/free-regular-svg-icons';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
@@ -15,6 +14,11 @@ import { AuthContext } from '../../context/authContext';
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate('/logout');
+  };
 
   return (
     <div className="navbar">
@@ -64,22 +68,22 @@ const Navbar = () => {
             size="lg"
             fixedWidth
           />
-          <FontAwesomeIcon
-            icon={faBell}
-            className="faIcon"
-            size="lg"
-            fixedWidth
-          />
-
           <Link
             to={`/profile/${currentUser.id}`}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
             <div className="userProfile">
-              <img src={currentUser.profilePic} alt="" />
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
               <span>{currentUser.name}</span>
             </div>
           </Link>
+          <FontAwesomeIcon
+            icon={faArrowRightFromBracket}
+            onClick={logout}
+            className="faIcon"
+            size="lg"
+            fixedWidth
+          />
         </div>
       </div>
     </div>
