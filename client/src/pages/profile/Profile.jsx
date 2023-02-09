@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/authContext';
 import Update from '../../components/update/Update';
+import UserProfile from '../../components/UserProfile/userProfile';
 
 const Profile = () => {
   let url = '#0';
@@ -52,6 +53,13 @@ const Profile = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
 
+  const handleClick = async () => {
+    const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+    const redirectUri = encodeURIComponent('http://localhost:3000/callback');
+
+    window.location = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
+  };
+
   return (
     <div className="profile">
       {isLoading ? (
@@ -72,81 +80,84 @@ const Profile = () => {
                   className="profilePic"
                 />
               </div>
+            </div>
 
-              <div className="uInfo">
-                <div className="left">
-                  <a href={url}>
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                  </a>
-                  <a href={url}>
-                    <FontAwesomeIcon
-                      icon={faLinkedinIn}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                  </a>
-                </div>
-                <div className="center">
-                  <span>{data.name}</span>
-                  <div className="info">
-                    <div className="item">
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="faIcon"
-                        size="lg"
-                        fixedWidth
-                      />
-                      <span>{data.city}</span>
-                    </div>
-                    <div className="item">
-                      <a href={url}>
-                        <FontAwesomeIcon
-                          icon={faGlobe}
-                          className="faIcon"
-                          size="lg"
-                          fixedWidth
-                        />
-                      </a>
-                      <span>{data.website}</span>
-                    </div>
-                  </div>
-                  {relisLoading ? (
-                    'loading'
-                  ) : userId === currentUser.id ? (
-                    <button onClick={() => setOpenUpdate(true)}>Update</button>
-                  ) : (
-                    <button onClick={handleFollow}>
-                      {relationshipData.includes(currentUser.id)
-                        ? 'Following'
-                        : 'Follow'}
-                    </button>
-                  )}
-                </div>
-                <div className="right">
-                  <a href={url}>
-                    <FontAwesomeIcon
-                      icon={faFileLines}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                  </a>
+            <div className="uInfo">
+              <div className="left">
+                <button onClick={handleClick}>
                   <FontAwesomeIcon
-                    icon={faEnvelope}
+                    icon={faGithub}
                     className="faIcon"
                     size="lg"
                     fixedWidth
                   />
-                </div>
+                </button>
+                <a href={url}>
+                  <FontAwesomeIcon
+                    icon={faLinkedinIn}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </a>
               </div>
-              <Posts userId={userId} />
+              <div className="center">
+                <span>{data.name}</span>
+                <div className="info">
+                  <div className="item">
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className="faIcon"
+                      size="lg"
+                      fixedWidth
+                    />
+                    <span>{data.city}</span>
+                  </div>
+                  <div className="item">
+                    <a href={url}>
+                      <FontAwesomeIcon
+                        icon={faGlobe}
+                        className="faIcon"
+                        size="lg"
+                        fixedWidth
+                      />
+                    </a>
+                    <span>{data.website}</span>
+                  </div>
+                </div>
+
+                {relisLoading ? (
+                  'loading'
+                ) : userId === currentUser.id ? (
+                  <button onClick={() => setOpenUpdate(true)}>Update</button>
+                ) : (
+                  <button onClick={handleFollow}>
+                    {relationshipData.includes(currentUser.id)
+                      ? 'Following'
+                      : 'Follow'}
+                  </button>
+                )}
+              </div>
+              <div className="right">
+                <a href={url}>
+                  <FontAwesomeIcon
+                    icon={faFileLines}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                </a>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="faIcon"
+                  size="lg"
+                  fixedWidth
+                />
+              </div>
+
+              <UserProfile />
             </div>
+            <Posts userId={userId} />
           </div>
         </>
       )}
