@@ -1,5 +1,7 @@
-import './rightBar.scss'; 
-import Friends from '../friends/friends'
+import './rightBar.scss';
+import Friends from '../friends/friends';
+
+
 const RightBar = () => {
   return (
     <div className="rightBar">
@@ -12,7 +14,7 @@ const RightBar = () => {
           />
         </div> */}
           <div className="item">
-            <span className='title'>Suggested For You</span>
+            <span className="title">Suggested For You</span>
             <div className="user">
               <div className="userInfo">
                 <img
@@ -41,55 +43,24 @@ const RightBar = () => {
             </div>
           </div>
           <div className="item">
-            <span className='title'>Latest Activities</span>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <p>
-                  <span>Bill Gates</span> liked a post
-                </p>
-              </div>
-              <span>1 min ago</span>
-            </div>
+            <span className="title">Sponsored</span>
 
             <div className="user">
-              <div className="userInfo">
+              <div className='ad'>
+              <div className="adImage">
+                <a rel="noopener noreferrer" target="_blank" href="https://www.lighthouselabs.ca/">
                 <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
+                  src="https://mms.businesswire.com/media/20200915005320/en/821159/23/lhl-logo.jpg"
                   alt=""
                 />
+                </a>
+                </div>
+                <div>
                 <p>
-                  <span>John Doe</span> commented on a post
+                Want to become a software developer? Check out our 12-week full-time program in Toronto, Vancouver, and Montreal.
                 </p>
-              </div>
-              <span>4 min ago</span>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <p>
-                  <span>Jack Dorsey</span> liked a post
-                </p>
-              </div>
-              <span>5 min ago</span>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <p>
-                  <span>Larry Ellison</span> shared a post
-                </p>
-              </div>
-              <span>9 min ago</span>
+                </div>
+                </div>
             </div>
           </div>
           <Friends />
