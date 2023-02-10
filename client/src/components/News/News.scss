@@ -2,17 +2,11 @@
 @import '../..//style/base';
 @import '../..//style/style.scss';
 
-.all_news {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column;
-}
 .news {
   @include themify($themes) {
     display: flex;
     flex-direction: column;
-    @include postShadow;
+    @include newsShadow;
     padding: 20px;
     margin-bottom: 10px;
     @include smallBorderRd;
@@ -21,19 +15,23 @@
     .news_format {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
 
     a {
       text-decoration: none;
       color: themed('softTextColor');
+      margin-top: 3px;
+      margin-bottom: 2px;
     }
     .news_url,
     .news_score,
     .news_by {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       color: themed('softTextColor');
+      margin-top: 3px;
+      margin-bottom: 2px;
     }
     .bold {
       font-weight: bold;
