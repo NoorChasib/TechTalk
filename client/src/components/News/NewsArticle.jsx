@@ -5,8 +5,7 @@ import './News.scss'
 function NewsArticle({ storyId }) {  
   const [info, setInfo] = useState();
 
-  console.log('storyId', storyId) 
-  console.log('info', info)
+
 
   const options = {
     method: 'GET',

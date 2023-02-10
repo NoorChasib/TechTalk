@@ -93,7 +93,7 @@ const getUserInfo = async (accessToken) => {
 
 export const getToken = async (req, res) => {
   const code = getCodeFromUrl(req); // a helper function to extract the code from the URL
-  console.log(code);
+  console.log({code});
   const result = await axios.post(
     'https://github.com/login/oauth/access_token',
     {
@@ -108,7 +108,7 @@ export const getToken = async (req, res) => {
     }
   );
 
-  console.log(result.data);
+  console.log("=====",result.data);
   res.json(result.data.access_token)
 
 

@@ -5,7 +5,6 @@ import './News.scss'
 
 function News(props) {
   const { data: stories } = useContext(NewsContext);
-  console.log('data123', stories)
 
   return (
     <div>
