@@ -98,6 +98,7 @@
           outline: none;
           background-color: transparent;
           color: themed('textColor');
+          padding-left: 10px;
 
           @include mobile {
             width: 100px;
