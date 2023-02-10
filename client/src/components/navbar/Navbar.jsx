@@ -36,6 +36,7 @@ const Navbar = () => {
     } catch (error) {
       console.error(error);
     }
+  }
 
 
   return (
@@ -121,5 +122,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 
 export default Navbar;
