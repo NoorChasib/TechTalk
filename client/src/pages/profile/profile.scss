@@ -247,7 +247,7 @@
           //   }
         }
         .stats {
-          height: 80px;
+          height: 90px;
           @include postShadow;
           @include smallBorderRd;
           background-color: themed('cardBg');
@@ -263,6 +263,7 @@
           @include mobile {
             padding-left: 0px;
             padding-right: 0px;
+            height: 160px;
           }
         }
       }

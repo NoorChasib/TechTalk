@@ -12,12 +12,22 @@
     color: themed('textColor');
     width: 100%;
 
-    // .user-profile {
+    @include mobile {
+      flex-direction: column;
+      padding: 20px;
+      padding-left: 25px;
+      margin-top: 5px;
+      gap: 20px;
+    }
 
-
-    // }
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
     .user-repos{
+
       ul {
         padding: 0;
         margin: 0;
