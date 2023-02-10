@@ -41,12 +41,12 @@ const Profile = () => {
     (following) => {
       if (following)
         return makeRequest.delete('/relationships?userId=' + userId);
-      return makeRequest.post('/relationship', { userId });
+      return makeRequest.post('/relationships', { userId });
     },
     {
       onSuccess: () => {
         // Invalidate and refetch
-        queryClient.invalidateQueries(['relationship']);
+        queryClient.invalidateQueries(['relationship']);/////
       },
     }
   );
