@@ -1,3 +1,56 @@
 @use "../../style/base";
 @import '../../style/base';
 @import '../../style/style.scss';
+
+
+.chat {
+  @include themify($themes) {
+    background-color: themed('pageBg');
+    padding-left: 60px;
+    padding-right: 60px;
+    color: themed('textColor');
+    height: 100vh;
+
+    @include mobile {
+      padding: 10px;
+    }
+
+    @include tablet {
+      padding: 30px;
+    }
+
+    .chatFront {
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('middleSectionBg');
+      @include bigBorderRd;
+      @include coverShadow;
+      z-index: 130000;
+
+      @include mobile {
+        padding: 5px;
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+
+      .chatContainer {
+        padding: 20px 30px 20px 30px;
+
+        @include mobile {
+          padding: 10px;
+          padding-top: 20px;
+          margin: 5px;
+        }
+
+        @include tablet {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

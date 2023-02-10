@@ -23,6 +23,7 @@
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       @include coverShadow;
+      z-index: 130000;
 
       @include mobile {
         display: none;

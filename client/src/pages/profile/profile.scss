@@ -27,6 +27,7 @@
       background-color: themed('middleSectionBg');
       @include bigBorderRd;
       @include coverShadow;
+      z-index: 130000;
 
       @include mobile {
         padding: 5px;

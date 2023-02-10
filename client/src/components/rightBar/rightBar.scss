@@ -26,6 +26,7 @@
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
       @include coverShadow;
+      z-index: 130000;
 
       &::-webkit-scrollbar {
         display: none;
