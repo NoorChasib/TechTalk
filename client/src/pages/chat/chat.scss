@@ -2,7 +2,6 @@
 @import '../../style/base';
 @import '../../style/style.scss';
 
-
 .chat {
   @include themify($themes) {
     background-color: themed('pageBg');
@@ -49,6 +48,18 @@
 
         @include tablet {
           padding: 20px;
+        }
+
+        .chatInnerContainer {
+          height: calc(100vh - 240px);
+          @include postShadow;
+          @include smallBorderRd;
+          background-color: themed('cardBg');
+          color: themed('textColor');
+          padding: 50px 50px 50px 50px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
       }
     }
