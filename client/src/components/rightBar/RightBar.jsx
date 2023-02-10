@@ -1,5 +1,5 @@
-import './rightBar.scss';
-
+import './rightBar.scss'; 
+import Friends from '../friends/friends'
 const RightBar = () => {
   return (
     <div className="rightBar">
@@ -92,59 +92,7 @@ const RightBar = () => {
               <span>9 min ago</span>
             </div>
           </div>
-          <div className="item">
-            <span className='title'>Active friends</span>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <div className="online" />
-                <span>Bill Gates</span>
-              </div>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <div className="online" />
-                <span>Larry Ellison</span>
-              </div>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <div className="online" />
-                <span>Sergey Brin</span>
-              </div>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <div className="online" />
-                <span>Mark Zuckerberg</span>
-              </div>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <div className="online" />
-                <span>Bernard Arnault</span>
-              </div>
-            </div>
-          </div>
+          <Friends />
         </div>
       </div>
     </div>
