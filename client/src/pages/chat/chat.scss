@@ -1,8 +1,8 @@
 @use "../../style/base";
 @import '../../style/base';
-@import '../..//style/style.scss';
+@import '../../style/style.scss';
 
-.home {
+.chat {
   @include themify($themes) {
     background-color: themed('pageBg');
     padding-left: 60px;
@@ -18,7 +18,7 @@
       padding: 30px;
     }
 
-    .homeFront {
+    .chatFront {
       position: sticky;
       top: 100px;
       height: calc(100vh - 100px);
@@ -36,7 +36,8 @@
       @include tablet {
         padding: 20px;
       }
-      .container {
+
+      .chatContainer {
         padding: 20px 30px 20px 30px;
 
         @include mobile {
@@ -47,6 +48,19 @@
 
         @include tablet {
           padding: 20px;
+        }
+
+        .chatBox {
+          height: 40%;
+          width: 20%;
+          @include newsShadow;
+          @include smallBorderRd;
+          background-color: themed('cardBg');
+          color: themed('textColor');
+          padding: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
       }
     }

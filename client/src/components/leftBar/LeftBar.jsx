@@ -38,7 +38,7 @@ const Leftbar = () => {
             </div>
           </div>
           <div className="menu">
-            <div className="news">
+            <div className="news_title">
               <FontAwesomeIcon
                 icon={faNewspaper}
                 className="faIcon"

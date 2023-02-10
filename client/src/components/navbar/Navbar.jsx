@@ -23,6 +23,10 @@ const Navbar = () => {
   const logout = () => {
     navigate('/logout');
   };
+  
+  const chat = () => {
+    navigate('/chat');
+    };
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +36,7 @@ const Navbar = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+
 
   return (
     <div className="navbar">
@@ -91,6 +95,7 @@ const Navbar = () => {
         <div className="right">
           <FontAwesomeIcon
             icon={faComments}
+            onClick={chat}
             className="faIcon"
             size="lg"
             fixedWidth

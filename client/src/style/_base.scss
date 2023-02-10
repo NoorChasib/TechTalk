@@ -104,7 +104,11 @@ $White2: #F4F4F5;
 
 @mixin barShadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    rgba(0, 0, 0, 0.06) 0px 1px 3px 0px;
+}
+
+@mixin newsShadow {
+  box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.2);
 }
 
 @mixin bigButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
