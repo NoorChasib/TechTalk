@@ -27,6 +27,7 @@
       background-color: themed('middleSectionBg');
       @include bigBorderRd;
       @include coverShadow;
+      z-index: 130000;
 
       @include mobile {
         padding: 5px;
@@ -42,8 +43,9 @@
 
       .images {
         width: 100%;
-        height: 300px;
+        height: 350px;
         position: relative;
+        padding-bottom: 10px;
 
         .cover {
           width: 100%;
@@ -62,19 +64,19 @@
           left: 0;
           right: 0;
           margin: auto;
-          top: 200px;
+          top: 250px;
           @include postShadow;
 
           @include mobile {
             width: 180px;
             height: 180px;
-            top: 220px;
+            top: 280px;
           }
 
           @include tablet {
             width: 180px;
             height: 180px;
-            top: 220px;
+            top: 260px;
           }
         }
       }
@@ -106,7 +108,14 @@
 
           @include mobile {
             flex-direction: column;
-            height: 30vh;
+            height: 45vh;
+            padding: 20px;
+            margin-top: 100px;
+          }
+
+          @include tablet {
+            flex-direction: column;
+            height: 35vh;
             padding: 20px;
             margin-top: 100px;
           }
@@ -114,14 +123,39 @@
           .left {
             flex: 1;
             display: flex;
-            gap: 15px;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            
+
+            @include mobile {
+              flex-wrap: wrap;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 30px;
+              margin: -45px 0px;
+            }
 
             @include tablet {
               flex-wrap: wrap;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 30px;
+              margin: -30px 0px;
             }
 
             a {
               color: themed('textColor');
+            }
+
+            .no-style {
+              background: none;
+              border: none;
+              padding: 0;
+              font: inherit;
+              outline: inherit;
             }
           }
 
@@ -129,12 +163,18 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             gap: 25px;
 
             span {
               font-size: 30px;
               font-weight: 500;
+            }
+
+            a {
+              color: themed('textColor');
             }
 
             .info {
@@ -148,6 +188,17 @@
                 align-items: center;
                 gap: 5px;
                 color: themed('textColor');
+
+                @include mobile {
+                  padding-right: 10px;
+                  padding-left: 30px;
+                }
+
+                @include tablet {
+                  padding-top: 6px;
+                  padding-right: 10px;
+                  padding-left: 30px;
+                }
 
                 span {
                   font-size: 12px;
@@ -168,9 +219,18 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 15px;
+            justify-content: center;
+            gap: 10px;
             color: themed('textColor');
+
+            a {
+              color: themed('textColor');
+            }
+
+            @include mobile {
+              align-items: center;
+              gap: 30px;
+            }
           }
         }
       }

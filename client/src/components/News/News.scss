@@ -2,58 +2,39 @@
 @import '../..//style/base';
 @import '../..//style/style.scss';
 
-// span {
-//   margin: 10px;
-//   .news_title {
-//     background-color: red;
-//   }
-// }
-// .all_news{
-//   color: red;
-// }
-
-.all_news {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column; 
-
-}
 .news {
   @include themify($themes) {
     display: flex;
     flex-direction: column;
-    @include postShadow;
+    @include newsShadow;
     padding: 20px;
     margin-bottom: 10px;
-    @include smallBorderRd; 
-
+    @include smallBorderRd;
+    color: themed('textColor');
 
     .news_format {
       display: flex;
       flex-direction: column;
-      align-items: center; 
-      .news_score {
-        color: gray
-      }
-
+      align-items: flex-start;
     }
 
     a {
       text-decoration: none;
-      color: themed('textColor');
+      color: themed('softTextColor');
+      margin-top: 3px;
+      margin-bottom: 2px;
     }
-    .news_url {
+    .news_url,
+    .news_score,
+    .news_by {
       display: flex;
-      align-items: center; 
-      
-    }  
-
-    .bold{
+      align-items: flex-start;
+      color: themed('softTextColor');
+      margin-top: 3px;
+      margin-bottom: 2px;
+    }
+    .bold {
       font-weight: bold;
-    } 
-
-  } 
-
-}  
-
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { db } from '../connect.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import axios from 'axios';
 
 export const register = (req, res) => {
   const q = 'SELECT * FROM users WHERE username = ?';
@@ -66,3 +67,55 @@ export const logout = (req, res) => {
     .status(200)
     .json('User has been logged out.');
 };
+
+const getCodeFromUrl = (req) => {
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
+  return req.body.code;
+};
+
+
+const getUserInfo = async (accessToken) => {
+  console.log("accesstoken", accessToken)
+  try {
+    const response = await axios.get('https://api.github.com/user', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    return null;
+  }
+};
+
+
+export const getToken = async (req, res) => {
+  const code = getCodeFromUrl(req); // a helper function to extract the code from the URL
+  console.log({code});
+  const result = await axios.post(
+    'https://github.com/login/oauth/access_token',
+    {
+      client_id: process.env.GITHUB_CLIENT_ID,
+      client_secret: process.env.GITHUB_CLIENT_SECRET,
+      code: code,
+    },
+    {
+      headers: {
+        Accept: 'application/json',
+      },
+    }
+  );
+
+  console.log("=====",result.data);
+  res.json(result.data.access_token)
+
+
+};
+
+
+
+
+
+

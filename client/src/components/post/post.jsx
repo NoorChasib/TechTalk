@@ -94,7 +94,7 @@ const Post = ({ post }) => {
               to={`/profile/${post.userId}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <img src={post.profilePic} alt="" />
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
             </Link>
             <div className="details">
               <Link

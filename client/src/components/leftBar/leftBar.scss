@@ -23,6 +23,7 @@
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       @include coverShadow;
+      z-index: 130000;
 
       @include mobile {
         display: none;
@@ -46,17 +47,19 @@
           background-color: themed('cardBg');
           @include smallBorderRd;
 
-          span {
-            color: themed('textColor');
-          }
-
           .user,
-          .dev,
-          .news {
+          .dev {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             font-weight: 500;
+
+            .news {
+              display: flex;
+              align-items: flex-start;
+              gap: 15px;
+              font-weight: 500;
+            }
 
             img {
               width: 30px;
@@ -65,22 +68,27 @@
               object-fit: cover;
               cursor: pointer;
             }
-
-            span {
-              color: themed('textColor');
-            }
           }
-          
-          .title{
+
+          .title,
+          .news_title {
             font-weight: 500;
             color: themed('textColor');
             font-size: 15px;
+            gap: 15px;
+            display: flex;
+            align-items: center;
+          }
+
+          .news_title {
+            padding-bottom: 10px;
           }
 
           .item {
             display: flex;
             align-items: center;
             gap: 10px;
+            color: themed('textColor');
 
             img {
               width: 30px;
