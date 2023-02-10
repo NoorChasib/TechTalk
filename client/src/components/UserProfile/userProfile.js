@@ -34,7 +34,7 @@ const UserProfile = () => {
 
   return (
     <div >
-      <h2>GitHub Stats</h2>
+      <h3>GitHub Stats</h3>
       <p>Username: {username}</p>
       <p>Followers: {followers}</p>
       <p>Following: {following}</p>
