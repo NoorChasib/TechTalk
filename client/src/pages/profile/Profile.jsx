@@ -20,7 +20,7 @@ const Profile = () => {
 
   const userId = parseInt(useLocation().pathname.split('/')[2]);
 
-  
+
 
   const { isLoading, error, data } = useQuery(['user'], () =>
     makeRequest.get('/users/find/' + userId).then((res) => {
@@ -56,7 +56,7 @@ const Profile = () => {
   };
 
   const handleClick = async () => {
-    const clientId = "8221614e5bcb4ab7fbe2";
+    const clientId = "d2eefbbc537de7f23e9c";
     const redirectUri = encodeURIComponent('http://localhost:3000/callback');
 
     window.location = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
