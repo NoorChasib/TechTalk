@@ -81,23 +81,9 @@ const Profile = () => {
               </div>
 
               <div className="uInfo">
-                <div className="left">
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    onClick={handleClick}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                  <a href={url}>
-                    <FontAwesomeIcon
-                      icon={faLinkedinIn}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                  </a>
-                </div>
+                {/* <div className="left">
+                  
+                </div> */}
                 <div className="center">
                   <span>{data.name}</span>
                   <div className="info">
@@ -110,6 +96,15 @@ const Profile = () => {
                       />
                       <span>{data.city}</span>
                     </div>
+                    <div className="item">
+                    <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={handleClick}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
+                  </div>
                     <div className="item">
                       <a href={url}>
                         <FontAwesomeIcon
@@ -135,10 +130,13 @@ const Profile = () => {
                     </button>
                   )}
                 </div>
-                <div className="right">
-                  <UserProfile />
-                </div>
+                {/* <div className="right">
+                  
+                </div> */}
               </div>
+              <div className="stats">
+              <UserProfile />
+                </div>
               {userId && <Posts userId={userId} />}
             </div>
           </div>

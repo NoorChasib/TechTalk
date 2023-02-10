@@ -1,0 +1,33 @@
+@use "../..//style/base";
+@import '../..//style/base';
+@import '../..//style/style.scss';
+
+.user-container {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: themed('textColor');
+    width: 100%;
+
+    // .user-profile {
+
+
+    // }
+
+    .user-repos{
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+}
+}
