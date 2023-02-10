@@ -50,13 +50,14 @@
           padding: 20px;
         }
 
-        .chatInnerContainer {
-          height: calc(100vh - 240px);
-          @include postShadow;
+        .chatBox {
+          height: 40%;
+          width: 20%;
+          @include newsShadow;
           @include smallBorderRd;
           background-color: themed('cardBg');
           color: themed('textColor');
-          padding: 50px 50px 50px 50px;
+          padding: 25px;
           display: flex;
           align-items: center;
           justify-content: space-between;
