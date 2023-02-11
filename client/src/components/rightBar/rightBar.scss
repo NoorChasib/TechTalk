@@ -120,6 +120,30 @@
                 );
               }
             }
+
+            .ad {
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+
+              .adImage {
+                img {
+                  height: auto;
+                  width: 320px;
+                  @include smallBorderRd;
+                  @include newsShadow;
+                }
+              }
+
+              p {
+                color: themed('softTextColor');
+                padding-left: 10px;
+                padding-top: 15px;
+                font-size: 14px;
+                max-inline-size: 285px;
+                overflow-wrap: break-word;
+              }
+            }
           }
         }
       }

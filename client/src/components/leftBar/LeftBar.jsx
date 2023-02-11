@@ -10,8 +10,13 @@ import News from '../News/News';
 
 
 
+
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext);
+
+const stats = `https://github-readme-stats-a4kc.vercel.app/api/top-langs/?username=${currentUser.github}&layout=compact&show_icons=true&langs_count=8&line_height=30&border_radius=25&bg_color=FFFFFF00&title_color=0C90E9&text_color=0C90E9&hide_border=true&card_width=250`;
+
+console.log("stats", currentUser)
 
   return (
     <div className="leftBar">
@@ -27,15 +32,7 @@ const Leftbar = () => {
                 <span className='title'>{currentUser.name}</span>
               </div>
             </Link>
-            <div className="item">
-              <span>Bio</span>
-            </div>
-            <div className="item">
-              <span>Other Platforms:</span>
-            </div>
-            <div className="item">
-              <span>Friends</span>
-            </div>
+            <img height="160em" src={stats} alt=''/>
           </div>
           <div className="menu">
             <div className="news_title">

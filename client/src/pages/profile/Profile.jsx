@@ -1,6 +1,6 @@
 import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Posts from '../../components/posts/posts';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
@@ -18,8 +18,6 @@ const Profile = () => {
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split('/')[2]);
-
-
 
   const { isLoading, error, data } = useQuery(['user'], () =>
     makeRequest.get('/users/find/' + userId).then((res) => {
@@ -46,7 +44,7 @@ const Profile = () => {
     {
       onSuccess: () => {
         // Invalidate and refetch
-        queryClient.invalidateQueries(['relationship']);/////
+        queryClient.invalidateQueries(['relationship']); /////
       },
     }
   );
@@ -55,7 +53,7 @@ const Profile = () => {
   };
 
   const handleClick = async () => {
-    const clientId = "d2eefbbc537de7f23e9c";
+    const clientId = 'd2eefbbc537de7f23e9c';
     const redirectUri = encodeURIComponent('http://localhost:3000/callback');
 
     window.location = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
@@ -81,70 +79,66 @@ const Profile = () => {
                   className="profilePic"
                 />
               </div>
-            
 
-            <div className="uInfo">
-              <div className="left">
-                <button className="no-style" onClick={handleClick}>
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </button>
-                <a href={url}>
-                  <FontAwesomeIcon
-                    icon={faLinkedinIn}
-                    className="faIcon"
-                    size="lg"
-                    fixedWidth
-                  />
-                </a>
-              </div>
-              <div className="center">
-                <span>{data.name}</span>
-                <div className="info">
-                  <div className="item">
-                    <FontAwesomeIcon
-                      icon={faLocationDot}
-                      className="faIcon"
-                      size="lg"
-                      fixedWidth
-                    />
-                    <span>{data.city}</span>
-                  </div>
-                  <div className="item">
-                    <a href={url}>
+              <div className="uInfo">
+                {/* <div className="left">
+                  
+                </div> */}
+                <div className="center">
+                  <span>{data.name}</span>
+                  <div className="info">
+                    <div className="item">
                       <FontAwesomeIcon
-                        icon={faGlobe}
+                        icon={faLocationDot}
                         className="faIcon"
                         size="lg"
                         fixedWidth
                       />
-                    </a>
-                    <span>{data.website}</span>
+                      <span>{data.city}</span>
+                    </div>
+                    <div className="item">
+                    <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={handleClick}
+                    className="faIcon"
+                    size="lg"
+                    fixedWidth
+                  />
                   </div>
-                </div>
+                    <div className="item">
+                      <a href={url}>
+                        <FontAwesomeIcon
+                          icon={faGlobe}
+                          className="faIcon"
+                          size="lg"
+                          fixedWidth
+                        />
+                      </a>
+                      <span>{data.website}</span>
+                    </div>
+                  </div>
 
-                {relisLoading ? (
-                  'loading'
-                ) : userId === currentUser.id ? (
-                  <button onClick={() => setOpenUpdate(true)}>Update</button>
-                ) : (
-                  <button onClick={handleFollow}>
-                    {relationshipData.includes(currentUser.id)
-                      ? 'Following'
-                      : 'Follow'}
-                  </button>
-                )}
+                  {relisLoading ? (
+                    'loading'
+                  ) : userId === currentUser.id ? (
+                    <button onClick={() => setOpenUpdate(true)}>Update</button>
+                  ) : (
+                    <button onClick={handleFollow}>
+                      {relationshipData.includes(currentUser.id)
+                        ? 'Following'
+                        : 'Follow'}
+                    </button>
+                  )}
+                </div>
+                {/* <div className="right">
+                  
+                </div> */}
               </div>
-              <div className="right">
+              <div className="stats">
               <UserProfile />
-              </div>
+                </div>
+              {userId && <Posts userId={userId} />}
             </div>
-            {userId && <Posts userId={userId} />}
-          </div>
           </div>
         </>
       )}

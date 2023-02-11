@@ -14,13 +14,14 @@ export const register = (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.password, salt);
 
     const q =
-      'INSERT INTO users (`username`, `email`, `password`, `name`) VALUE (?)';
+      'INSERT INTO users (`username`, `email`, `password`, `name`, `github`) VALUE (?)';
 
     const values = [
       req.body.username,
       req.body.email,
       hashedPassword,
       req.body.name,
+      req.body.github,
     ];
 
     db.query(q, [values], (err, data) => {

@@ -1,0 +1,33 @@
+@use "../../style/base";
+@import '../../style/base';
+@import '../../style/style.scss';
+
+.conversation {
+  @include themify($themes) {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &:hover {
+    background-color: themed('hover');
+    @include smallBorderRd;
+  }
+
+  .conversationImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .conversationName {
+    font-weight: 500;
+    color: themed('textColor');
+  }
+}
+}
+
+

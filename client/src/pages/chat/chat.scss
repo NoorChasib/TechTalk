@@ -39,28 +39,56 @@
 
       .chatContainer {
         padding: 20px 30px 20px 30px;
+        display: flex;
+        flex-direction: row;
 
         @include mobile {
           padding: 10px;
           padding-top: 20px;
           margin: 5px;
+          flex-direction: column;
         }
 
         @include tablet {
           padding: 20px;
+          flex-direction: row
+        }
+        .chatMenu {
+          flex: 2;
         }
 
         .chatBox {
-          height: 40%;
-          width: 20%;
+          flex: 6;
+        }
+
+        .chatOnline {
+          flex: 2;
+        }
+
+        .chatBoxWrapper {
+          padding: 10px;
+          padding-top: 25px;
+          height: 100%;
+          @include bigBorderRd;
           @include newsShadow;
-          @include smallBorderRd;
-          background-color: themed('cardBg');
-          color: themed('textColor');
-          padding: 25px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+        }
+        .chatNoWrapper {
+          padding: 10px;
+          padding-top: 25px;
+          height: 100%;
+
+
+          .chatMenuInput {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid base.$border;
+            background-color: transparent;
+            outline: none;
+            justify-content: center;
+            display: flex;
+            color: themed('textColor');
+          }
         }
       }
     }

@@ -1,0 +1,43 @@
+@use "../..//style/base";
+@import '../..//style/base';
+@import '../..//style/style.scss';
+
+.user-container {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: themed('textColor');
+    width: 100%;
+
+    @include mobile {
+      flex-direction: column;
+      padding: 20px;
+      padding-left: 25px;
+      margin-top: 5px;
+      gap: 20px;
+    }
+
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .user-repos{
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+}
+}

@@ -99,7 +99,7 @@
           @include smallBorderRd;
           background-color: themed('cardBg');
           color: themed('textColor');
-          padding: 75px 50px 50px 50px;
+          padding: 75px 20px 50px 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -108,56 +108,53 @@
 
           @include mobile {
             flex-direction: column;
-            height: 45vh;
+            height: 20vh;
             padding: 20px;
             margin-top: 100px;
           }
 
           @include tablet {
             flex-direction: column;
-            height: 35vh;
+            height: 15vh;
             padding: 20px;
             margin-top: 100px;
           }
 
-          .left {
-            flex: 1;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-            
+          // .left {
+          //   flex: 1;
+          //   display: flex;
+          //   justify-content: center;
+          //   align-items: center;
+          //   flex-direction: column;
+          //   // @include newsShadow;
+          //   padding: 0px;
+          //   padding-right: 0px;
+          //   margin-bottom: 15px;
+          //   // @include smallBorderRd;
+          //   color: themed('textColor');
 
-            @include mobile {
-              flex-wrap: wrap;
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 30px;
-              margin: -45px 0px;
-            }
+          //   @include mobile {
+          //     flex-wrap: wrap;
+          //     display: flex;
+          //     flex-direction: row;
+          //     align-items: center;
+          //     gap: 30px;
+          //     margin: -45px 0px;
+          //   }
 
-            @include tablet {
-              flex-wrap: wrap;
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 30px;
-              margin: -30px 0px;
-            }
+          //   @include tablet {
+          //     flex-wrap: wrap;
+          //     display: flex;
+          //     flex-direction: row;
+          //     align-items: center;
+          //     gap: 30px;
+          //     margin: -30px 0px;
+          //   }
 
-            a {
-              color: themed('textColor');
-            }
-
-            .no-style {
-              background: none;
-              border: none;
-              padding: 0;
-              font: inherit;
-              outline: inherit;
-            }
-          }
+          //   a {
+          //     color: themed('textColor');
+          //   }
+          // }
 
           .center {
             flex: 1;
@@ -167,6 +164,10 @@
             justify-content: center;
             align-items: center;
             gap: 25px;
+
+            @include tablet {
+              width: 100%;
+            }
 
             span {
               font-size: 30px;
@@ -181,24 +182,27 @@
               width: 100%;
               display: flex;
               align-items: center;
-              justify-content: space-around;
+              justify-content: space-evenly;
 
-              .item {
+              .item, .item-left {
                 display: flex;
                 align-items: center;
                 gap: 5px;
                 color: themed('textColor');
+                padding-left: 45px;
 
                 @include mobile {
-                  padding-right: 10px;
                   padding-left: 30px;
+                  display: flex;
+                  justify-content: space-between;
                 }
 
                 @include tablet {
                   padding-top: 6px;
-                  padding-right: 10px;
-                  padding-left: 30px;
+                  padding-left: 45px;
+                  padding-bottom: 5px;
                 }
+                
 
                 span {
                   font-size: 12px;
@@ -215,22 +219,51 @@
             }
           }
 
-          .right {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: themed('textColor');
+          //   .right {
+          //     flex: 1;
+          //     display: flex;
+          //     justify-content: flex-start;
+          //     align-items: flex-start;
+          //     flex-direction: column;
+          //     padding: 20px;
+          //     padding-right: 0px;
+          //     margin-bottom: 25px;
+          //     color: themed('textColor');
 
-            a {
-              color: themed('textColor');
-            }
+          //     @include mobile {
+          //       align-items: center;
+          //       gap: 30px;
+          //     }
+          //     ul {
+          //       padding: 0;
+          //       margin: 0;
 
-            @include mobile {
-              align-items: center;
-              gap: 30px;
-            }
+          //       li {
+          //         list-style-type: none;
+          //         margin: 0;
+          //         padding: 0;
+          //       }
+          //     }
+          //   }
+        }
+        .stats {
+          height: 90px;
+          @include postShadow;
+          @include smallBorderRd;
+          background-color: themed('cardBg');
+          color: themed('textColor');
+          padding: 65px 20px 55px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          margin-top: 20px;
+          flex-direction: row;
+
+          @include mobile {
+            padding-left: 0px;
+            padding-right: 0px;
+            height: 160px;
           }
         }
       }
