@@ -63,7 +63,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="Github Username"
-              name="username"
+              name="github"
               onChange={handleChange}
             />
             <input
