@@ -22,8 +22,8 @@ const Navbar = () => {
     navigate('/logout');
   };
 
-  const chat = () => {
-    navigate('/chat');
+  const messenger = () => {
+    navigate('/messenger');
   };
 
   const profile = () => {
@@ -100,7 +100,7 @@ const Navbar = () => {
         <div className="right">
           <FontAwesomeIcon
             icon={faComments}
-            onClick={chat}
+            onClick={messenger}
             className="faIcon"
             size="lg"
             fixedWidth
