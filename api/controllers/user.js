@@ -40,3 +40,14 @@ export const updateUser = (req, res) => {
   );
 });
 };
+
+export const searchUser = (req, res) => {
+  const searchTerm = req.query.q;
+  const q = "SELECT id, name FROM users WHERE username LIKE CONCAT('%', ?, '%');"
+  console.log(searchTerm)
+  db.query(q, [searchTerm], (err, data) => {
+    if (err) return res.status(500).json(err);
+    // const { password, ...info } = data[0];
+    return res.json(data);
+  });
+};
