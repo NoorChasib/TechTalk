@@ -65,12 +65,18 @@
           flex: 2;
         }
 
-        .chatWrapper {
+        .chatBoxWrapper {
           padding: 10px;
           padding-top: 25px;
           height: 100%;
           @include bigBorderRd;
           @include newsShadow;
+        }
+        .chatNoWrapper {
+          padding: 10px;
+          padding-top: 25px;
+          height: 100%;
+
 
           .chatMenuInput {
             width: 90%;

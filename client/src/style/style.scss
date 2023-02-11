@@ -12,6 +12,7 @@ $themes: (
     border: base.$border,
     logo: base.$logo,
     search: base.$logo,
+    hover: base.$lightHover,
   ),
   dark: (
     pageBg: base.$darkPageBg,
@@ -24,6 +25,7 @@ $themes: (
     border: base.$border,
     logo: base.$logo,
     search: base.$darkCardBg,
+    hover: base.$darkHover,
   ),
 );
 
