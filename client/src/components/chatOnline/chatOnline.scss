@@ -1,0 +1,39 @@
+@use "../../style/base";
+@import '../../style/base';
+@import '../../style/style.scss';
+
+.chatOnline {
+  @include themify($themes) {
+    .chatOnlineFriend {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 15px;
+
+      .chatOnlineImgContainer {
+        position: relative;
+
+        .chatOnlineImg {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .chatOnlineBadge {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: base.$limeGreen;
+        border-radius: 50%;
+        top: 2px;
+        right: 2px;
+      }
+      .chatOnlineName {
+        // margin-left: 10px;
+        // color: themed('textColor');
+      }
+    }
+  }
+}

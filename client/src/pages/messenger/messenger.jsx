@@ -1,6 +1,7 @@
 import './messenger.scss';
 import Conversation from '../../components/conversations/conversation';
 import Message from '../../components/message/message';
+import ChatOnline from '../../components/chatOnline/chatOnline';
 
 const Messenger = () => {
   return (
@@ -47,7 +48,9 @@ const Messenger = () => {
             </div>
           </div>
           <div className="chatOnline">
-            <div className="chatNoWrapper">online</div>
+            <div className="chatNoWrapper">
+              <ChatOnline/>
+            </div>
           </div>
         </div>
       </div>
