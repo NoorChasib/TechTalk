@@ -37,6 +37,10 @@
 
       .faIcon {
         cursor: pointer;
+        
+        &:hover {
+          color: themed('hover');
+        }
       }
 
       .left {
@@ -121,6 +125,16 @@
           display: flex;
           align-items: center;
           gap: 20px;
+
+          .profileName {
+            text-decoration: none;
+            color: themed('textColor');
+            cursor: pointer;
+
+            &:hover {
+              color: themed('hover');
+            }
+          }
 
           img {
             width: 30px;

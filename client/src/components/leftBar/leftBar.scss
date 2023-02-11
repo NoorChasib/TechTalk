@@ -35,6 +35,10 @@
 
       .faIcon {
         cursor: pointer;
+
+        &:hover {
+          color: themed('hover');
+        }
       }
 
       .container {
@@ -46,6 +50,17 @@
           margin-bottom: 20px;
           background-color: themed('cardBg');
           @include smallBorderRd;
+
+
+          .title {
+            text-decoration: none;
+            color: themed('textColor');
+            cursor: pointer;
+    
+            &:hover {
+              color: themed('hover');
+          }
+        }
 
           .user,
           .dev {
