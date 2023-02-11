@@ -30,7 +30,7 @@ const Navbar = () => {
     e.preventDefault();
     try {
       const response = await axios.get(`/api/users?q=${searchQuery}`);
-      setSearchResults(response.data.users);
+      setSearchResults(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -67,26 +67,30 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
-            <form onSubmit={handleSearchSubmit}>
-            <button type="submit">
-              <FontAwesomeIcon
+            <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className="faIcon"
               size="lg"
               fixedWidth
             />
-            </button>
+            <form onSubmit={handleSearchSubmit}>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for other users..."
               />
-              
+              <button className="searchButton" type="submit">
+                Search
+              </button>
             </form>
-            {searchResults.map((user) => (
-              <div key={user.id}>{user.name}</div>
-            ))}
+            <div>
+              {searchResults.map((user) => (
+                <div key={user.id}>
+                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
