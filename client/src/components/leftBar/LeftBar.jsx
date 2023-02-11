@@ -55,20 +55,24 @@ console.log("stats", currentUser)
                 className="faIcon"
                 size="lg"
                 fixedWidth
-              />
-              <span className='title'>Dev Resources For You</span>
+              /> 
+              <Link 
+              to={`/resources`}
+              style={{ textDecoration: 'none', color: 'inherit' }}>
+              <span className='title'>Tech Resources</span> 
+              </Link>
             </div>
             <div className="item">
-              <span>some resources here</span>
+              <span>General Resources</span>
             </div>
             <div className="item">
-              <span>some resources here</span>
+              <span>Programming Languages</span>
             </div>
             <div className="item">
-              <span>some resources here</span>
+              <span>Data Structures and Algorithms</span>
             </div>
             <div className="item">
-              <span>some news here</span>
+              <span>Tools</span>
             </div>
           </div>
         </div>

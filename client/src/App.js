@@ -19,6 +19,7 @@ import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Callback from './components/Callback/callback';
+import Resources from './pages/resources/resources';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -69,6 +70,10 @@ function App() {
         {
           path: '/chat',
           element: <Chat/>
+        }, 
+        {
+          path: '/resources',
+          element: <Resources/>
         }
       ],
     },
