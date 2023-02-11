@@ -9,6 +9,7 @@ const Register = () => {
     email: null,
     password: null,
     name: null,
+    githubUsername: null,
   });
 
   const [err, setErr] = useState("");
@@ -56,6 +57,12 @@ const Register = () => {
             <input
               type="text"
               placeholder="Username"
+              name="username"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Github Username"
               name="username"
               onChange={handleChange}
             />

@@ -189,7 +189,7 @@
                 align-items: center;
                 gap: 5px;
                 color: themed('textColor');
-                padding-left: 50px;
+                padding-left: 45px;
 
                 @include mobile {
                   padding-left: 30px;
@@ -199,7 +199,7 @@
 
                 @include tablet {
                   padding-top: 6px;
-                  padding-left: 50px;
+                  padding-left: 45px;
                   padding-bottom: 5px;
                 }
                 

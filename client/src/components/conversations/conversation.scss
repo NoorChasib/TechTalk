@@ -1,0 +1,15 @@
+.conversation {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  .conversationImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+}
+
+
