@@ -6,7 +6,7 @@ const Resources = () => {
       <div className="resourcesFront">
         <div className="resourcesContainer">
           <h1 className='resourcesTitle'>Resources For Developers</h1>
-          <div className="resourcesBox">
+          <div className="resourcesSubtitle">
             <h3>General Resources</h3>
           </div>
           <div className="resourcesList">
@@ -120,7 +120,7 @@ const Resources = () => {
               </li>
             </ul>
           </div>
-          <div className="resourcesBox">
+          <div className="resourcesSubtitle">
             <h3>Programming Languages</h3>
           </div>
           <div className="resourcesList">
@@ -454,7 +454,7 @@ const Resources = () => {
             </ul>  
             </div> 
 
-            <div className="resourcesBox">
+            <div className="resourcesSubtitle">
             <h3>Data Structures and Algorithms</h3>
           </div>
           <div className="resourcesList">
@@ -536,7 +536,7 @@ const Resources = () => {
               </ul>
             </ul>
         </div>  
-        <div className="resourcesBox">
+        <div className="resourcesSubtitle">
             <h3>Tools</h3>
           </div>
           <div className="resourcesList"> 

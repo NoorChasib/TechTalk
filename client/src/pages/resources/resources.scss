@@ -48,6 +48,10 @@
 
         @include tablet {
           padding: 20px;
+        } 
+        .resourcesSubtitle {
+          margin-left: 30px; 
+          margin-top: 20px;
         }
 
         .resourcesBox {
