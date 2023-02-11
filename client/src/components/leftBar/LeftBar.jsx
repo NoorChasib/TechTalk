@@ -27,10 +27,7 @@ const Leftbar = () => {
     navigate(`/news`);
   };
 
-
-
   const stats = `https://github-readme-stats-a4kc.vercel.app/api/top-langs/?username=${currentUser.github}&layout=compact&show_icons=true&langs_count=8&line_height=30&border_radius=25&bg_color=FFFFFF00&title_color=0C90E9&text_color=0C90E9&hide_border=true&card_width=250`;
-
 
   return (
     <div className="leftBar">
