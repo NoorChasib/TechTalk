@@ -42,10 +42,11 @@ const UserProfile = () => {
         <p>Following: {following}</p>
       </div>
       <div className="user-repos">
-      <h3>Latest 6 Repositories:</h3>
+      <h3>Latest Repositories:</h3>
         <ul>
           {repos.map((repo) => (
-            <li key={repo.id}>{repo.name}</li>
+            <li key={repo.id}><a href={repo.html_url} target="_blank">{repo.name}</a></li>
+
           ))}
         </ul>
       </div>
