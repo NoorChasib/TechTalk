@@ -4,140 +4,148 @@
 
 .navbar {
   @include themify($themes) {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10000;
-  height: 5em;
-  background-color: themed('pageBg');
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-
-  .navbarFront {
-
-    position: sticky;
+    position: fixed;
     top: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    width: 95%;
-    border-radius: 25px;
+    width: 100%;
+    z-index: 10000;
+    height: 5em;
     background-color: themed('pageBg');
-    color: themed('textColor');
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    @include mobile {
-      width: 85%;
-    }
-
-    @include tablet {
+    .navbarFront {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
       width: 95%;
-    }
+      border-radius: 25px;
+      background-color: themed('pageBg');
+      color: themed('textColor');
 
-    .faIcon {
-      cursor: pointer;
-    }
-
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-
-      .logo {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
-
-        img {
-          height: 2em;
-
-          @include mobile {
-            height: 1.5em;
-          }
-        }
-
-        h4 {
-          font-size: 2em;
-          font-weight: 700;
-          color: themed('logo');
-
-          @include mobile {
-                font-size: 20px;
-              }
-        }
+      @include mobile {
+        width: 85%;
       }
-    }
 
-    .center {
-      .search {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border: 1px solid themed('search');
-        @include bigBorderRd;
-        padding: 15px;
-
-        @include mobile {
-          box-shadow: none;
-          border: none;
-        }
-
-        input {
-          border: none;
-          width: 500px;
-          outline: none;
-          background-color: transparent;
-          color: themed('textColor');
-
-          @include mobile {
-            display: none;
-          }
-
-          @include tablet {
-            width: 200px;
-          }
-        }
+      @include tablet {
+        width: 95%;
       }
-    }
 
-    .right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      .faIcon {
+        cursor: pointer;
+      }
 
-      // @include mobile {
-      //   display: none;
-      // }
-
-      .userProfile {
+      .left {
         display: flex;
         align-items: center;
         gap: 20px;
 
-        img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          object-fit: cover;
-          cursor: pointer;
-        }
+        .logo {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          justify-content: center;
+          gap: 10px;
 
-        span {
-          font-weight: 500;
+          img {
+            height: 2em;
 
-          @include mobile {
-            display: none;
+            @include mobile {
+              height: 1.5em;
+            }
           }
 
-          @include tablet {
-            display: none;
+          h4 {
+            font-size: 2em;
+            font-weight: 700;
+            color: themed('logo');
+
+            @include mobile {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .center {
+        .search {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 1px solid themed('search');
+          @include bigBorderRd;
+          padding: 15px;
+
+          @include mobile {
+            box-shadow: none;
+            border: none;
+          }
+
+          input {
+            border: none;
+            width: 500px;
+            outline: none;
+            background-color: transparent;
+            color: themed('textColor');
+
+            @include mobile {
+              display: none;
+            }
+
+            @include tablet {
+              width: 200px;
+            }
+          }
+          .searchButton {
+            @include bigButton(
+              base.$White1,
+              base.$btnBlue,
+              base.$btnBlue,
+              base.$White1
+            );
+            height: 30px;
+            width: 60px;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        // @include mobile {
+        //   display: none;
+        // }
+
+        .userProfile {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+          }
+
+          span {
+            font-weight: 500;
+
+            @include mobile {
+              display: none;
+            }
+
+            @include tablet {
+              display: none;
+            }
           }
         }
       }
     }
   }
-}
 }

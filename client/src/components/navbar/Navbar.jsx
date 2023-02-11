@@ -9,9 +9,7 @@ import {
 import { useContext, useState } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
-import axios from "axios"
-
-
+import axios from 'axios';
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
@@ -23,21 +21,20 @@ const Navbar = () => {
   const logout = () => {
     navigate('/logout');
   };
-  
+
   const chat = () => {
     navigate('/chat');
-    };
+  };
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(`/api/users?q=${searchQuery}`);
-      setSearchResults(response.data.users);
+      setSearchResults(response.data);
     } catch (error) {
       console.error(error);
     }
-  }
-
+  };
 
   return (
     <div className="navbar">
@@ -77,19 +74,23 @@ const Navbar = () => {
               fixedWidth
             />
             <form onSubmit={handleSearchSubmit}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for other users..."
-            />
-            <button type="submit">Search</button>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for other users..."
+              />
+              <button className="searchButton" type="submit">
+                Search
+              </button>
             </form>
-            {searchResults.map(user => (
-  <div key={user.id}>
-    {user.name}
-  </div>
-))}
+            <div>
+              {searchResults.map((user) => (
+                <div key={user.id}>
+                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -122,6 +123,5 @@ const Navbar = () => {
     </div>
   );
 };
-
 
 export default Navbar;
