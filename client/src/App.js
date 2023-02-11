@@ -12,7 +12,7 @@ import Leftbar from './components/leftBar/LeftBar';
 import RightBar from './components/rightBar/RightBar';
 import Profile from './pages/profile/Profile';
 import Home from './pages/home/home';
-import Chat from './pages/chat/chat';
+import Messenger from './pages/messenger/messenger';
 import '../src//style/style.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
@@ -68,8 +68,8 @@ function App() {
           element: <Profile />,
         },
         {
-          path: '/chat',
-          element: <Chat/>
+          path: '/messenger',
+          element: <Messenger/>
         }, 
         {
           path: '/resources',
