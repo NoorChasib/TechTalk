@@ -45,20 +45,23 @@
           padding: 20px;
           margin-bottom: 20px;
           background-color: themed('cardBg');
-          @include smallBorderRd;
+          @include smallBorderRd; 
+          
 
           .user,
           .dev {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-weight: 500;
+            font-weight: 500;  
+
 
             .news {
               display: flex;
               align-items: flex-start;
               gap: 15px;
-              font-weight: 500;
+              font-weight: 500; 
+              
             }
 
             img {
@@ -66,7 +69,8 @@
               height: 30px;
               border-radius: 50%;
               object-fit: cover;
-              cursor: pointer;
+              cursor: pointer; 
+
             }
           }
 
@@ -78,7 +82,8 @@
             gap: 15px;
             display: flex;
             align-items: center;
-          }
+          } 
+
 
           .news_title {
             padding-bottom: 10px;

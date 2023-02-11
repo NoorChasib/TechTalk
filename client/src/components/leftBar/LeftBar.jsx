@@ -52,13 +52,17 @@ const Leftbar = () => {
             </NewsContextProvider>
           </div>
           <div className="menu">
-            <div className="dev">
+            <div className="dev"> 
+            <Link 
+              to={`/resources`}
+              style={{ textDecoration: 'none', color: 'inherit' }}>
               <FontAwesomeIcon
                 icon={faHandshakeSimple}
                 className="faIcon"
                 size="lg"
                 fixedWidth
-              /> 
+              />   
+              </Link>
               <Link 
               to={`/resources`}
               style={{ textDecoration: 'none', color: 'inherit' }}>
