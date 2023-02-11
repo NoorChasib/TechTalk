@@ -58,8 +58,12 @@ const Leftbar = () => {
                 className="faIcon"
                 size="lg"
                 fixedWidth
-              />
-              <span className='title'>Tech Resources</span>
+              /> 
+              <Link 
+              to={`/resources`}
+              style={{ textDecoration: 'none', color: 'inherit' }}>
+              <span className='title'>Tech Resources</span> 
+              </Link>
             </div>
             <div className="item">
               <span>General Resources</span>
