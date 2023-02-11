@@ -3,12 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react'; 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { NewsContextProvider } from '../News/NewsContext';
 import News from '../News/News';
-
-
 
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -24,7 +22,7 @@ const Leftbar = () => {
             >
               <div className="user">
                 <img src={'/upload/' + currentUser.profilePic} alt="" />
-                <span className='title'>{currentUser.name}</span>
+                <span className="title">{currentUser.name}</span>
               </div>
             </Link>
             <div className="item">
@@ -39,34 +37,47 @@ const Leftbar = () => {
           </div>
           <div className="menu">
             <div className="news_title">
-              <FontAwesomeIcon
-                icon={faNewspaper}
-                className="faIcon"
-                size="lg"
-                fixedWidth
-              />
-              <span className='title'>News</span>
+              <Link
+                to={`/news`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <FontAwesomeIcon
+                  icon={faNewspaper}
+                  className="faIcon"
+                  size="lg"
+                  fixedWidth
+                />
+              </Link>
+              <Link
+                to={`/news`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <span className="title">News</span>
+              </Link>
             </div>
             <NewsContextProvider>
               <News />
             </NewsContextProvider>
           </div>
+
           <div className="menu">
-            <div className="dev"> 
-            <Link 
-              to={`/resources`}
-              style={{ textDecoration: 'none', color: 'inherit' }}>
-              <FontAwesomeIcon
-                icon={faHandshakeSimple}
-                className="faIcon"
-                size="lg"
-                fixedWidth
-              />   
+            <div className="dev">
+              <Link
+                to={`/resources`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <FontAwesomeIcon
+                  icon={faHandshakeSimple}
+                  className="faIcon"
+                  size="lg"
+                  fixedWidth
+                />
               </Link>
-              <Link 
-              to={`/resources`}
-              style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className='title'>Tech Resources</span> 
+              <Link
+                to={`/resources`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <span className="title">Tech Resources</span>
               </Link>
             </div>
             <div className="item">

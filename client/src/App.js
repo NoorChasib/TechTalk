@@ -20,6 +20,7 @@ import { AuthContext } from './context/authContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Callback from './components/Callback/callback';
 import Resources from './pages/resources/resources';
+import NewsDisplay from './components/News/NewsDisplay';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -74,6 +75,10 @@ function App() {
         {
           path: '/resources',
           element: <Resources/>
+        }, 
+        {
+          path: '/news',
+          element: <NewsDisplay/>
         }
       ],
     },
