@@ -1,7 +1,7 @@
 import './leftBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper, faHandshake } from '@fortawesome/free-regular-svg-icons';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react'; 
 import { useNavigate } from 'react-router-dom';
@@ -60,7 +60,7 @@ const Leftbar = () => {
           <div className="menu">
             <div onClick={resources} className="news_title">
               <FontAwesomeIcon
-                icon={faHandshake}
+                icon={faHandshakeSimple}
                 className="faIcon"
                 size="lg"
                 fixedWidth
