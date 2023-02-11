@@ -47,6 +47,17 @@
           background-color: themed('cardBg');
           @include smallBorderRd;
 
+
+          .title {
+            text-decoration: none;
+            color: themed('textColor');
+            cursor: pointer;
+    
+            &:hover {
+              color: themed('hover');
+          }
+        }
+
           .user,
           .dev {
             display: flex;
