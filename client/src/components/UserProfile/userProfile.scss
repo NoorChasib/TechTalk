@@ -26,7 +26,15 @@
       justify-content: space-between;
     }
 
-    .user-repos{
+    .user-repos {
+      a {
+        text-decoration: none;
+        color: themed('textColor');
+
+        &:hover {
+          color: themed('hover');
+        }
+      }
 
       ul {
         padding: 0;
@@ -39,5 +47,5 @@
         }
       }
     }
-}
+  }
 }

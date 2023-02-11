@@ -34,7 +34,7 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className='user-container'>
+    <div className="user-container">
       <div className="user-profile">
         <h3>GitHub Stats</h3>
         <p>Username: {username}</p>
@@ -42,11 +42,14 @@ const UserProfile = () => {
         <p>Following: {following}</p>
       </div>
       <div className="user-repos">
-      <h3>Latest Repositories:</h3>
+        <h3>Latest Repositories:</h3>
         <ul>
           {repos.map((repo) => (
-            <li key={repo.id}><a href={repo.html_url} target="_blank">{repo.name}</a></li>
-
+            <li key={repo.id}>
+              <a href={repo.html_url} rel="noopener noreferrer" target="_blank">
+                {repo.name}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
