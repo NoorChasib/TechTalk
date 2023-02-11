@@ -66,6 +66,13 @@
           align-items: center;
           gap: 20px;
 
+          .faIcon {
+            cursor: pointer;
+            &:hover {
+              color: themed('hover');
+            }
+          }
+
           .item {
             display: flex;
             align-items: center;

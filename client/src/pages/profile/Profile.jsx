@@ -100,20 +100,18 @@ const Profile = () => {
                     <FontAwesomeIcon
                     icon={faGithub}
                     onClick={handleClick}
-                    className="faIcon"
+                    className="faGithub"
                     size="lg"
                     fixedWidth
                   />
                   </div>
                     <div className="item">
-                      <a href={url}>
                         <FontAwesomeIcon
                           icon={faGlobe}
                           className="faIcon"
                           size="lg"
                           fixedWidth
                         />
-                      </a>
                       <span>{data.website}</span>
                     </div>
                   </div>

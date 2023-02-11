@@ -37,8 +37,11 @@
         padding: 20px;
       }
 
-      .faIcon {
+      .faGithub {
         cursor: pointer;
+        &:hover {
+          color: themed('hover');
+        }
       }
 
       .images {
@@ -184,7 +187,8 @@
               align-items: center;
               justify-content: space-evenly;
 
-              .item, .item-left {
+              .item,
+              .item-left {
                 display: flex;
                 align-items: center;
                 gap: 5px;
@@ -202,7 +206,6 @@
                   padding-left: 45px;
                   padding-bottom: 5px;
                 }
-                
 
                 span {
                   font-size: 12px;

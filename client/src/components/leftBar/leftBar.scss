@@ -35,6 +35,10 @@
 
       .faIcon {
         cursor: pointer;
+
+        &:hover {
+          color: themed('hover');
+        }
       }
 
       .container {

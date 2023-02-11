@@ -37,6 +37,10 @@
 
       .faIcon {
         cursor: pointer;
+        
+        &:hover {
+          color: themed('hover');
+        }
       }
 
       .left {
