@@ -67,22 +67,21 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
+          <form onSubmit={handleSearchSubmit}>
+            <button type="submit">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className="faIcon"
               size="lg"
               fixedWidth
             />
-            <form onSubmit={handleSearchSubmit}>
+            </button>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for other users..."
               />
-              <button className="searchButton" type="submit">
-                Search
-              </button>
             </form>
             <div>
               {searchResults.map((user) => (

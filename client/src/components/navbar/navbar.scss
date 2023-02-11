@@ -26,7 +26,9 @@
       color: themed('textColor');
 
       @include mobile {
-        width: 85%;
+        width: 95%;
+        padding-left: 20px;
+        padding-right: 10px;
       }
 
       @include tablet {
@@ -63,7 +65,7 @@
             color: themed('logo');
 
             @include mobile {
-              font-size: 20px;
+              display: none;
             }
           }
         }
@@ -78,9 +80,13 @@
           @include bigBorderRd;
           padding: 15px;
 
-          @include mobile {
-            box-shadow: none;
+          button {
+            color: themed('logo');
+            background: none;
             border: none;
+            padding: 0;
+            font: inherit;
+            outline: inherit;
           }
 
           input {
@@ -89,24 +95,15 @@
             outline: none;
             background-color: transparent;
             color: themed('textColor');
+            padding-left: 10px;
 
             @include mobile {
-              display: none;
+              width: 100px;
             }
 
             @include tablet {
               width: 200px;
             }
-          }
-          .searchButton {
-            @include bigButton(
-              base.$White1,
-              base.$btnBlue,
-              base.$btnBlue,
-              base.$White1
-            );
-            height: 30px;
-            width: 60px;
           }
         }
       }
