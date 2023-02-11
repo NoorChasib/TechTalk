@@ -26,6 +26,10 @@ const Navbar = () => {
     navigate('/chat');
   };
 
+  const profile = () => {
+    navigate(`/profile/${currentUser.id}`);
+  };
+
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -101,15 +105,10 @@ const Navbar = () => {
             size="lg"
             fixedWidth
           />
-          <Link
-            to={`/profile/${currentUser.id}`}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <div className="userProfile">
+            <div onClick={profile} className="userProfile">
               <img src={'/upload/' + currentUser.profilePic} alt="" />
-              <span>{currentUser.name}</span>
+              <span className='profileName'>{currentUser.name}</span>
             </div>
-          </Link>
           <FontAwesomeIcon
             icon={faArrowRightFromBracket}
             onClick={logout}
