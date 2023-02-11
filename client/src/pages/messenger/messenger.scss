@@ -2,7 +2,7 @@
 @import '../../style/base';
 @import '../../style/style.scss';
 
-.messenger {
+.chat {
   @include themify($themes) {
     background-color: themed('pageBg');
     padding-left: 60px;
@@ -18,11 +18,13 @@
       padding: 30px;
     }
 
-    .messengerFront {
-      position: sticky;
+    .chatFront {
+      position: fixed;
       top: 100px;
+      width: 100%;
+      max-width: calc(100vw - 905px);
       height: calc(100vh - 100px);
-      overflow: scroll;
+      overflow: none;
       scrollbar-width: none; /* Firefox */
       background-color: themed('middleSectionBg');
       @include bigBorderRd;
@@ -37,7 +39,7 @@
         padding: 20px;
       }
 
-      .messengerContainer {
+      .chatContainer {
         padding: 20px 30px 20px 30px;
         display: flex;
         flex-direction: row;
@@ -53,40 +55,85 @@
           padding: 20px;
           flex-direction: row;
         }
-        .messengerMenu {
-          flex: 2;
-        }
+        .chatMenu {
+          flex: 1.5;
 
-        .messengerBox {
-          flex: 6;
-        }
-
-        .messengerOnline {
-          flex: 2;
-        }
-
-        .messengerBoxWrapper {
-          padding: 10px;
-          padding-top: 25px;
-          height: 100%;
-          @include bigBorderRd;
-          @include newsShadow;
-        }
-        .messengerNoWrapper {
-          padding: 10px;
-          padding-top: 25px;
-          height: 100%;
-
-          .messengerMenuInput {
-            width: 90%;
+          .chatNoWrapper {
             padding: 10px;
-            border: none;
-            border-bottom: 1px solid base.$border;
-            background-color: transparent;
-            outline: none;
-            justify-content: center;
+            padding-top: 25px;
+            height: 100%;
+
+            .chatMenuInput {
+              width: 90%;
+              padding: 10px;
+              border: none;
+              border-bottom: 1px solid base.$border;
+              background-color: transparent;
+              outline: none;
+              justify-content: center;
+              display: flex;
+              color: themed('textColor');
+            }
+          }
+        }
+
+        .chatBox {
+          flex: 5.5;
+
+          .chatBoxWrapper {
+            padding: 20px;
+            padding-top: 25px;
+            height: calc(100vh - 200px);
+            @include bigBorderRd;
+            @include newsShadow;
             display: flex;
-            color: themed('textColor');
+            flex-direction: column;
+            justify-content: space-between;
+
+            .chatBoxTop {
+              height: 100%;
+              overflow-y: scroll;
+              scrollbar-width: none;
+            }
+          }
+
+          .chatBoxBottom {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+
+            .chatMessageInput {
+              width: 75%;
+              padding: 20px;
+              height: 90px;
+              border: none;
+              @include smallBorderRd;
+              outline: none;
+              overflow: scroll;
+              scrollbar-width: none;
+              resize: none;
+            }
+
+            .chatSubmitButton {
+              @include bigButton(
+                base.$buttonBlue,
+                base.$White1,
+                base.$White1,
+                base.$buttonBlue
+              );
+            }
+          }
+        }
+
+        .chatOnline {
+          flex: 1.5;
+
+          .chatNoWrapper {
+            padding: 10px;
+            padding-top: 25px;
+            height: 100%;
           }
         }
       }

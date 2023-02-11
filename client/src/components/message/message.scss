@@ -1,0 +1,46 @@
+@use "../../style/base";
+@import '../../style/base';
+@import '../../style/style.scss';
+
+.message {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .messageTop {
+      display: flex;
+
+      .messageImg {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+
+      .messageText {
+        font-weight: 500;
+        color: base.$darkTxt;
+        padding: 10px;
+        border-radius: 25px;
+        background-color: base.$logo;
+        max-width: 300px;
+      }
+    }
+
+    .messageBottom {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    &.own {
+      align-items: flex-end;
+
+      .messageText {
+        background-color: base.$txtGrey;
+        color: base.$lightTxt;
+      }
+    }
+  }
+}
