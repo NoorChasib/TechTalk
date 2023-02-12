@@ -12,7 +12,6 @@ import Update from '../../components/update/Update';
 import UserProfile from '../../components/UserProfile/userProfile';
 
 const Profile = () => {
-  let url = '#0';
 
   const [openUpdate, setOpenUpdate] = useState(false);
   const { currentUser } = useContext(AuthContext);

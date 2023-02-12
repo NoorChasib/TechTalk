@@ -11,7 +11,6 @@ const Friends = () => {
 
     useEffect(() => {
       makeRequest.get('/friends').then((res) => {
-        console.log('+++++++++++++++++++++++++++', res); 
         setData(res.data) 
         setLoading(false)
       });
@@ -22,8 +21,9 @@ const Friends = () => {
       <span className="title">Friends</span>
       {loading
         ? 'loading'
-        : data.map((friends) => (
-            <div className="user">
+        : 
+        data.slice(0, 5).map((friends, i) => (
+            <div className="user" key={i}>
               <Link
             to={`/profile/${friends.userId}`}
             style={{ textDecoration: 'none', color: 'inherit' }}
