@@ -5,8 +5,7 @@ import jwt from "jsonwebtoken";
 
 export const createStory = (req, res) => {
   const { userId, img } = req.body;
-  console.log("======", req.file, req.files)
-  console.log("==body====", req.body)
+  
 
   const file = req.files.file
 

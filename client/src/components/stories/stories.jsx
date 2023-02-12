@@ -20,16 +20,17 @@ const Stories = () => {
   }, []);
 
   const handleFileSelect = (event) => {
-    console.log("-------", event.target.files)
     setSelectedFile(event.target.files[0]);
   };
 
   const upload = async () => {
-    alert("afjhfjdkfh")
     try {
       const formData = new FormData();
       formData.append('file', selectedFile);
       const res = await makeRequest.post('/stories', formData);
+      window.location.reload();
+
+
       return res.data;
     } catch (err) {
       console.log(err);
