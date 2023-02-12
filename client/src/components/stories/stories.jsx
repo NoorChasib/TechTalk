@@ -58,7 +58,12 @@ const Stories = () => {
         />
         <button onClick={upload}>+</button>
         <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-    
+      </div>
+      <div className="story">
+        <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
+      </div>
+      <div className="story">
+        <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
       </div>
       {stories.map((story) => (
         <div className="story" key={story.id}>
@@ -68,5 +73,6 @@ const Stories = () => {
       ))}
     </div>
   );
+  
 };
 export default Stories;
