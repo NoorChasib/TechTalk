@@ -10,6 +10,7 @@ import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser"
 import friendRoutes from './routes/friends.js';
+import recommendRoutes from './routes/recommends.js';
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/relationships', relationshipRoutes);
 app.use('/api/conversations', conversationRoutes);
 app.use('/api/friends', friendRoutes);
+app.use('/api/recommends', recommendRoutes);
 
 
 app.listen(8800, () => {
