@@ -79,9 +79,6 @@ const Profile = () => {
               </div>
 
               <div className="uInfo">
-                {/* <div className="left">
-                  
-                </div> */}
                 <div className="center">
                   <span>{data.name}</span>
                   <div className="info">
@@ -126,9 +123,6 @@ const Profile = () => {
                     </button>
                   )}
                 </div>
-                {/* <div className="right">
-                  
-                </div> */}
               </div>
               <div className="stats">
                 <UserProfile />
