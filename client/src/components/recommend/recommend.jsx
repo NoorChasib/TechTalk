@@ -1,29 +1,22 @@
 import './recommend.scss';
 import { makeRequest } from '../../axios';
-import { useEffect, useState, useContext } from 'react';
-import { AuthContext } from '../../context/authContext';
-import { Link, useLocation } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Recommends = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { currentUser } = useContext(AuthContext);
-  const userId = useLocation().pathname.split('/')[2];
-  const [ignoredUsers, setIgnoredUsers] = useState([]);
-  const [showCount] = useState(3);
-
-  const { data: relationshipData } = useQuery(['relationship'], () =>
-    makeRequest.get('/relationships?followedUserId=' + userId).then((res) => {
-      return res.data;
-    })
+  const [ignoredUsers, setIgnoredUsers] = useState(
+    JSON.parse(localStorage.getItem('ignoredUsers')) || []
   );
-
-  console.log('relationship', relationshipData);
-  console.log('currentUser', currentUser.id);
+  const [showCount] = useState(3);
 
   const handleIgnore = (userId) => {
     setIgnoredUsers([...ignoredUsers, userId]);
+    localStorage.setItem(
+      'ignoredUsers',
+      JSON.stringify([...ignoredUsers, userId])
+    );
   };
 
   useEffect(() => {
