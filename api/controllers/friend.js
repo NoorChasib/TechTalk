@@ -10,7 +10,7 @@ export const getFriends = (req, res) => {
 
     const userId = userInfo.id;
 
-    const q = `SELECT followedUserId FROM relationships WHERE followerUserId = ? INTERSECT SELECT followerUserId FROM relationships WHERE followedUserId = ?`;
+    const q = `SELECT DISTINCT users.id AS userId, users.username, users.profilePic FROM relationships AS r1 JOIN relationships AS r2 ON r1.followedUserId = r2.followerUserId JOIN users ON r1.followedUserId = users.id WHERE r1.followerUserId = ? AND r2.followedUserId = ?`;
 
     db.query(q, [userId, userId], (err, data) => {
       if (err) return res.status(500).json(err);

@@ -95,6 +95,12 @@
                 color: themed('textColor');
                 font-size: 15px;
               }
+
+              .friendsUsername {
+                &:hover {
+                  color: themed('hover');
+                }
+              }
             }
 
             .buttons {

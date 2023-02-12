@@ -10,7 +10,7 @@ const Friends = () => {
   const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-      makeRequest.get('/relationships').then((res) => {
+      makeRequest.get('/friends').then((res) => {
         console.log('+++++++++++++++++++++++++++', res); 
         setData(res.data) 
         setLoading(false)
@@ -22,17 +22,17 @@ const Friends = () => {
       <span className="title">Friends</span>
       {loading
         ? 'loading'
-        : data.map((relationships) => (
+        : data.map((friends) => (
             <div className="user">
               <Link
-            to={`/profile/${relationships.userId}`}
+            to={`/profile/${friends.userId}`}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
               <div className="userInfo">
-                <img src={'upload/'+ relationships.pic} alt="" /> 
+                <img src={'upload/'+ friends.profilePic} alt="" /> 
                 
                 <div className="online" />
-                <span>{relationships.username}</span>
+                <span className='friendsUsername'>{friends.username}</span>
               </div>
               </Link>
             </div>
