@@ -44,8 +44,16 @@ const Post = ({ post }) => {
     };
   });
 
-  const { isLoading, error, data } = useQuery(['likes', post.id], () =>
-    makeRequest.get('/likes?postId=' + post.id).then((res) => {
+  const { isLoading: isLoadingLikes, data: likesData } = useQuery(
+    ['likes', post.id],
+    () =>
+      makeRequest.get('/likes?postId=' + post.id).then((res) => {
+        return res.data;
+      })
+  );
+
+  const { data: commentsData } = useQuery(['comments', post.id], () =>
+    makeRequest.get('/comments?postId=' + post.id).then((res) => {
       return res.data;
     })
   );
@@ -78,7 +86,7 @@ const Post = ({ post }) => {
   );
 
   const handleLike = () => {
-    mutation.mutate(data.includes(currentUser.id));
+    mutation.mutate(likesData.includes(currentUser.id));
   };
 
   const handleDelete = () => {
@@ -124,9 +132,9 @@ const Post = ({ post }) => {
         </div>
         <div className="info">
           <div className="item">
-            {isLoading ? (
+            {isLoadingLikes ? (
               'loading'
-            ) : data.includes(currentUser.id) ? (
+            ) : likesData.includes(currentUser.id) ? (
               <FontAwesomeIcon
                 style={{ color: 'red' }}
                 onClick={handleLike}
@@ -144,7 +152,7 @@ const Post = ({ post }) => {
                 onClick={handleLike}
               />
             )}
-            {data?.length} Likes{' '}
+            {likesData?.length} Likes{' '}
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <FontAwesomeIcon
@@ -153,7 +161,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            2 Comments
+            {commentsData?.length} Comments
           </div>
           <div className="item">
             <FontAwesomeIcon

@@ -12,13 +12,12 @@ import Update from '../../components/update/Update';
 import UserProfile from '../../components/UserProfile/userProfile';
 
 const Profile = () => {
-
   const [openUpdate, setOpenUpdate] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split('/')[2]);
 
-  const { isLoading, error, data } = useQuery(['user'], () =>
+  const { isLoading, data } = useQuery(['user'], () =>
     makeRequest.get('/users/find/' + userId).then((res) => {
       return res.data;
     })
@@ -96,21 +95,21 @@ const Profile = () => {
                       <span>{data.city}</span>
                     </div>
                     <div className="item">
-                    <FontAwesomeIcon
-                    icon={faGithub}
-                    onClick={handleClick}
-                    className="faGithub"
-                    size="lg"
-                    fixedWidth
-                  />
-                  </div>
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        onClick={handleClick}
+                        className="faGithub"
+                        size="lg"
+                        fixedWidth
+                      />
+                    </div>
                     <div className="item">
-                        <FontAwesomeIcon
-                          icon={faGlobe}
-                          className="faIcon"
-                          size="lg"
-                          fixedWidth
-                        />
+                      <FontAwesomeIcon
+                        icon={faGlobe}
+                        className="faIcon"
+                        size="lg"
+                        fixedWidth
+                      />
                       <span>{data.website}</span>
                     </div>
                   </div>
@@ -132,8 +131,8 @@ const Profile = () => {
                 </div> */}
               </div>
               <div className="stats">
-              <UserProfile />
-                </div>
+                <UserProfile />
+              </div>
               {userId && <Posts userId={userId} />}
             </div>
           </div>
