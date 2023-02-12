@@ -1,5 +1,6 @@
 import './rightBar.scss';
 import Friends from '../friends/friends';
+import Recommends from '../recommend/recommend';
 
 
 const RightBar = () => {
@@ -7,41 +8,7 @@ const RightBar = () => {
     <div className="rightBar">
       <div className="rightBarFront">
         <div className="container">
-          {/* <div className="item">
-          <img
-            src="https://www.theladders.com/wp-content/uploads/jeff-bezos-ceo-profile-800x450.jpg"
-            alt=""
-          />
-        </div> */}
-          <div className="item">
-            <span className="title">Suggested For You</span>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://www.theladders.com/wp-content/uploads/jeff-bezos-ceo-profile-800x450.jpg"
-                  alt=""
-                />
-                <span>Jeff Bezos</span>
-              </div>
-              <div className="buttons">
-                <button className="follow">Follow</button>
-                <button className="ignore">Ignore</button>
-              </div>
-            </div>
-            <div className="user">
-              <div className="userInfo">
-                <img
-                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png"
-                  alt=""
-                />
-                <span>Elon Musk</span>
-              </div>
-              <div className="buttons">
-                <button className="follow">Follow</button>
-                <button className="ignore">Ignore</button>
-              </div>
-            </div>
-          </div>
+          <Recommends />
           <div className="item">
             <span className="title">Sponsored</span>
 

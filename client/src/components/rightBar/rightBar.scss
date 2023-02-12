@@ -97,6 +97,8 @@
               }
 
               .friendsUsername {
+                cursor: pointer;
+                
                 &:hover {
                   color: themed('hover');
                 }
