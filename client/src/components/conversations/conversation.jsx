@@ -28,7 +28,7 @@ const Conversation = ({ conversation, currentUser }) => {
         className="conversationImg "
         src={
           user?.profilePic
-            ? '/upload/' + user?.profilePic
+            ? '/upload/' + user.profilePic
             : '../../../public/upload/1675897758980628298_anonym_avatar_default_head_person_icon.png'
         }
         alt=""
