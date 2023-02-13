@@ -18,42 +18,25 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
     setOnlineFriends(friends.filter((f) => onlineUsers.includes(f.userId)));
   }, [friends, onlineUsers]);
 
-
   return (
     <div className="chatOnline">
-      <div className="chatOnlineFriend">
-        <div className="chatOnlineImgContainer">
-          <img
-            className="chatOnlineImg"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt=""
-          />
-          <div className="chatOnlineBadge"></div>
+      {friends.map((o) => (
+        <div className="chatOnlineFriend">
+          <div className="chatOnlineImgContainer">
+            <img
+              className="chatOnlineImg"
+              src={
+                o?.profilePic
+                  ? '/upload/' + o.profilePic
+                  : '../../../public/upload/1675897758980628298_anonym_avatar_default_head_person_icon.png'
+              }
+              alt=""
+            />
+            <div className="chatOnlineBadge"></div>
+          </div>
+          <span className="chatOnlineName">{o?.username}</span>
         </div>
-        <span className="chatOnlineName">John Doe</span>
-      </div>
-      <div className="chatOnlineFriend">
-        <div className="chatOnlineImgContainer">
-          <img
-            className="chatOnlineImg"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt=""
-          />
-          <div className="chatOnlineBadge"></div>
-        </div>
-        <span className="chatOnlineName">John Doe</span>
-      </div>
-      <div className="chatOnlineFriend">
-        <div className="chatOnlineImgContainer">
-          <img
-            className="chatOnlineImg"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt=""
-          />
-          <div className="chatOnlineBadge"></div>
-        </div>
-        <span className="chatOnlineName">John Doe</span>
-      </div>
+      ))}
     </div>
   );
 };
