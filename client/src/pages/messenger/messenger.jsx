@@ -69,10 +69,7 @@ const Messenger = () => {
         <div className="chatContainer">
           <div className="chatMenu">
             <div className="chatNoWrapper">
-              <input
-                placeholder="search for friends"
-                className="chatMenuInput"
-              />
+              <span className="sideTitle">Friends</span>
               {conversations.map((c) => (
                 <div onClick={() => setCurrentChat(c)}>
                   <Conversation conversation={c} currentUser={currentUser} />
@@ -115,6 +112,7 @@ const Messenger = () => {
           </div>
           <div className="chatOnline">
             <div className="chatNoWrapper">
+            <span className="sideTitle">Online</span>
               <ChatOnline />
             </div>
           </div>

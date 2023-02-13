@@ -120,21 +120,6 @@
             justify-content: space-between;
             padding: 10px;
 
-            .chatMessageInput {
-              width: 75%;
-              padding: 20px;
-              height: 90px;
-              border: none;
-              @include smallBorderRd;
-              outline: none;
-              overflow: scroll;
-              scrollbar-width: none;
-              resize: none;
-
-              &::-webkit-scrollbar {
-                display: none;
-              }
-            }
 
             .chatSubmitButton {
               @include bigButton(
@@ -155,6 +140,13 @@
             padding-top: 25px;
             height: 100%;
           }
+        }
+        .sideTitle {
+          font-size: 18px;
+          font-weight: 500;
+          display: flex;
+          justify-content: center;
+          color: themed('textColor');
         }
       }
     }
