@@ -9,7 +9,13 @@
       align-items: center;
       font-weight: 500;
       cursor: pointer;
+      padding: 10px;
       margin-top: 15px;
+
+      &:hover {
+        background-color: themed('hover');
+        @include smallBorderRd;
+      }
 
       .chatOnlineImgContainer {
         position: relative;
@@ -31,8 +37,8 @@
         right: 2px;
       }
       .chatOnlineName {
-        // margin-left: 10px;
-        // color: themed('textColor');
+        margin-left: 10px;
+        color: themed('textColor');
       }
     }
   }

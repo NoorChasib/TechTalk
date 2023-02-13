@@ -65,7 +65,13 @@
           .chatNoWrapper {
             padding: 10px;
             padding-top: 25px;
-            height: 100%;
+            height: calc(100% - 35px);
+            overflow-y: scroll;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
 
             .chatMenuInput {
               width: 90%;
@@ -105,7 +111,7 @@
             }
 
             .noConversationText {
-              padding-top:200px;
+              padding-top: 200px;
               font-size: 30px;
               font-weight: 500;
               color: themed('softTextColor');
@@ -135,7 +141,7 @@
                 display: none;
               }
             }
-            
+
             .chatSubmitButton {
               @include bigButton(
                 base.$buttonBlue,
@@ -153,7 +159,13 @@
           .chatNoWrapper {
             padding: 10px;
             padding-top: 25px;
-            height: 100%;
+            height: calc(100% - 35px);
+            overflow-y: scroll;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
           }
         }
         .sideTitle {
