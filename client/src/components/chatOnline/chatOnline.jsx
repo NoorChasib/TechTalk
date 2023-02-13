@@ -18,10 +18,23 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
     setOnlineFriends(friends.filter((f) => onlineUsers.includes(f.userId)));
   }, [friends, onlineUsers]);
 
+  const handleClick = async (user) => {
+    console.log('currentId: ', user);
+    try {
+      const res = await makeRequest.get(
+        `/conversations/find/${currentId}/${user.userId}`
+      );
+      setCurrentChat(res.data);
+      console.log('res.data: ', res.data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="chatOnline">
       {friends.map((o) => (
-        <div className="chatOnlineFriend">
+        <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
           <div className="chatOnlineImgContainer">
             <img
               className="chatOnlineImg"

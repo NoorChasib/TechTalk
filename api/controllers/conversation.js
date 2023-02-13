@@ -61,7 +61,7 @@ export const getTwoUserConversation = (req, res) => {
       req.params.firstUserId,
     ];
 
-    db.query(q, [values], (err, data) => {
+    db.query(q, values, (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json(data);
     });
