@@ -1,6 +1,6 @@
 import './message.scss';
-import { format } from 'timeago.js';
 import { memo } from "react";
+import moment from "moment"; 
 
 const Message = ({ message, own }) => {
   return (
@@ -13,7 +13,7 @@ const Message = ({ message, own }) => {
         />
         <p className="messageText">{message.text}</p>
       </div>
-      <div className="messageBottom">{format(message.createdAt)}</div>
+      <div className="messageBottom">{moment(message.createdAt).fromNow()}</div>
     </div>
   );
 };
