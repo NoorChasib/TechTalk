@@ -26,7 +26,11 @@ const Conversation = ({ conversation, currentUser }) => {
     <div className="conversation">
       <img
         className="conversationImg "
-        src= {user?.profilePic ? "/upload/" + user?.profilePic : "../../../public/upload/1675897758980628298_anonym_avatar_default_head_person_icon.png"}
+        src={
+          user?.profilePic
+            ? '/upload/' + user?.profilePic
+            : '../../../public/upload/1675897758980628298_anonym_avatar_default_head_person_icon.png'
+        }
         alt=""
       />
       <span className="conversationName">{user?.username}</span>
