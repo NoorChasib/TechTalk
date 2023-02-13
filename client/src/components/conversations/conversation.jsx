@@ -1,14 +1,35 @@
 import './conversation.scss';
+import { useEffect, useState } from 'react';
+import { makeRequest } from '../../axios';
 
-const Conversation = () => {
+const Conversation = ({ conversation, currentUser }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const friendId =
+      conversation.senderId === currentUser.id
+        ? conversation.receiverId
+        : conversation.senderId;
+
+    const getUser = async () => {
+      try {
+        const res = await makeRequest.get('/users/find/' + friendId);
+        setUser(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, [currentUser, conversation]);
+
   return (
     <div className="conversation">
       <img
         className="conversationImg "
-        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        src= {user?.profilePic ? "/upload/" + user?.profilePic : "../../../public/upload/1675897758980628298_anonym_avatar_default_head_person_icon.png"}
         alt=""
       />
-      <span className="conversationName">John Doe</span>
+      <span className="conversationName">{user?.username}</span>
     </div>
   );
 };
