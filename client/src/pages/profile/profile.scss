@@ -29,6 +29,10 @@
       @include coverShadow;
       z-index: 130000;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       @include mobile {
         padding: 5px;
       }

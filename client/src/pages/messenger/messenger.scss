@@ -31,6 +31,10 @@
       @include coverShadow;
       z-index: 130000;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       @include mobile {
         padding: 5px;
       }
@@ -94,6 +98,10 @@
               height: 100%;
               overflow-y: scroll;
               scrollbar-width: none;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
             }
 
             .noConversationText {
@@ -122,6 +130,10 @@
               overflow: scroll;
               scrollbar-width: none;
               resize: none;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
             }
 
             .chatSubmitButton {
