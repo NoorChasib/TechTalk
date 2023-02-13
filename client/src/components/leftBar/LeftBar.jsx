@@ -28,8 +28,6 @@ const Leftbar = () => {
     fetchUserData();
   }, [currentUser.id]);
 
-console.log("userdatta", userData.id);
-
   const profile = () => {
     navigate(`/profile/${userData.id}`);
   };

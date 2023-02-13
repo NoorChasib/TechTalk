@@ -19,7 +19,6 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-
   const [userData, setUserData] = useState(currentUser);
 
   useEffect(() => {
@@ -87,15 +86,15 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
-          <form onSubmit={handleSearchSubmit}>
-            <button type="submit">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="faIcon"
-              size="lg"
-              fixedWidth
-            />
-            </button>
+            <form onSubmit={handleSearchSubmit}>
+              <button type="submit">
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="faIcon"
+                  size="lg"
+                  fixedWidth
+                />
+              </button>
               <input
                 type="text"
                 value={searchQuery}
@@ -121,10 +120,10 @@ const Navbar = () => {
             size="lg"
             fixedWidth
           />
-            <div onClick={profile} className="userProfile">
-              <img src={'/upload/' + currentUser.profilePic} alt="" />
-              <span className='profileName'>{currentUser.name}</span>
-            </div>
+          <div onClick={profile} className="userProfile">
+            <img src={'/upload/' + currentUser.profilePic} alt="" />
+            <span className="profileName">{currentUser.name}</span>
+          </div>
           <FontAwesomeIcon
             icon={faArrowRightFromBracket}
             onClick={logout}
