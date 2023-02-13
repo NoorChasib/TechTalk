@@ -1,6 +1,24 @@
 import './chatOnline.scss';
+import { useEffect, useState } from 'react';
+import { makeRequest } from '../../axios';
 
-const ChatOnline = () => {
+const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
+  const [friends, setFriends] = useState([]);
+  const [onlineFriends, setOnlineFriends] = useState([]);
+
+  useEffect(() => {
+    const getFriends = async () => {
+      const res = await makeRequest.get('/friends');
+      setFriends(res.data);
+    };
+    getFriends();
+  }, []);
+
+  useEffect(() => {
+    setOnlineFriends(friends.filter((f) => onlineUsers.includes(f.userId)));
+  }, [friends, onlineUsers]);
+
+
   return (
     <div className="chatOnline">
       <div className="chatOnlineFriend">
