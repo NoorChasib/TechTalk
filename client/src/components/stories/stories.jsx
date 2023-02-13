@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './stories.scss';
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { makeRequest } from '../../axios';
-
 
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
   const [stories, setStories] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-
+  const [showCount] = useState(4);
   useEffect(() => {
     fetch('/api/stories')
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setStories(data);
       });
   }, []);
@@ -30,13 +28,11 @@ const Stories = () => {
       const res = await makeRequest.post('/stories', formData);
       window.location.reload();
 
-
       return res.data;
     } catch (err) {
       console.log(err);
     }
   };
-
 
   return (
     <div className="stories">
@@ -47,32 +43,31 @@ const Stories = () => {
         >
           <span>{currentUser.name}</span>
         </Link>
-        <label htmlFor="file-input">
+        <label htmlFor="file-input"> 
+          <input
+            type="file"
+            id="file-input"
+            name="file-name"
+            onChange={handleFileSelect}  
+            
+            />
           <button>+</button>
         </label>
-        <input
-          type="file"
-          id="file-input"
-          name="file-name"
-          onChange={handleFileSelect}
-        />
+
         <button onClick={upload}>+</button>
-        <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
+
+        {currentUser.profilePic}
       </div>
-      <div className="story">
-        <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-      </div>
-      <div className="story">
-        <img src='https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-      </div>
-      {stories.map((story) => (
-        <div className="story" key={story.id}>
-          <img src={`http://localhost:8800/upload/${story.img}`} alt="" />
-          <span>{story.name}</span>
-        </div>
-      ))}
+      {stories
+        .slice(0, showCount)
+        .reverse()
+        .map((story) => (
+          <div className="story" key={story.id}>
+            <img src={`http://localhost:8800/upload/${story.img}`} alt="" />
+            <span>{story.name}</span>
+          </div>
+        ))}
     </div>
   );
-  
 };
 export default Stories;
