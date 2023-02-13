@@ -54,14 +54,10 @@ const Messenger = () => {
       const res = await makeRequest.post('/messages', message);
       setMessages([...messages, res.data]);
       setNewMessage('');
-      console.log('123res.data:', res.data);
-      console.log('123messages after updating:', messages);
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log('123Messages:', messages);
 
   return (
     <div className="chat">
@@ -112,7 +108,7 @@ const Messenger = () => {
           </div>
           <div className="chatOnline">
             <div className="chatNoWrapper">
-            <span className="sideTitle">Online</span>
+              <span className="sideTitle">Online</span>
               <ChatOnline />
             </div>
           </div>
