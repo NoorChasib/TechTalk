@@ -1,5 +1,6 @@
 import './message.scss';
 import { format } from 'timeago.js';
+import { memo } from "react";
 
 const Message = ({ message, own }) => {
   return (
@@ -17,4 +18,4 @@ const Message = ({ message, own }) => {
   );
 };
 
-export default Message;
+export default memo(Message);
