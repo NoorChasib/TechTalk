@@ -1,11 +1,14 @@
 import express from 'express';
-import { getConversations, addConversation } from '../controllers/conversation.js'; 
+import {
+  newConversation,
+  getOneUserConversation,
+  getTwoUserConversation,
+} from '../controllers/conversation.js';
 
 const router = express.Router();
 
-
-router.get('/', getConversations)
-router.post('/', addConversation)
-
+router.post('/', newConversation);
+router.get('/:userId', getOneUserConversation);
+router.get('/find/:firstUserId/:secondUserId', getTwoUserConversation);
 
 export default router;
