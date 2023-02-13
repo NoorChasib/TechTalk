@@ -12,6 +12,7 @@ import multer from "multer";
 import cookieParser from "cookie-parser"
 import friendRoutes from './routes/friends.js';
 import recommendRoutes from './routes/recommends.js';
+import newconvoRoutes from './routes/newConvos.js';
 
 const app = express();
 
@@ -53,6 +54,8 @@ app.use('/api/messages', messageRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/friends', friendRoutes);
 app.use('/api/recommends', recommendRoutes);
+app.use('/api/newconvos', newconvoRoutes);
+
 
 
 app.listen(8800, () => {
