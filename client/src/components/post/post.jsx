@@ -117,7 +117,7 @@ const Post = ({ post }) => {
           <FontAwesomeIcon
             onClick={() => setMenuOpen(!menuOpen)}
             icon={faEllipsis}
-            className="faIcon"
+            className="faMenu"
             ref={menuRef}
             size="lg"
             fixedWidth
@@ -146,13 +146,13 @@ const Post = ({ post }) => {
             ) : (
               <FontAwesomeIcon
                 icon={faHeartRegular}
-                className="faIcon"
+                className="faHeart"
                 size="lg"
                 fixedWidth
                 onClick={handleLike}
               />
             )}
-            {likesData?.length} Likes{' '}
+            <span className='likeCursor'>{likesData?.length} Likes </span>
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <FontAwesomeIcon
@@ -161,7 +161,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            {commentsData?.length} Comments
+            <span className='postText'>{commentsData?.length} Comments</span>
           </div>
           <div className="item">
             <FontAwesomeIcon
@@ -170,7 +170,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            Share
+            <span className='postText'>Share</span>
           </div>
         </div>
         {commentOpen && <Comments postId={post.id} />}

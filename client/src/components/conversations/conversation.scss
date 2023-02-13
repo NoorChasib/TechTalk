@@ -9,6 +9,8 @@
     padding: 10px;
     cursor: pointer;
     margin-top: 10px;
+    transition: all 0.3s ease;
+    @include smallBorderRd;
 
     &:hover {
       background-color: themed('hover');

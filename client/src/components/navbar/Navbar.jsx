@@ -90,7 +90,7 @@ const Navbar = () => {
               <button type="submit">
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
-                  className="faIcon"
+                  className="faGlass"
                   size="lg"
                   fixedWidth
                 />

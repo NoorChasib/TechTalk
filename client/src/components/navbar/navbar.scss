@@ -37,10 +37,18 @@
 
       .faIcon {
         cursor: pointer;
-        
+        padding: 10px;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
+
         &:hover {
-          color: themed('hover');
+          background-color: themed('hover');
+          @include smallBorderRd;
         }
+      }
+
+      .faGlass {
+        cursor: pointer;
       }
 
       .left {
@@ -67,6 +75,12 @@
             font-size: 2em;
             font-weight: 700;
             color: themed('logo');
+            transition: all 0.3s ease;
+            @include smallBorderRd;
+
+            &:hover {
+              @include logoShadow;
+            }
 
             @include mobile {
               display: none;
@@ -102,7 +116,7 @@
             padding-left: 10px;
 
             @include mobile {
-              width: 100px;
+              width: 80px;
             }
 
             @include tablet {
@@ -125,15 +139,32 @@
           display: flex;
           align-items: center;
           gap: 20px;
+          cursor: pointer;
+          padding: 10px 20px 10px 10px;
+          transition: all 0.3s ease;
+          @include smallBorderRd;
+
+          @include mobile {
+            padding: 0px;
+          }
+
+          @include tablet {
+            padding: 10px 10px 10px 10px;
+          }
+
+          &:hover {
+            background-color: themed('hover');
+            @include smallBorderRd;
+
+            @include mobile {
+              background-color: transparent;
+            }
+          }
 
           .profileName {
             text-decoration: none;
             color: themed('textColor');
             cursor: pointer;
-
-            &:hover {
-              color: themed('hover');
-            }
           }
 
           img {
