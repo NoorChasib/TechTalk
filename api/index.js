@@ -5,6 +5,7 @@ import likeRoutes from './routes/likes.js';
 import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js'; 
 import conversationRoutes from './routes/conversations.js'; 
+import messageRoutes from './routes/messages.js'; 
 import relationshipRoutes from './routes/relationships.js';
 import cors from "cors";
 import multer from "multer";
@@ -48,6 +49,8 @@ app.use('/api/posts', postRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/relationships', relationshipRoutes);
 app.use('/api/conversations', conversationRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api/messages', messageRoutes);
 app.use('/api/friends', friendRoutes);
 app.use('/api/recommends', recommendRoutes);
 
