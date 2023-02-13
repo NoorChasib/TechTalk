@@ -18,7 +18,7 @@ const Leftbar = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await makeRequest.get(`/api/users/${currentUser.id}`);
+        const response = await makeRequest.get(`/users/find/${currentUser.id}`);
         const updatedUserData = response.data;
         setUserData(updatedUserData);
       } catch (error) {
@@ -27,6 +27,8 @@ const Leftbar = () => {
     };
     fetchUserData();
   }, [currentUser.id]);
+
+console.log("userdatta", userData.id);
 
   const profile = () => {
     navigate(`/profile/${userData.id}`);
@@ -48,8 +50,8 @@ const Leftbar = () => {
         <div className="container">
           <div className="menu">
             <div onClick={profile} className="user">
-              <img src={'/upload/' + userData.profilePic} alt="" />
-              <span className="title">{userData.name}</span>
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
+              <span className="title">{currentUser.name}</span>
             </div>
             <img height="160em" src={stats} alt="" />
           </div>
