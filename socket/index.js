@@ -6,4 +6,5 @@ const io = require("socket.io")(8900, {
 
 io.on("connection", (socket) => {
 	console.log("a user connected");
+	io.emit("welcome", "Hello from server");
 });
