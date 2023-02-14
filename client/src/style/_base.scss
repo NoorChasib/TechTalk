@@ -105,6 +105,10 @@ $txtGrey: #d7d7d7;
   text-shadow: 2px 3px 10px #00000087;
 }
 
+@mixin logoShadow {
+  text-shadow: 5px 15px 15px rgba(0, 0, 0, 0.27);
+}
+
 @mixin barShadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 3px 0px;
@@ -114,7 +118,7 @@ $txtGrey: #d7d7d7;
   box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.2);
 }
 
-@mixin bigButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {
+@mixin bigButton($bgColor, $txtColor, $hoverColor, $hoverTxtColor) {  
   align-items: center;
   appearance: none;
   background-color: $bgColor;

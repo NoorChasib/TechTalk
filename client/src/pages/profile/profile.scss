@@ -29,6 +29,10 @@
       @include coverShadow;
       z-index: 130000;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       @include mobile {
         padding: 5px;
       }
@@ -39,6 +43,8 @@
 
       .faGithub {
         cursor: pointer;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
         &:hover {
           color: themed('hover');
         }

@@ -25,6 +25,10 @@
       @include coverShadow;
       z-index: 130000;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       @include mobile {
         display: none;
       }
@@ -51,16 +55,11 @@
           background-color: themed('cardBg');
           @include smallBorderRd;
 
-
           .title {
             text-decoration: none;
             color: themed('textColor');
             cursor: pointer;
-    
-            &:hover {
-              color: themed('hover');
           }
-        }
 
           .user,
           .dev {
@@ -85,6 +84,18 @@
             }
           }
 
+          .user {
+            cursor: pointer;
+            padding: 5px 40px 5px 5px;
+            transition: all 0.3s ease;
+            @include smallBorderRd;
+
+            &:hover {
+              background-color: themed('hover');
+              @include smallBorderRd;
+            }
+          }
+
           .title,
           .news_title {
             font-weight: 500;
@@ -97,6 +108,15 @@
 
           .news_title {
             padding-bottom: 10px;
+            cursor: pointer;
+            padding: 10px 40px 10px 5px;
+            transition: all 0.3s ease;
+            @include smallBorderRd;
+
+            &:hover {
+              background-color: themed('hover');
+              @include smallBorderRd;
+            }
           }
 
           .item {
