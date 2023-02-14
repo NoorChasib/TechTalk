@@ -1,10 +1,10 @@
 import './message.scss';
-import { memo } from "react";
-import moment from "moment"; 
+import { memo } from 'react';
+import moment from 'moment';
 
 const Message = ({ message, own }) => {
   return (
-    <div className={own ? "message own" : "message"}>
+    <div className={own ? 'message own' : 'message'}>
       <div className="messageTop">
         <img
           className="messageImg"

@@ -2,30 +2,32 @@ import './chatOnline.scss';
 import { useEffect, useState } from 'react';
 import { makeRequest } from '../../axios';
 
-const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
+const ChatOnline = ({ currentId, setCurrentChat, addConvo }) => {
   const [friends, setFriends] = useState([]);
-  const [onlineFriends, setOnlineFriends] = useState([]);
 
   useEffect(() => {
     const getFriends = async () => {
-      const res = await makeRequest.get('/friends');
+      const res = await makeRequest.get('/newconvos');
       setFriends(res.data);
     };
     getFriends();
   }, []);
 
-  useEffect(() => {
-    setOnlineFriends(friends.filter((f) => onlineUsers.includes(f.userId)));
-  }, [friends, onlineUsers]);
+  const removeFriend = (id) => {
+    setFriends(friends.filter((friend) => friend.userId !== id));
+  };
 
   const handleClick = async (user) => {
-    console.log('currentId: ', user);
+    const convo = {
+      senderId: currentId,
+      receiverId: user.userId,
+    };
+
     try {
-      const res = await makeRequest.get(
-        `/conversations/find/${currentId}/${user.userId}`
-      );
+      const res = await makeRequest.post('/conversations', convo);
+      addConvo(res.data);
       setCurrentChat(res.data);
-      console.log('res.data: ', res.data)
+      removeFriend(res.data.receiverId);
     } catch (err) {
       console.log(err);
     }

@@ -32,10 +32,9 @@ io.on("connection", (socket) => {
 	// send and get message
 	socket.on("sendMessage", ({ senderId, receiverId, text }) => {
 		const user = getUser(receiverId);
-		io.to(user.socketId).emit("getMessage", {
-			senderId,
-			text,
-		});
+		io.to(user.socketId).emit("getMessage");
+
+		console.log("message sent", { senderId, receiverId, text, user });
 	});
 
 	// when disconnect

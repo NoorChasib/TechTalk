@@ -18,14 +18,21 @@ const Messenger = () => {
   const { currentUser } = useContext(AuthContext);
   const scrollRef = useRef();
 
+  const getMessages = async () => {
+    try {
+      const res = await makeRequest.get('/messages/' + 2);
+      console.log('response', res);
+      setMessages(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     socket.current = io('ws://localhost:8900');
     socket.current.on('getMessage', (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      });
+      console.log('getMessage', data);
+      getMessages();
     });
   }, []);
 
@@ -36,16 +43,17 @@ const Messenger = () => {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
+    ///
     socket.current.emit('addUser', currentUser.id);
     socket.current.on('getUsers', (users) => {
-      setOnlineUsers(users);
+      // setOnlineUsers(users);
     });
   }, [currentUser]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await makeRequest.get('/conversations/' + currentUser.id);
+        const res = await makeRequest.get('/conversations/' + currentUser?.id);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -70,6 +78,10 @@ const Messenger = () => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  const updateConvo = (newConversation) => {
+    setConversations([...conversations, newConversation]);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = {
@@ -78,17 +90,33 @@ const Messenger = () => {
       conversationId: currentChat.id,
     };
 
-    const receiverId = currentChat.receiverId;
+    console.log('989currentUserID :', currentUser.id);
+    console.log('889receiverId1:', currentChat.receiverId);
+    console.log('989currentChat :', currentChat);
+
+    const receiverId =
+      currentUser.id === currentChat.receiverId
+        ? currentChat.senderId
+        : currentChat.receiverId;
+
+    console.log('889receiverId2: ', receiverId);
 
     socket.current.emit('sendMessage', {
       senderId: currentUser.id,
-      receiverId,
+      receiverId: receiverId,
       text: newMessage,
     });
 
     try {
       const res = await makeRequest.post('/messages', message);
-      setMessages([...messages, res.data]);
+
+      // socket.current.emit('sendMessage', {
+      //   senderId: currentUser.id,
+      //   receiverId: receiverId,
+      //   text: newMessage,
+      // });
+
+      setMessages((prev) => [...prev, res.data]);
       setNewMessage('');
     } catch (err) {
       console.log(err);
@@ -103,7 +131,12 @@ const Messenger = () => {
             <div className="chatNoWrapper">
               <span className="sideTitle">Conversations</span>
               {conversations.map((c) => (
-                <div onClick={() => setCurrentChat(c)}>
+                <div
+                  onClick={() => {
+                    console.log('c2: ', c);
+                    setCurrentChat(c);
+                  }}
+                >
                   <Conversation conversation={c} currentUser={currentUser} />
                 </div>
               ))}
@@ -146,9 +179,9 @@ const Messenger = () => {
             <div className="chatNoWrapper">
               <span className="sideTitle">Friends</span>
               <ChatOnline
-                onlineUsers={onlineUsers}
                 currentId={currentUser.id}
                 setCurrentChat={setCurrentChat}
+                addConvo={updateConvo}
               />
             </div>
           </div>

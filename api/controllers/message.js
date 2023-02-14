@@ -14,9 +14,15 @@ export const addMessage = (req, res) => {
 
     const values = [req.body.conversationId, req.body.sender, req.body.text];
 
-    db.query(q, values, (err, data) => {
+    db.query(q, values, (err, result) => {
       if (err) return res.status(500).json(err);
-      return res.status(200).json('Message has been added');
+      const createdMessage = {
+        id: result.insertId,
+        conversationId: req.body.conversationId,
+        sender: req.body.sender,
+        text: req.body.text,
+      };
+      return res.status(200).json(createdMessage);
     });
   });
 };
@@ -35,6 +41,7 @@ export const getMessages = (req, res) => {
     const values = [req.params.conversationId];
 
     db.query(q, values, (err, data) => {
+      console.log("messages data: ", data)
       if (err) return res.status(500).json(err);
       return res.status(200).json(data);
     });

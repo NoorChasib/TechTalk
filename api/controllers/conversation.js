@@ -14,9 +14,17 @@ export const newConversation = (req, res) => {
 
     const values = [req.body.senderId, req.body.receiverId];
 
-    db.query(q, [values], (err, data) => {
+    db.query(q, [values], (err, result) => {
       if (err) return res.status(500).json(err);
-      return res.status(200).json('Conversation has been created');
+
+      // Retrieve the newly created conversation object
+      db.query(
+        `SELECT * FROM conversations WHERE id = ${result.insertId}`,
+        (err, data) => {
+          if (err) return res.status(500).json(err);
+          return res.status(200).json(data[0]);
+        }
+      );
     });
   });
 };
