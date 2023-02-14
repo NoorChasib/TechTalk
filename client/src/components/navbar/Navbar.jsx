@@ -26,11 +26,14 @@ const Navbar = () => {
     navigate('/chat');
   };
 
+  const [showResults, setShowResults] = useState(false);
+
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(`/api/users?q=${searchQuery}`);
       setSearchResults(response.data);
+      setShowResults(true);
     } catch (error) {
       console.error(error);
     }
@@ -84,12 +87,14 @@ const Navbar = () => {
                 Search
               </button>
             </form>
-            <div>
-              {searchResults.map((user) => (
-                <div key={user.id}>
-                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
-                </div>
-              ))}
+            <div className={`search-results ${showResults ? 'show' : ''}`}>
+              <ul>
+                {searchResults.map((user) => (
+                  <li key={user.id}>
+                    <Link to={`/profile/${user.id}`}>{user.name}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
