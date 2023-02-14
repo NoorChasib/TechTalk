@@ -44,8 +44,16 @@ const Post = ({ post }) => {
     };
   });
 
-  const { isLoading, error, data } = useQuery(['likes', post.id], () =>
-    makeRequest.get('/likes?postId=' + post.id).then((res) => {
+  const { isLoading: isLoadingLikes, data: likesData } = useQuery(
+    ['likes', post.id],
+    () =>
+      makeRequest.get('/likes?postId=' + post.id).then((res) => {
+        return res.data;
+      })
+  );
+
+  const { data: commentsData } = useQuery(['comments', post.id], () =>
+    makeRequest.get('/comments?postId=' + post.id).then((res) => {
       return res.data;
     })
   );
@@ -78,7 +86,7 @@ const Post = ({ post }) => {
   );
 
   const handleLike = () => {
-    mutation.mutate(data.includes(currentUser.id));
+    mutation.mutate(likesData.includes(currentUser.id));
   };
 
   const handleDelete = () => {
@@ -109,7 +117,7 @@ const Post = ({ post }) => {
           <FontAwesomeIcon
             onClick={() => setMenuOpen(!menuOpen)}
             icon={faEllipsis}
-            className="faIcon"
+            className="faMenu"
             ref={menuRef}
             size="lg"
             fixedWidth
@@ -124,9 +132,9 @@ const Post = ({ post }) => {
         </div>
         <div className="info">
           <div className="item">
-            {isLoading ? (
+            {isLoadingLikes ? (
               'loading'
-            ) : data.includes(currentUser.id) ? (
+            ) : likesData.includes(currentUser.id) ? (
               <FontAwesomeIcon
                 style={{ color: 'red' }}
                 onClick={handleLike}
@@ -138,13 +146,13 @@ const Post = ({ post }) => {
             ) : (
               <FontAwesomeIcon
                 icon={faHeartRegular}
-                className="faIcon"
+                className="faHeart"
                 size="lg"
                 fixedWidth
                 onClick={handleLike}
               />
             )}
-            {data?.length} Likes{' '}
+            <span className='likeCursor'>{likesData?.length} Likes </span>
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <FontAwesomeIcon
@@ -153,7 +161,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            2 Comments
+            <span className='postText'>{commentsData?.length} Comments</span>
           </div>
           <div className="item">
             <FontAwesomeIcon
@@ -162,7 +170,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            Share
+            <span className='postText'>Share</span>
           </div>
         </div>
         {commentOpen && <Comments postId={post.id} />}

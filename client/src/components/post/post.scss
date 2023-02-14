@@ -12,6 +12,35 @@
     .container {
       padding: 20px;
 
+      .faIcon {
+        cursor: pointer;
+      }
+
+      .faMenu, .faHeart {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
+        
+        &:hover {
+          color: themed('hover');
+        }
+      }
+
+      .likeCursor {
+        cursor: default;
+      }
+
+      .postText {
+        cursor: pointer;
+        padding: 10px 10px 10px 10px;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
+
+        &:hover {
+          background-color: themed('hover');
+          @include smallBorderRd;
+        }
+      }
       .user {
         display: flex;
         align-items: center;

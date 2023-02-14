@@ -23,6 +23,10 @@
       color: themed('softTextColor');
       margin-top: 3px;
       margin-bottom: 2px;
+
+      &:hover {
+        color: themed('hover');
+      }
     }
     .news_url,
     .news_score,

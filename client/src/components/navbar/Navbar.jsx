@@ -6,10 +6,11 @@ import {
   faMagnifyingGlass,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
 import axios from 'axios';
+import { makeRequest } from '../../axios';
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
@@ -17,6 +18,20 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
+  const [userData, setUserData] = useState(currentUser);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const res = await makeRequest.get('/users/find/' + currentUser.id);
+        setUserData(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchUserData();
+  }, [currentUser]);
 
   const logout = () => {
     navigate('/logout');
@@ -27,13 +42,13 @@ const Navbar = () => {
   };
 
   const profile = () => {
-    navigate(`/profile/${currentUser.id}`);
+    navigate(`/profile/${userData.id}`);
   };
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`/api/users?q=${searchQuery}`);
+      const response = await axios.get(`/users/find?q=${searchQuery}`);
       setSearchResults(response.data);
     } catch (error) {
       console.error(error);
@@ -71,15 +86,15 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
-          <form onSubmit={handleSearchSubmit}>
-            <button type="submit">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="faIcon"
-              size="lg"
-              fixedWidth
-            />
-            </button>
+            <form onSubmit={handleSearchSubmit}>
+              <button type="submit">
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="faGlass"
+                  size="lg"
+                  fixedWidth
+                />
+              </button>
               <input
                 type="text"
                 value={searchQuery}
@@ -105,10 +120,10 @@ const Navbar = () => {
             size="lg"
             fixedWidth
           />
-            <div onClick={profile} className="userProfile">
-              <img src={'/upload/' + currentUser.profilePic} alt="" />
-              <span className='profileName'>{currentUser.name}</span>
-            </div>
+          <div onClick={profile} className="userProfile">
+            <img src={'/upload/' + currentUser.profilePic} alt="" />
+            <span className="profileName">{currentUser.name}</span>
+          </div>
           <FontAwesomeIcon
             icon={faArrowRightFromBracket}
             onClick={logout}

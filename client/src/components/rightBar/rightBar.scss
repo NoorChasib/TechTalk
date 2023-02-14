@@ -65,6 +65,14 @@
               gap: 20px;
               position: relative;
               max-width: 75%;
+              padding: 5px 40px 5px 5px;
+              transition: all 0.3s ease;
+              @include smallBorderRd;
+
+              &:hover {
+                background-color: themed('hover');
+                @include smallBorderRd;
+              }
 
               img {
                 width: 40px;
@@ -94,6 +102,10 @@
                 font-weight: 500;
                 color: themed('textColor');
                 font-size: 15px;
+              }
+
+              .friendsUsername {
+                cursor: pointer;
               }
             }
 

@@ -13,7 +13,6 @@ const Posts = ({ userId }) => {
     
   });
 
-  console.log('error', error);
   return (
     <div className="posts">
       {error

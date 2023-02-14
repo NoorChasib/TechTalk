@@ -38,7 +38,7 @@ const Callback = () => {
     };
 
     getToken();
-  }, []);
+  }, [currentUser.id]);
 };
 
 export default Callback;

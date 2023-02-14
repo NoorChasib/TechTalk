@@ -68,6 +68,8 @@
 
           .faIcon {
             cursor: pointer;
+            transition: all 0.3s ease;
+            @include smallBorderRd;
             &:hover {
               color: themed('hover');
             }
