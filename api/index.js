@@ -10,6 +10,8 @@ import relationshipRoutes from './routes/relationships.js';
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser"
+import storyRoutes from './routes/stories.js';
+import fileUpload from 'express-fileupload';
 import friendRoutes from './routes/friends.js';
 import recommendRoutes from './routes/recommends.js';
 import newconvoRoutes from './routes/newConvos.js';
@@ -27,6 +29,15 @@ app.use(cors({
 })) 
 app.use(cookieParser())
 
+app.use(express.static('public'))
+
+
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+}));
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '../client/public/upload')
@@ -39,6 +50,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post("/api/upload", upload.single("file"), (req, res)=>{
+  console.log("======", req.file, req.files)
   const file = req.file;
   res.status(200).json(file.filename);
 })
@@ -49,6 +61,7 @@ app.use('/api/likes', likeRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/relationships', relationshipRoutes);
+app.use('/api/stories', storyRoutes);
 app.use('/api/conversations', conversationRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/messages', messageRoutes);
