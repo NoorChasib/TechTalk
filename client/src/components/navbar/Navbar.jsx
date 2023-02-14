@@ -1,12 +1,12 @@
 import './navbar.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun, faComments } from '@fortawesome/free-regular-svg-icons';
 import {
   faMagnifyingGlass,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
 import axios from 'axios';
@@ -17,6 +17,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
 
   const logout = () => {
     navigate('/logout');
@@ -36,6 +37,24 @@ const Navbar = () => {
       setShowResults(true);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, [location.pathname]);
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.search')) {
+      setShowResults(false);
     }
   };
 
