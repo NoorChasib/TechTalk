@@ -13,15 +13,15 @@ const Messenger = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [arrivalMessage, setArrivalMessage] = useState(null);
-  const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
   const { currentUser } = useContext(AuthContext);
   const scrollRef = useRef();
 
+  console.log('currentChat', currentChat);
+
   const getMessages = async () => {
     try {
       const res = await makeRequest.get('/messages/' + 2);
-      console.log('response', res);
       setMessages(res.data);
     } catch (err) {
       console.log(err);
@@ -31,7 +31,6 @@ const Messenger = () => {
   useEffect(() => {
     socket.current = io('ws://localhost:8900');
     socket.current.on('getMessage', (data) => {
-      console.log('getMessage', data);
       getMessages();
     });
   }, []);
@@ -43,11 +42,8 @@ const Messenger = () => {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    ///
     socket.current.emit('addUser', currentUser.id);
-    socket.current.on('getUsers', (users) => {
-      // setOnlineUsers(users);
-    });
+    socket.current.on('getUsers', (users) => {});
   }, [currentUser]);
 
   useEffect(() => {
@@ -90,16 +86,10 @@ const Messenger = () => {
       conversationId: currentChat.id,
     };
 
-    console.log('989currentUserID :', currentUser.id);
-    console.log('889receiverId1:', currentChat.receiverId);
-    console.log('989currentChat :', currentChat);
-
     const receiverId =
       currentUser.id === currentChat.receiverId
         ? currentChat.senderId
         : currentChat.receiverId;
-
-    console.log('889receiverId2: ', receiverId);
 
     socket.current.emit('sendMessage', {
       senderId: currentUser.id,
@@ -109,12 +99,6 @@ const Messenger = () => {
 
     try {
       const res = await makeRequest.post('/messages', message);
-
-      // socket.current.emit('sendMessage', {
-      //   senderId: currentUser.id,
-      //   receiverId: receiverId,
-      //   text: newMessage,
-      // });
 
       setMessages((prev) => [...prev, res.data]);
       setNewMessage('');
@@ -133,7 +117,6 @@ const Messenger = () => {
               {conversations.map((c) => (
                 <div
                   onClick={() => {
-                    console.log('c2: ', c);
                     setCurrentChat(c);
                   }}
                 >

@@ -41,7 +41,6 @@ export const getMessages = (req, res) => {
     const values = [req.params.conversationId];
 
     db.query(q, values, (err, data) => {
-      console.log("messages data: ", data)
       if (err) return res.status(500).json(err);
       return res.status(200).json(data);
     });
