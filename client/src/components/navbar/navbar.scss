@@ -97,6 +97,9 @@
           border: 1px solid themed('search');
           @include bigBorderRd;
           padding: 15px;
+          position: relative;
+
+
 
           button {
             color: themed('logo');
@@ -106,6 +109,8 @@
             font: inherit;
             outline: inherit;
           }
+
+          
 
           input {
             border: none;
@@ -125,6 +130,23 @@
           }
         }
       }
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        width: 20%;
+        z-index: 1;
+        display: none;
+        margin-top: 10px;
+        font-size: larger;
+
+        &.show {
+          display: block;
+        }
+      }
+    
+            
 
       .right {
         display: flex;

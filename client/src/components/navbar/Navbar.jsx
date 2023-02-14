@@ -1,5 +1,5 @@
 import './navbar.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun, faComments } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -18,6 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
 
   const [userData, setUserData] = useState(currentUser);
 
@@ -45,13 +46,34 @@ const Navbar = () => {
     navigate(`/profile/${userData.id}`);
   };
 
+  const [showResults, setShowResults] = useState(false);
+
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(`/users/find?q=${searchQuery}`);
       setSearchResults(response.data);
+      setShowResults(true);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, [location.pathname]);
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.search')) {
+      setShowResults(false);
     }
   };
 
@@ -102,12 +124,14 @@ const Navbar = () => {
                 placeholder="Search for other users..."
               />
             </form>
-            <div>
-              {searchResults.map((user) => (
-                <div key={user.id}>
-                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
-                </div>
-              ))}
+            <div className={`search-results ${showResults ? 'show' : ''}`}>
+              <ul>
+                {searchResults.map((user) => (
+                  <li key={user.id}>
+                    <Link to={`/profile/${user.id}`}>{user.name}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
