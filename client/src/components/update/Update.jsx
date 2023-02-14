@@ -1,13 +1,11 @@
-import { useState, useContext , useEffect} from 'react';
+import { useState, useContext } from 'react';
 import { makeRequest } from '../../axios';
 import './update.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AuthContext } from '../../context/authContext';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import axios from "axios"
 
 const Update = ({ setOpenUpdate, user }) => {
-  const [stories, setStories] = useState([]);
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   const [cover, setCover] = useState(null);
   const [profile, setProfile] = useState(null);
@@ -70,13 +68,6 @@ const Update = ({ setOpenUpdate, user }) => {
     setCover(null);
     setProfile(null);
   };
-
-  useEffect(() => {
-    axios
-      .get('https://my-api.com/stories')
-      .then((res) => setStories(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
   return (
     <div className="update">
@@ -172,15 +163,6 @@ const Update = ({ setOpenUpdate, user }) => {
         <button className="close" onClick={() => setOpenUpdate(false)}>
           close
         </button>
-        <div className="update">
-      {stories.map((story) => (
-        <div className="story" key={story.id}>
-          <img src={story.img} alt="" />
-          <span>{story.name}</span>
-        </div>
-      ))}
-    </div>
-
       </div>
     </div>
   );

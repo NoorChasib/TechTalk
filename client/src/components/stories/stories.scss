@@ -2,40 +2,11 @@
 @import '../..//style/base.scss';
 @import '../..//style/style.scss';
 
-input[type='file'] {
-  color: rgba(0, 0, 0, 0)
-}
-
-#file-input::-webkit-file-upload-button {
-  visibility: hidden;
-} 
-#file-input::before {
-  content: 'Select some files';
-  display: inline-block;
-  border: 2px solid #999;
-  border-radius: 20px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt; 
-  color: black; 
-}
-#file-input:hover::before {
-  border-color: black;
-}
-#file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-}
-
 .stories {
   display: flex;
   gap: 10px;
   height: 250px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 
   @include mobile {
     height: 50px;
@@ -52,8 +23,7 @@ input[type='file'] {
     @include smallBorderRd;
     overflow: hidden;
     position: relative;
-    @include storyShadow; 
-    display: flex; 
+    @include storyShadow;
 
     @include mobile {
       flex: none;
@@ -104,8 +74,7 @@ input[type='file'] {
         top: 0;
         bottom: 0;
         margin: auto;
-      } 
-    
+      }
     }
   }
 }

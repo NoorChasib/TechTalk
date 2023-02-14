@@ -1,72 +1,57 @@
-import React, { useState, useEffect, useContext } from 'react';
 import './stories.scss';
 import { AuthContext } from '../../context/authContext';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { makeRequest } from '../../axios';
 
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
-  const [stories, setStories] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [showCount] = useState(4);
-  useEffect(() => {
-    fetch('/api/stories')
-      .then((response) => response.json())
-      .then((data) => {
-        setStories(data);
-      });
-  }, []);
 
-  const handleFileSelect = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append('file', selectedFile);
-      const res = await makeRequest.post('/stories', formData);
-      window.location.reload();
-
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const stories = [
+    // TEMPORARY
+    {
+      id: 12,
+      name: 'John Doe',
+      img:
+        'https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 21,
+      name: 'John Doe',
+      img:
+        'https://images.pexels.com/photos/3937174/pexels-photo-3937174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 31,
+      name: 'John Doe',
+      img:
+        'https://images.pexels.com/photos/943081/pexels-photo-943081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 41,
+      name: 'John Doe',
+      img:
+        'https://images.pexels.com/photos/725255/pexels-photo-725255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+  ];
 
   return (
     <div className="stories">
       <div className="story">
+        {/* <img src={'/upload/' + currentUser.profilePic} alt="" /> */}
         <Link
           to={`/profile/${currentUser.id}`}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <span>{currentUser.name}</span>
         </Link>
-        <label htmlFor="file-input"> 
-          <input
-            type="file"
-            id="file-input"
-            name="file-name"
-            onChange={handleFileSelect}  
-            
-            />
-          <button>+</button>
-        </label>
-
-        <button onClick={upload}>+</button>
-
-        {currentUser.profilePic}
+        <button>+</button>
       </div>
-      {stories
-        .slice(0, showCount)
-        .reverse()
-        .map((story) => (
-          <div className="story" key={story.id}>
-            <img src={`http://localhost:8800/upload/${story.img}`} alt="" />
-            <span>{story.name}</span>
-          </div>
-        ))}
+      {stories.map((story) => (
+        <div className="story" key={story.id}>
+          <img src={story.img} alt="" />
+          <span>{story.name}</span>
+        </div>
+      ))}
     </div>
   );
 };
