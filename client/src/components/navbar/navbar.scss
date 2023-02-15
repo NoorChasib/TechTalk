@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10000;
+    z-index: 999999;
     height: 5em;
     background-color: themed('pageBg');
     display: flex;
@@ -26,7 +26,9 @@
       color: themed('textColor');
 
       @include mobile {
-        width: 85%;
+        width: 95%;
+        padding-left: 20px;
+        padding-right: 10px;
       }
 
       @include tablet {
@@ -35,7 +37,20 @@
 
       .faIcon {
         cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
+
+        &:hover {
+          background-color: themed('hover');
+          @include smallBorderRd;
+        }
       }
+
+      .faGlass {
+        cursor: pointer;
+      }
+
 
       .left {
         display: flex;
@@ -61,9 +76,15 @@
             font-size: 2em;
             font-weight: 700;
             color: themed('logo');
+            transition: all 0.3s ease;
+            @include smallBorderRd;
+
+            &:hover {
+              @include logoShadow;
+            }
 
             @include mobile {
-              font-size: 20px;
+              display: none;
             }
           }
         }
@@ -94,9 +115,10 @@
             outline: none;
             background-color: transparent;
             color: themed('textColor');
+            padding-left: 10px;
 
             @include mobile {
-              display: none;
+              width: 80px;
             }
 
             @include tablet {
@@ -121,7 +143,6 @@
         left: 0;
         background-color: white;
         width: 20%;
-        z-index: 1;
         display: none;
         margin-top: 10px;
         font-size: larger;
@@ -146,6 +167,32 @@
           display: flex;
           align-items: center;
           gap: 20px;
+          padding: 10px 20px 10px 10px;
+          transition: all 0.3s ease;
+          @include smallBorderRd;
+
+          @include mobile {
+            padding: 0px;
+          }
+
+          @include tablet {
+            padding: 10px 10px 10px 10px;
+          }
+
+          &:hover {
+            background-color: themed('hover');
+            @include smallBorderRd;
+
+            @include mobile {
+              background-color: transparent;
+            }
+          }
+
+          .profileName {
+            text-decoration: none;
+            color: themed('textColor');
+            cursor: pointer;
+          }
 
           img {
             width: 30px;

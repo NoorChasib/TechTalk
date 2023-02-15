@@ -23,7 +23,7 @@ const Navbar = () => {
     navigate('/logout');
   };
 
-  const chat = () => {
+  const messenger = () => {
     navigate('/messenger');
   };
 
@@ -91,7 +91,7 @@ const Navbar = () => {
           <div className="search">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
-              className="faIcon"
+              className="faGlass"
               size="lg"
               fixedWidth
             />
@@ -121,7 +121,7 @@ const Navbar = () => {
         <div className="right">
           <FontAwesomeIcon
             icon={faComments}
-            onClick={chat}
+            onClick={messenger}
             className="faIcon"
             size="lg"
             fixedWidth
@@ -132,7 +132,7 @@ const Navbar = () => {
           >
             <div className="userProfile">
               <img src={'/upload/' + currentUser.profilePic} alt="" />
-              <span>{currentUser.name}</span>
+              <span className="profileName">{currentUser.name}</span>
             </div>
           </Link>
           <FontAwesomeIcon
