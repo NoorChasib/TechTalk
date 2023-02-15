@@ -89,13 +89,13 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
+          <form onSubmit={handleSearchSubmit}>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className="faGlass"
               size="lg"
               fixedWidth
             />
-            <form onSubmit={handleSearchSubmit}>
               <input
                 type="text"
                 value={searchQuery}
