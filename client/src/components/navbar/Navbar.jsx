@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   const chat = () => {
-    navigate('/chat');
+    navigate('/messenger');
   };
 
   const [showResults, setShowResults] = useState(false);
