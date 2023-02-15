@@ -12,7 +12,6 @@ import {
 
 const router = express.Router();
 
-// const uploadFile = upload
 
 // get all stories
 router.get('/', getStories);

@@ -14,8 +14,9 @@ function NewsArticle({ storyId }) {
       .request(options)
       .then((response) => setInfo(response.data))
       .catch((error) => console.log(error));
-  });
-
+  },[]);
+// added dependency array otherwise use effect will run continuously 
+// [] = runs only once on page load
   return (
     <div className="news">
       {info && (

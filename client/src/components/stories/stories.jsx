@@ -55,7 +55,6 @@ const Stories = () => {
 
         <button onClick={upload}>+</button>
 
-        {/* {currentUser.profilePic} */}
       </div>
       {stories
         .slice(0, showCount)

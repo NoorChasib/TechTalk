@@ -16,7 +16,7 @@ export const NewsContextProvider = (props) => {
       .request(options)
       .then((response) => setData(response.data))
       .catch((error) => console.log(error));
-  });
+  }, []);
   return (
     <NewsContext.Provider value={{ data }}>
       {props.children}

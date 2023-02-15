@@ -7,25 +7,21 @@ export const createStory = (req, res) => {
   
 
   const file = req.file
-  console.log('req files ====',req.file)
-
-
-  // file.mv('./public/upload/' + file.name);
 
 
   // Verify the user's JWT
-  // jwt.verify(req.token, process.env.JWT_SECRET, (err, userInfo) => {
-  //   console.log("111111",err)
-  //   if (err) return res.status(401).json({ error: 'Unauthorized' });
+  const token = req.cookies.accessToken;
+  jwt.verify(token, "secretkey", (err, userInfo) => {
+    if (err) return res.status(401).json({ error: 'Unauthorized' });
 
     //Insert the new story into the database
     const q = 'INSERT INTO stories (userId, img) VALUES (?, ?)';
-    db.query(q, [1, file.filename], (err, data) => {
+    db.query(q, [userInfo.id, file.filename], (err, data) => {
       console.log(err)
       if (err) return res.status(500).json(err);
       return res.status(201).json({ message: 'Story created successfully', file });
     });
-  // });
+  });
 };
 
 export const getStories = (req, res) => {
