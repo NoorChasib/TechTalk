@@ -51,7 +51,6 @@
         cursor: pointer;
       }
 
-
       .left {
         display: flex;
         align-items: center;
@@ -100,14 +99,10 @@
           padding: 15px;
           position: relative;
 
-
-
           @include mobile {
             box-shadow: none;
             border: none;
           }
-
-          
 
           input {
             border: none;
@@ -141,18 +136,50 @@
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: white;
-        width: 20%;
+        background-color: themed('middleSectionBg');
+        width: 100%;
         display: none;
-        margin-top: 10px;
+        margin-top: 1px;
         font-size: larger;
 
         &.show {
           display: block;
+          cursor: pointer;
+          overflow-y: auto;
+          max-height: 450px;
+          transition: all 0.3s ease;
+          @include smallBorderRd;
+          @include coverShadow;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          a {
+            text-decoration: none;
+            color: themed('textColor');
+          }
+
+          ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+              list-style-type: none;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              padding: 10px 40px;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background-color: themed('hover');
+                @include smallBorderRd;
+              }
+            }
+          }
         }
       }
-    
-            
 
       .right {
         display: flex;

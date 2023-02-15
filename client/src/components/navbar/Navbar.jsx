@@ -109,9 +109,9 @@ const Navbar = () => {
             <div className={`search-results ${showResults ? 'show' : ''}`}>
               <ul>
                 {searchResults.map((user) => (
-                  <li key={user.id}>
-                    <Link to={`/profile/${user.id}`}>{user.name}</Link>
-                  </li>
+                  <Link to={`/profile/${user.id}`}>
+                    <li key={user.id}>{user.name}</li>
+                  </Link>
                 ))}
               </ul>
             </div>
