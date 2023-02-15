@@ -1,5 +1,5 @@
 import express from 'express';
-import { format } from 'mysql';
+
 import {
   getStories,
   createStory,

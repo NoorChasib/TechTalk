@@ -17,7 +17,6 @@ const Update = ({ setOpenUpdate, user }) => {
     website: currentUser.website,
   });
 
-
   const upload = async (file) => {
     try {
       const formData = new FormData();

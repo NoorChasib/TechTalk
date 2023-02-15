@@ -128,7 +128,9 @@ const Post = ({ post }) => {
         </div>
         <div className="content">
           <p>{post.desc}</p>
-          <img src={'./upload/' + post.img} alt="" />
+          {post.img !== null ? (
+            <img src={'./upload/' + post.img} alt="" />
+          ) : null}
         </div>
         <div className="info">
           <div className="item">
@@ -152,7 +154,7 @@ const Post = ({ post }) => {
                 onClick={handleLike}
               />
             )}
-            <span className='likeCursor'>{likesData?.length} Likes </span>
+            <span className="likeCursor">{likesData?.length} Likes </span>
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <FontAwesomeIcon
@@ -161,7 +163,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            <span className='postText'>{commentsData?.length} Comments</span>
+            <span className="postText">{commentsData?.length} Comments</span>
           </div>
           <div className="item">
             <FontAwesomeIcon
@@ -170,7 +172,7 @@ const Post = ({ post }) => {
               size="lg"
               fixedWidth
             />
-            <span className='postText'>Share</span>
+            <span className="postText">Share</span>
           </div>
         </div>
         {commentOpen && <Comments postId={post.id} />}
