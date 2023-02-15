@@ -10,7 +10,6 @@ import { useContext, useState, useEffect } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
 import axios from 'axios';
-import { makeRequest } from '../../axios';
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
@@ -20,30 +19,12 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const location = useLocation();
 
-  const [userData, setUserData] = useState(currentUser);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const res = await makeRequest.get('/users/find/' + currentUser.id);
-        setUserData(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchUserData();
-  }, [currentUser]);
-
   const logout = () => {
     navigate('/logout');
   };
 
-  const messenger = () => {
-    navigate('/messenger');
-  };
-
-  const profile = () => {
-    navigate(`/profile/${userData.id}`);
+  const chat = () => {
+    navigate('/chat');
   };
 
   const [showResults, setShowResults] = useState(false);
@@ -51,7 +32,7 @@ const Navbar = () => {
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`/users/find?q=${searchQuery}`);
+      const response = await axios.get(`/api/users?q=${searchQuery}`);
       setSearchResults(response.data);
       setShowResults(true);
     } catch (error) {
@@ -108,21 +89,22 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="faIcon"
+              size="lg"
+              fixedWidth
+            />
             <form onSubmit={handleSearchSubmit}>
-              <button type="submit">
-                <FontAwesomeIcon
-                  icon={faMagnifyingGlass}
-                  className="faGlass"
-                  size="lg"
-                  fixedWidth
-                />
-              </button>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for other users..."
               />
+              <button className="searchButton" type="submit">
+                Search
+              </button>
             </form>
             <div className={`search-results ${showResults ? 'show' : ''}`}>
               <ul>
@@ -139,15 +121,20 @@ const Navbar = () => {
         <div className="right">
           <FontAwesomeIcon
             icon={faComments}
-            onClick={messenger}
+            onClick={chat}
             className="faIcon"
             size="lg"
             fixedWidth
           />
-          <div onClick={profile} className="userProfile">
-            <img src={'/upload/' + currentUser.profilePic} alt="" />
-            <span className="profileName">{currentUser.name}</span>
-          </div>
+          <Link
+            to={`/profile/${currentUser.id}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="userProfile">
+              <img src={'/upload/' + currentUser.profilePic} alt="" />
+              <span>{currentUser.name}</span>
+            </div>
+          </Link>
           <FontAwesomeIcon
             icon={faArrowRightFromBracket}
             onClick={logout}
