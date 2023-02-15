@@ -67,6 +67,7 @@ const Leftbar = () => {
               <News />
             </NewsContextProvider>
           </div>
+
           <div className="menu">
             <div onClick={resources} className="news_title">
               <FontAwesomeIcon

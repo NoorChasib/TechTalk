@@ -1,0 +1,86 @@
+@use "../../style/base";
+@import '../../style/base';
+@import '../../style/style.scss';
+.news {
+  width: 90%; 
+
+}
+.newsDisplay {
+  @include themify($themes) {
+    background-color: themed('pageBg');
+    padding-left: 60px;
+    padding-right: 60px;
+    color: themed('textColor');
+    height: 100vh; 
+
+
+    @include mobile {
+      padding: 10px;
+    }
+
+    @include tablet {
+      padding: 30px;
+    } 
+    .one_news {
+      display: flex; 
+      flex-wrap: wrap; 
+      margin-left: 30px; 
+    }
+
+    .newsFront {
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow: scroll;
+      scrollbar-width: none; /* Firefox */
+      background-color: themed('middleSectionBg');
+      @include bigBorderRd;
+      @include coverShadow;
+      z-index: 130000; 
+      
+
+      @include mobile {
+        padding: 5px;
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+
+      .newsContainer {
+        padding: 20px 30px 20px 30px; 
+        
+
+        @include mobile {
+          padding: 10px;
+          padding-top: 20px;
+          margin: 5px;
+        }
+
+        @include tablet {
+          padding: 20px;
+        }
+
+        .newsBox {
+          height: 40%;
+          @include newsShadow;
+          @include smallBorderRd;
+          background-color: themed('cardBg');
+          color: themed('textColor');
+          padding: 25px;
+          display: flex; 
+          flex-wrap: wrap; 
+          flex: 0 0 33.33333%;
+          align-items: center;
+          justify-content: space-between; 
+
+        } 
+        .newsTitle {
+          text-align: center; 
+          margin-bottom: 60px; 
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
