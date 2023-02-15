@@ -1,5 +1,5 @@
 import './message.scss';
-import { memo, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 import { AuthContext } from '../../context/authContext';
 import { makeRequest } from '../../axios';
@@ -44,4 +44,4 @@ const Message = ({ message, own }) => {
   );
 };
 
-export default memo(Message);
+export default Message;
