@@ -89,22 +89,21 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
-          <form onSubmit={handleSearchSubmit}>
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="faGlass"
-              size="lg"
-              fixedWidth
-            />
+            <form onSubmit={handleSearchSubmit}>
+              <button className="searchButton" type="submit">
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="faGlass"
+                  size="lg"
+                  fixedWidth
+                />
+              </button>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for other users..."
               />
-              <button className="searchButton" type="submit">
-                Search
-              </button>
             </form>
             <div className={`search-results ${showResults ? 'show' : ''}`}>
               <ul>
