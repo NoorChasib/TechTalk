@@ -15,7 +15,7 @@ const Home = () => {
         <div className="container">
           <Stories />
           <Share />
-          {currentUser.id && <Posts userId = {currentUser.id} />}
+          {currentUser.id && <Posts userId = {undefined} />}
         </div>
       </div>
     </div>
