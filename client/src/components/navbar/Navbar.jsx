@@ -1,12 +1,12 @@
 import './navbar.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun, faComments } from '@fortawesome/free-regular-svg-icons';
 import {
   faMagnifyingGlass,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
 import axios from 'axios';
@@ -17,6 +17,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
 
   const logout = () => {
     navigate('/logout');
@@ -26,17 +27,34 @@ const Navbar = () => {
     navigate('/messenger');
   };
 
-  const profile = () => {
-    navigate(`/profile/${currentUser.id}`);
-  };
+  const [showResults, setShowResults] = useState(false);
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(`/api/users?q=${searchQuery}`);
       setSearchResults(response.data);
+      setShowResults(true);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, [location.pathname]);
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.search')) {
+      setShowResults(false);
     }
   };
 
@@ -71,15 +89,15 @@ const Navbar = () => {
 
         <div className="center">
           <div className="search">
-          <form onSubmit={handleSearchSubmit}>
-            <button type="submit">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="faIcon"
-              size="lg"
-              fixedWidth
-            />
-            </button>
+            <form onSubmit={handleSearchSubmit}>
+              <button className="searchButton" type="submit">
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="faGlass"
+                  size="lg"
+                  fixedWidth
+                />
+              </button>
               <input
                 type="text"
                 value={searchQuery}
@@ -87,12 +105,14 @@ const Navbar = () => {
                 placeholder="Search for other users..."
               />
             </form>
-            <div>
-              {searchResults.map((user) => (
-                <div key={user.id}>
-                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
-                </div>
-              ))}
+            <div className={`search-results ${showResults ? 'show' : ''}`}>
+              <ul>
+                {searchResults.map((user) => (
+                  <Link to={`/profile/${user.id}`}>
+                    <li key={user.id}>{user.name}</li>
+                  </Link>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -105,10 +125,15 @@ const Navbar = () => {
             size="lg"
             fixedWidth
           />
-            <div onClick={profile} className="userProfile">
+          <Link
+            to={`/profile/${currentUser.id}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="userProfile">
               <img src={'/upload/' + currentUser.profilePic} alt="" />
-              <span className='profileName'>{currentUser.name}</span>
+              <span className="profileName">{currentUser.name}</span>
             </div>
+          </Link>
           <FontAwesomeIcon
             icon={faArrowRightFromBracket}
             onClick={logout}

@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10000;
+    z-index: 150000;
     height: 5em;
     background-color: themed('pageBg');
     display: flex;
@@ -37,10 +37,19 @@
 
       .faIcon {
         cursor: pointer;
-        
+        padding: 10px;
+        transition: all 0.3s ease;
+        @include smallBorderRd;
+
         &:hover {
-          color: themed('hover');
+          background-color: themed('hover');
+          @include smallBorderRd;
         }
+      }
+
+      .faGlass {
+        color: themed('hover');
+        cursor: pointer;
       }
 
       .left {
@@ -67,6 +76,12 @@
             font-size: 2em;
             font-weight: 700;
             color: themed('logo');
+            transition: all 0.3s ease;
+            @include smallBorderRd;
+
+            &:hover {
+              @include logoShadow;
+            }
 
             @include mobile {
               display: none;
@@ -83,15 +98,12 @@
           border: 1px solid themed('search');
           @include bigBorderRd;
           padding: 15px;
+          position: relative;
 
-          button {
-            color: themed('logo');
-            background: none;
-            border: none;
-            padding: 0;
-            font: inherit;
-            outline: inherit;
+          @include mobile {
+            padding: 15px 5px;
           }
+
 
           input {
             border: none;
@@ -102,11 +114,74 @@
             padding-left: 10px;
 
             @include mobile {
-              width: 100px;
+              width: 80px;
             }
 
             @include tablet {
               width: 200px;
+            }
+          }
+
+          .searchButton {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            transition: all 0.3s ease;
+
+            &:hover {
+              filter: drop-shadow(0px 0px 8px base.$logo);
+            }
+          }
+        }
+      }
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: themed('middleSectionBg');
+        width: 100%;
+        display: none;
+        margin-top: 1px;
+        font-size: larger;
+
+        &.show {
+          display: block;
+          cursor: pointer;
+          overflow-y: auto;
+          max-height: 450px;
+          transition: all 0.3s ease;
+          @include smallBorderRd;
+          @include coverShadow;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          a {
+            text-decoration: none;
+            color: themed('textColor');
+          }
+
+          ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+              list-style-type: none;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              padding: 10px 40px;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background-color: themed('hover');
+                @include smallBorderRd;
+              }
             }
           }
         }
@@ -125,15 +200,31 @@
           display: flex;
           align-items: center;
           gap: 20px;
+          padding: 10px 20px 10px 10px;
+          transition: all 0.3s ease;
+          @include smallBorderRd;
+
+          @include mobile {
+            padding: 0px;
+          }
+
+          @include tablet {
+            padding: 10px 10px 10px 10px;
+          }
+
+          &:hover {
+            background-color: themed('hover');
+            @include smallBorderRd;
+
+            @include mobile {
+              background-color: transparent;
+            }
+          }
 
           .profileName {
             text-decoration: none;
             color: themed('textColor');
             cursor: pointer;
-
-            &:hover {
-              color: themed('hover');
-            }
           }
 
           img {

@@ -3,77 +3,117 @@
 @import '../..//style/style.scss';
 
 .stories {
-  display: flex;
-  gap: 10px;
-  height: 250px;
-  margin-bottom: 30px;
-
-  @include mobile {
-    height: 50px;
-    justify-content: space-between;
-  }
-
-  @include tablet {
-    height: 150px;
-    gap: 20px;
-  }
-
-  .story {
-    flex: 1;
-    @include smallBorderRd;
-    overflow: hidden;
-    position: relative;
-    @include storyShadow;
+  @include themify($themes) {
+    display: flex;
+    gap: 10px;
+    height: 250px;
+    margin-bottom: 30px;
 
     @include mobile {
-      flex: none;
       height: 50px;
-      width: 50px;
-      border-radius: 50%;
+      justify-content: space-between;
     }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+    @include tablet {
+      height: 150px;
+      gap: 20px;
     }
-    span {
-      position: absolute;
-      bottom: 10px;
-      left: 20px;
-      color: base.$white;
-      @include textShadow;
+
+    .story {
+      flex: 1;
+      @include smallBorderRd;
+      overflow: hidden;
+      position: relative;
+      @include storyShadow;
 
       @include mobile {
-        display: none;
+        flex: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
       }
-    }
-    button {
-      @include bigButton(
-        base.$buttonBlue,
-        base.$White1,
-        base.$White1,
-        base.$buttonBlue
-      );
-      position: absolute;
-      bottom: 40px;
-      left: 10px;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      font-size: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        color: base.$white;
+        @include textShadow;
 
-      @include mobile {
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        @include mobile {
+          display: none;
+        }
+      }
+      button {
+        @include bigButton(
+          base.$buttonBlue,
+          base.$White1,
+          base.$White1,
+          base.$buttonBlue
+        );
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+
+        @include mobile {
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+
+      .upload-btn-wrapper {
+        .inputfile {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+        }
+        .inputfile + label {
+          padding: 5px 10px;
+          margin-left: 7px;
+          margin-top: 15px;
+          font-size: 1.5em;
+          font-weight: 700;
+          transition: all 0.4s ease;
+          @include smallBorderRd;
+          display: inline-block;
+          cursor: pointer;
+          color: themed('logo');
+
+          @include mobile {
+            margin-top: 20px;
+          }
+
+          @include tablet {
+            margin-top: 30px;
+          }
+        }
+
+        .inputfile:focus + label,
+        .inputfile + label:hover {
+          background-color: themed('hover');
+          @include smallBorderRd;
+          color: base.$White1;
+        }
       }
     }
   }

@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
 
 const Home = () => {
- 
+
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -15,7 +15,7 @@ const Home = () => {
         <div className="container">
           <Stories />
           <Share />
-          {currentUser.id && <Posts userId = {currentUser.id} />}
+          {currentUser.id && <Posts userId = {undefined} />}
         </div>
       </div>
     </div>
