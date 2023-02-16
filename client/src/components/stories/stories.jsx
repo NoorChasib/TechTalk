@@ -43,18 +43,12 @@ const Stories = () => {
         >
           <span>{currentUser.name}</span>
         </Link>
-        <label htmlFor="file-input">
-          <input
-            type="file"
-            id="file-input"
-            name="file-name"
-            onChange={handleFileSelect}
-          />
-          <button>+</button>
-        </label>
+        <div class="upload-btn-wrapper">
+          <input type="file" name="file" id="file" class="inputfile" onChange={handleFileSelect} />
+          <label for="file">+</label>
+        </div>
 
         <button onClick={upload}>+</button>
-
       </div>
       {stories
         .slice(0, showCount)
